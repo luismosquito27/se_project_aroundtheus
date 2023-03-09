@@ -1,14 +1,33 @@
-.page { 
-    background-color: black; 
-    color: white; 
+.page {
+  background-color: black;
+  color: white;
 }
 
-.page__content { 
-    margin-left: 200px; 
-    margin-right: 200px; 
+.page__content {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
-.header { 
-    margin-top: 45px; 
-   max-width: 80px; 
+.header {
+  margin-top: 45px;
+  max-width: 880px;
+}
+
+.person__caption {
+  font-family: "Inter";
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.person_name_cousteau {
+}
+
+.gallery__cards {
+}
+
+.gallery_page__section {
+}
+
+.yosemite__image {
+  border-radius: 10px 10px 0px 0px;
 }
