@@ -13,21 +13,81 @@
   max-width: 880px;
 }
 
-.person__caption {
-  font-family: "Inter";
+.profile {
+  display: flex;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title button"
+    "description description";
+  grid-template-columns: minmax(auto, 373px) auto;
+  grid-gap: 9px 17px;
+}
+
+.profile__edit-button {
+  background: transparent url(../images/Square.png) center no-repeat;
+  width: 24px;
+  height: 24px;
+  grid-area: button;
+}
+
+profile__add-button {
+  background-color: transparent url(../images/Pencil.png) center no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+}
+
+.profile__title {
   font-size: 42px;
+  line-height: 48px;
   font-weight: 500;
+  grid-area: title;
+  margin: 0;
 }
 
-.person_name_cousteau {
+.profile__description {
+  font-size: 10px;
+  line-height: 22px;
+  font-weight: 400;
+  grid-area: description;
+  margin: 24px;
 }
 
-.gallery__cards {
+.profile__image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+  margin-right: 24px;
 }
 
-.gallery_page__section {
+.cards {
+  font-size: inter;
+  font-style: normal;
 }
 
-.yosemite__image {
-  border-radius: 10px 10px 0px 0px;
+.card__list {
+  display: grid;
+}
+
+.card__image {
+  width: 282px;
+  height: 282px;
+}
+
+.card__description {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+}
+
+.card__like-button {
+  background: transparent url(../images/inactive.png) center no-repeat;
 }

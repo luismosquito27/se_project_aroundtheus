@@ -6,44 +6,51 @@
     <!--section 1: Header-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-compatible" content="IE=edge" />
-    <meta name="viewport" content="width-device-width, intial-scale=1.0" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
     <meta name="description" content="Around the U.S" />
 
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 </head>
-<header>
-    <!--Section 2: Body -->
+<!--Section: Body-->
 
-    <body class="page">
-        <div class="page__content">
+<body class="page">
+    <div class="page__content">
+        <header class="header">
             <img src="./images/Logo.png" alt="Around the U.S. Logo" />
+        </header>
+        <main class="content">
+            <section class="profile page__section">
+                <img src="./images/jacques-cousteau.png" alt="Avatar" class="profile__image" />
+                <div class="profile__info">
+                    <h1 class="profile__title">Jacques Cousteau</h1>
+                    <button class="profile__edit-button"></button>
+                    <p class="profile__description">Explorer</p>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+            </header>
+            <!--Section: Cards-->
+            <section class="cards">
+                <ul class="card__list">
+                    <li class="card">
+                        <img src="./images/yosemite.jpg" class="card__image" />
+                        <div class="card__description">Yosemite Valley</div>
+                        <button class="card__like-button"></button>
+                    </li>
+                </ul>
+                <ul class="card__list">
+                    <li class="card">
+                        <img src="./images/lake-louise.jpg" class="card__image" />
+                        <div class="card__description">Lake Louise</div>
+                        <button class="card__like-button"></button>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="person person_name_cousteau">
-                <p class="person__caption">Jacques Cousteau</p>
-                <img src="./images/jacques-cousteau.png" alt="Avatar" />
-            </div>
-</header>
-<!-- Section 3: Grid -->
-<main class="content">
-    <section class="gallery" id="gallery">
-        <section class="gallery_page__section">
-            <ul class="gallery__cards">
-                <li class="card">
-                    <img class="yosemite__image" src="./images/yosemite.jpg" alt="yosemite" />
-                    <div class="card__description">
-                        <h2 class="card__title">Yosemite Valley</h2>
-                        <button class="card__like-button" type="button"></button>
-                    </div>
-                </li>
-                <li class="card">
 
-                </li>
-            </ul>
-
-        </section>
-</main>
-</div>
+        </main>
+    </div>
 </body>
 
 </html>
