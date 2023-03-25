@@ -1,0 +1,20 @@
+@import url(../vendor/fonts/fonts.css);
+
+.page {
+  background-color: black;
+  color: white;
+}
+
+.page__content {
+  margin-left: 200px;
+  margin-right: 200px;
+  flex-direction: column;
+}
+
+.page__section {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
