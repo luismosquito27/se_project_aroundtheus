@@ -1,0 +1,19 @@
+.cards {
+    grid-template-rows: auto;
+    justify-content: center;
+}
+
+.cards__list_content {
+    display: grid;
+    list-style: none;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 282px);
+    grid-gap: 20px 17px;
+    padding-left: 0;
+}
+
+@media screen and (max-width: 880px) {
+    .cards__list_content {
+        margin-top: 36px;
+    }
+}
