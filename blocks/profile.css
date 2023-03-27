@@ -26,7 +26,6 @@
         "description description";
     grid-template-columns: minmax(auto, 373px) auto;
     grid-gap: 9px 17px;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
