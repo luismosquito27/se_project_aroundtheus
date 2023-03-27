@@ -5,6 +5,12 @@
     }
 }
 
+@media screen and (min-width: 1198px) { 
+    .profile { 
+       flex-direction: column; 
+    }
+}
+
 .profile {
     display: flex;
     align-items: center;
