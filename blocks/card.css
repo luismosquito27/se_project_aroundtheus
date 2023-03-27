@@ -16,7 +16,7 @@
   max-width: 220px;
 }
 
-.card__list {
+.card__list-content {
   display: grid;
   list-style: none;
   justify-content: center;
@@ -26,7 +26,7 @@
 }
 
 @media screen and (max-width: 880px) {
-  .card__list {
+  .card__list-content {
     margin-top: 36px;
   }
 }
@@ -38,7 +38,7 @@
   border-radius: 10px;
 }
 
-.card__description {
+.card__description-content {
   display: flex;
   background-color: white;
   color: black;
