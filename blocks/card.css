@@ -39,11 +39,12 @@
   background: transparent url(../images/Vector\ \(1\).svg) center no-repeat;
   width: 21px;
   height: 18px;
+  padding-top: 30px; 
   padding-bottom: 30px;
   padding-left: 20px;
   border-style: none;
   grid-template-columns: repeat(auto-fit, 100px);
-}
+  
 
 .card__like-button:hover {
   opacity: 0.5;

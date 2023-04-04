@@ -4,17 +4,12 @@
   color: #545454;
 }
 
-@media screen and (max-width: 986px) {
-  .footer {
-    flex-direction: column;
-  }
-}
-
 .footer__copyright {
   font-family: 'Inter', 'Arial', 'Times New Roman';
   font-style: normal;
   font-size: 18px;
   line-height: 22px;
   margin-top: 0;
-  margin-bottom: 67px;
+  margin-bottom: 60px;
+  margin-top: 67px;
 }
