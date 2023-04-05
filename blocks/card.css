@@ -10,14 +10,13 @@
   overflow: hidden;
   max-width: 220px;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .card__image {
   display: flex;
   width: 282px;
   height: 282px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 .card__description-content {
@@ -28,8 +27,6 @@
   padding-bottom: 25px;
   padding-left: 20px;
   padding-right: 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   align-items: center;
   justify-content: space-between;
   line-height: 29px;
@@ -39,8 +36,6 @@
   background: transparent url(../images/Vector\ \(1\).svg) center no-repeat;
   width: 21px;
   height: 18px;
-  padding-top: 30px;
-  padding-bottom: 30px;
   padding-left: 20px;
   border-style: none;
   grid-template-columns: repeat(auto-fit, 100px);

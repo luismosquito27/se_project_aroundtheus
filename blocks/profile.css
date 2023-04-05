@@ -11,6 +11,9 @@
     font-weight: 500;
     grid-area: title;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .profile__info {
@@ -32,7 +35,6 @@
     grid-area: button;
     margin-bottom: 25px;
     border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 1px;
     cursor: pointer;
 }
 
@@ -73,7 +75,6 @@
     object-fit: cover;
     background-position: center;
     margin-right: 24px;
-    margin-left: 24px;
     margin-bottom: 50px;
 }
 
@@ -87,7 +88,6 @@
     .profile__title {
         text-align: center;
         font-size: 22px;
-        height: 22px;
         margin: 0;
     }
 
@@ -106,7 +106,6 @@
     .profile__add-button {
         /*rectangle*/
         width: 282px;
-        height: 50px;
         margin-left: 19px;
         margin-right: 19px;
     }
