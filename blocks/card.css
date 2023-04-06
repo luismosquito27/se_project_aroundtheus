@@ -2,6 +2,7 @@
   display: grid;
   flex-direction: column;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .card__title {

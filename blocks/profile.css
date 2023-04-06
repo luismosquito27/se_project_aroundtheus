@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     padding-top: 40px;
+    margin-bottom: 36px;
 }
 
 
@@ -21,10 +22,8 @@
     grid-template-areas:
         "title button"
         "description description";
+    grid-template-columns: minmax(auto, 373px) auto;
     grid-gap: 9px 17px;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
 }
 
 
@@ -33,9 +32,12 @@
     width: 24px;
     height: 24px;
     grid-area: button;
-    margin-bottom: 25px;
     border: 1px solid rgba(255, 255, 255, 1);
     cursor: pointer;
+    background-size: 10px 10px;
+    align-self: center;
+    padding: 0;
+    margin: 0;
 }
 
 .profile__edit-button:hover {
@@ -46,12 +48,11 @@
     background: transparent url(../images/cross.svg) center no-repeat;
     width: 150px;
     height: 50px;
-    margin: 0;
-    margin-left: auto;
-    margin-bottom: 50px;
     border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 2px;
     cursor: pointer;
+    background-size: 22px;
+    margin-left: auto;
 }
 
 .profile__add-button:hover {
@@ -61,12 +62,9 @@
 .profile__description {
     font-size: 18px;
     line-height: 22px;
-    font-weight: 400;
     grid-area: description;
     margin: 0;
-    margin-top: 16px;
 }
-
 
 .profile__image {
     height: 120px;
@@ -74,8 +72,7 @@
     border-radius: 50%;
     object-fit: cover;
     background-position: center;
-    margin-right: 24px;
-    margin-bottom: 50px;
+    margin: 0 29px 0 0;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -83,24 +80,26 @@
     /*mobile*/
     .profile {
         flex-direction: column;
+        margin-bottom: 36px;
     }
 
     .profile__title {
-        text-align: center;
         font-size: 22px;
-        margin: 0;
+        text-align: center;
+    }
+
+    .profile__image {
+        margin-right: 0;
     }
 
     .profile__description {
         text-align: center;
-        padding-top: 14px;
-        padding-bottom: 36px;
-
+        font-size: 14px;
+        line-height: 17px;
     }
 
-    .profile__edit-button {
-        /*pencil*/
-        margin-top: 12px;
+    .profile__info {
+        grid-template-columns: minmax(auto, 228px) auto;
     }
 
     .profile__add-button {
@@ -108,6 +107,7 @@
         width: 282px;
         margin-left: 19px;
         margin-right: 19px;
+        margin-top: 36px;
     }
 
 }

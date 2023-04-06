@@ -5,13 +5,17 @@
 .header {
   margin-top: 45px;
   max-width: 880px;
-  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  border-bottom: 1px solid rgba(84, 84, 84);
   padding-bottom: 40px;
-  padding-top: 45px;
+  padding-top: 28px;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 480px) {
+  .header {
+    min-height: 85px;
+  }
+
   .header__image {
-    margin-right: auto;
+    margin-left: 27px;
   }
 }
