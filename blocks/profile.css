@@ -16,6 +16,11 @@
     overflow: hidden;
 }
 
+.profile__title-label {
+    display: flex;
+    margin: auto;
+}
+
 .profile__info {
     display: grid;
     grid-template-areas:
@@ -37,6 +42,7 @@
     align-self: center;
     padding: 0;
     margin: 0;
+    margin-left: 10px;
 }
 
 .profile__edit-button:hover {
@@ -63,6 +69,9 @@
     line-height: 22px;
     grid-area: description;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .profile__image {
@@ -84,6 +93,11 @@
 
     .profile__title {
         font-size: 22px;
+        margin-top: 26px;
+        margin-left: 18px;
+    }
+
+    .profile__title-label {
         text-align: center;
     }
 
@@ -95,10 +109,19 @@
         text-align: center;
         font-size: 14px;
         line-height: 17px;
+        margin-top: 14px;
     }
 
     .profile__info {
-        grid-template-columns: minmax(auto, 228px) auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .profile__edit-button {
+        width: 18px;
+        height: 18px;
+        margin-top: 10%;
     }
 
     .profile__add-button {
