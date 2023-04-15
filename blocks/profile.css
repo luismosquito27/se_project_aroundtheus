@@ -18,7 +18,6 @@
 
 .profile__title-label {
     display: flex;
-    margin: auto;
 }
 
 .profile__info {
@@ -26,7 +25,6 @@
     grid-template-areas:
         "title button"
         "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
     grid-gap: 9px 17px;
 }
 
@@ -42,7 +40,7 @@
     align-self: center;
     padding: 0;
     margin: 0;
-    margin-left: 10px;
+    margin-left: 18px;
 }
 
 .profile__edit-button:hover {
@@ -95,6 +93,7 @@
         font-size: 22px;
         margin-top: 26px;
         margin-left: 18px;
+        line-height: 27px;
     }
 
     .profile__title-label {
@@ -116,6 +115,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        gap: 0;
     }
 
     .profile__edit-button {
