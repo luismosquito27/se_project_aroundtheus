@@ -8,7 +8,12 @@
 .header {
   margin-top: 45px;
   max-width: 880px;
-  border-bottom: rgba(84, 84, 84, 0.7);
+  /*Line*/
+  border-color: rgba(84, 84, 84, 0.7);
+  border-width: 1px;
+  border-style: solid;
+  border-left-style: hidden;
+  border-right-style: hidden;
   opacity: 1;
 }
 

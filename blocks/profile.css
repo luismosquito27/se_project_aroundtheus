@@ -96,6 +96,9 @@
         margin-top: 26px;
         margin-left: 18px;
         line-height: 27px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .profile__title-label {
