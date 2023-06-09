@@ -17,6 +17,7 @@
     font-weight: 900;
     font-size: 24px;
     line-height: 29px;
+    margin-bottom: 34px; 
 }
 
 .modal_opener {
@@ -24,7 +25,16 @@
 }
 
 .modal_button {
+    display: flex;
+    background-color: black;
+    font-family: 'Inter', Arial, 'Times New Roman';
+    margin-left: 36px;
+    margin-right: 36px;
 
+}
+
+.modal_button:hover {
+    cursor: pointer;
 }
 
 .modal_container {
@@ -48,4 +58,10 @@
     background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+@media screen (max-width: 320px; ) {
+    .modal_container {}
+
+    .modal_close {}
 }
