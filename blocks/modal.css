@@ -84,6 +84,7 @@
     border-right-style: hidden;
     border-top-style: hidden;
     height: 47px;
+    opacity: 0.2;
 }
 
 .modal__form_description::placeholder {
@@ -108,12 +109,8 @@
     margin-top: 48px;
 }
 
-@media screen ( ) and ( ) { 
-.modal_container {
-   
-}
+@media screen () and () {
+    .modal_container {}
 
-.modal_close {
-
+    .modal_close {}
 }
-} 
