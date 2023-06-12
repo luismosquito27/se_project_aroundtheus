@@ -77,14 +77,14 @@
     line-height: 17px;
     /* border line */
     display: flex;
-    border-color: rgba(0, 0, 0, 1);
+    border-style: rgba(0, 0, 0, 0.1);
     border-width: 1px;
     border-style: solid;
     border-left-style: hidden;
     border-right-style: hidden;
     border-top-style: hidden;
     height: 47px;
-    opacity: 0.2;
+    color: #000;
 }
 
 .modal__form_description::placeholder {
@@ -109,8 +109,25 @@
     margin-top: 48px;
 }
 
-@media screen () and () {
-    .modal_container {}
+@media only screen (min-width: 466px) and (max-width: 768px) {
+    .modal_container {
+        width: 282px;
+        height: 322px;
+        left: 19px;
+        top: 123x;
+    }
 
-    .modal_close {}
+    .modal__form_button {
+        width: 238px;
+        height: 46px;
+        left: 41px;
+        top: 374px;
+    }
+
+    .modal__form_description {
+        font-size: 14px;
+    }
+
+
+
 }
