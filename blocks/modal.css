@@ -109,25 +109,36 @@
     margin-top: 48px;
 }
 
-@media only screen (min-width: 466px) and (max-width: 768px) {
-    .modal_container {
-        width: 282px;
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+
+    .modal {
+        max-width: 100px;
         height: 322px;
-        left: 19px;
-        top: 123x;
+        margin-left: 19px;
+        margin-bottom: 123px;
+        margin-top: 123px;
     }
 
-    .modal__form_button {
-        width: 238px;
-        height: 46px;
-        left: 41px;
-        top: 374px;
+    .modal_container {
+        width: 282px;
     }
+
 
     .modal__form_description {
         font-size: 14px;
     }
 
+    .modal_close {
+        height: 26px;
+        margin-right: 9%;
+    }
 
+    .modal__form_button {
+        width: 238px;
+        height: 46px;
+        margin-left: 22px;
+        margin-right: 22px;
+        border-radius: 2px;
+    }
 
 }
