@@ -109,20 +109,12 @@
     margin-top: 48px;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 768px) {
-
-    .modal {
-        max-width: 100px;
-        height: 322px;
-        margin-left: 19px;
-        margin-bottom: 123px;
-        margin-top: 123px;
-    }
+@media only screen and (max-width: 400px) {
 
     .modal_container {
         width: 282px;
+        margin-top: 123px;
     }
-
 
     .modal__form_description {
         font-size: 14px;
@@ -130,7 +122,8 @@
 
     .modal_close {
         height: 26px;
-        margin-right: 9%;
+        margin-right: 10%;
+        margin-bottom: 13px;
     }
 
     .modal__form_button {
