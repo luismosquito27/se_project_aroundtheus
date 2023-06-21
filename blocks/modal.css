@@ -10,7 +10,7 @@
     padding: 0 19px;
 }
 
-.modal_heading {
+.modal__heading {
     color: black;
     font-family: 'Inter', Arial, 'Times New Roman';
     font-style: normal;
@@ -20,7 +20,7 @@
     margin-bottom: 34px;
 }
 
-.modal_opener {
+.modal__opener {
     display: flex;
 }
 
@@ -111,7 +111,7 @@
 
 @media only screen and (max-width: 768px) {
 
-    .modal_container {
+    .modal__container {
         width: 282px;
         margin-top: 123px;
     }
@@ -120,7 +120,7 @@
         font-size: 14px;
     }
 
-    .modal_close {
+    .modal__close {
         height: 26px;
         margin-right: 10%;
         margin-bottom: 13px;
