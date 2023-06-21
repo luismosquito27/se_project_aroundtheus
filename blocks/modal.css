@@ -36,7 +36,7 @@
     cursor: pointer;
 }
 
-.modal_container {
+.modal__container {
     position: relative;
     padding: 36px;
     background-color: #ffff;
@@ -45,7 +45,7 @@
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
 
-.modal_close {
+.modal__close {
     border: none;
     position: absolute;
     cursor: pointer;
