@@ -109,7 +109,7 @@
     margin-top: 48px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 768px) {
 
     .modal_container {
         width: 282px;
