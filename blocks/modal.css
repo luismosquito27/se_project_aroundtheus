@@ -59,7 +59,7 @@
     background-repeat: no-repeat;
 }
 
-.modal__form_label {
+.modal__form__label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +71,7 @@
     line-height: 17px;
 }
 
-.modal__form_description {
+.modal__form__description {
     font-family: 'Inter', Arial, 'Times New Roman';
     width: 100%;
     line-height: 17px;
@@ -87,15 +87,15 @@
     color: #000;
 }
 
-.modal__form_description::placeholder {
+.modal__form__description::placeholder {
     color: #000;
 }
 
-.modal__form_button:hover {
+.modal__form__button:hover {
     cursor: pointer;
 }
 
-.modal__form_button {
+.modal__form__button {
     justify-content: center;
     align-items: center;
     background: #000;
