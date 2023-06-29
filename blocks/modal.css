@@ -43,6 +43,7 @@
     margin: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    visibility: default;
 }
 
 .modal__close {
@@ -57,6 +58,10 @@
     background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.modal_opened {
+    visibility: default;
 }
 
 .modal__form-label {

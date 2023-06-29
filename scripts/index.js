@@ -34,28 +34,15 @@ console.log(initialCards);
 
 /* ---------------------------- Elements ----------------------------- */
 
-const profileEditButton = document.querySelector("#profile-edit-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
 const modalCloseButton = document.querySelector("#modal-close-button");
 
-profileEditButton.addEventListener("click", () => {
-  console.log("button click");
+profileEditModal.addEventListener("click", () => {
+  console.log("Profile Edit Modal clicked");
+  profileEditModal.classList.remove("modal");
 });
 
 modalCloseButton.addEventListener("click", () => {
-  console.log(123);
-  // modalCloseButton.classList.add("modal__close");
+  console.log("Modal Close Button clicked");
+  modalCloseButton.classList.add("modal__close");
 });
-
-profileEditButton.addEventListener("click", () => {
-  console.log("button click");
-});
-
-profileEditButton.addEventListener("clikc", () => {
-  console.log("modal__open");
-});
-
-// 1. Make all modal windows hidden by default. When user clicks on the button ->
-// we open modal by adding the class: .modal.modal_opened (2nd class shows)
-
-// 2. when user clicks on the modal cross icon = we delete the modal_opened class from modal,
-// and after that inside the modal will; be only one class = .modal
