@@ -60,9 +60,6 @@
     background-repeat: no-repeat;
 }
 
-.modal_opened {
-    visibility: default;
-}
 
 .modal__form-label {
     display: flex;
