@@ -30,9 +30,9 @@ const initialCards = [
 ];
 console.log(initialCards);
 
-/* ---------------------------- Elements ----------------------------- */
+/* ---------------------------- js.modal button ----------------------------- */
 
-/* ---------------------------- Elements ----------------------------- */
+/* ---------------------------- js.modal button ----------------------------- */
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const modalCloseButton = document.querySelector("#modal-close-button");
@@ -44,5 +44,42 @@ profileEditModal.addEventListener("click", () => {
 
 modalCloseButton.addEventListener("click", () => {
   console.log("Modal Close Button clicked");
-  modalCloseButton.classList.add("modal__close");
+  modalCloseButton.classList.add("modal");
+});
+
+/* -------------------------- js.header ----------------------------*/
+
+/* -------------------------- js.header ----------------------------*/
+
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+
+/* ------------------------- js.title -----------------------------*/
+/* ------------------------- js.title -----------------------------*/
+
+profileTitle.addEventListener("click", () => {
+  console.log("Profile Title Clicked");
+  profileTitle.classList.remove("profile-title-input");
+});
+
+profileTitleInput.addEventListener("click", () => {
+  console.log("Profile Title Clicked");
+  profileTitleInput.classList.add("profile-title-input");
+});
+
+/* ------------------------ js.description ------------------------*/
+/* ------------------------ js.description ------------------------*/
+
+profileDescription.addEventListener("click", () => {
+  console.log("Profile Edit Description Clicked");
+  profileDescription.classList.remove("profile-description-input");
+});
+
+profileDescriptionInput.addEventListener("click", () => {
+  console.log("Profile Edit Description Clicked");
+  profileDescriptionInput.classList.add("profile-description-input");
 });
