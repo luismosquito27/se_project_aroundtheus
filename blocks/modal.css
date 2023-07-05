@@ -8,8 +8,9 @@
     z-index: 999;
     display: flex;
     padding: 0 19px;
-    
+    visibility: hidden;
 }
+
 
 .modal__heading {
     color: black;
@@ -21,8 +22,9 @@
     margin-bottom: 34px;
 }
 
-.modal__opener {
+.modal_opened {
     display: flex;
+    visibility: visible;
 }
 
 .modal__button {
@@ -72,6 +74,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+   
 }
 
 .modal__form-description {

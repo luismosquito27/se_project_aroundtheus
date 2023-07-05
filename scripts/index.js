@@ -30,56 +30,45 @@ const initialCards = [
 ];
 console.log(initialCards);
 
-/* ---------------------------- js.modal button ----------------------------- */
+/* -------------------------- js.title ----------------------------*/
+/* -------------------------- js.title ----------------------------*/
 
-/* ---------------------------- js.modal button ----------------------------- */
+const profileTitle = document.querySelector(".profile-title-input");
+const profileTitleInput = document.querySelector(".modal__form-title");
+const profileDescription = document.querySelector(".profile__description");
+const profileDescriptionInput = document.querySelector(
+  ".modal__form-description"
+);
+
+/* ---------------------------- js.modal ----------------------------- */
+/* ---------------------------- js.modal ----------------------------- */
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const modalCloseButton = document.querySelector("#modal-close-button");
-
-profileEditModal.addEventListener("click", () => {
-  console.log("Profile Edit Modal clicked");
-  profileEditModal.classList.remove("modal");
-});
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileEditButton = document.querySelector(".profile__edit-button");
 
 modalCloseButton.addEventListener("click", () => {
-  console.log("Modal Close Button clicked");
-  modalCloseButton.classList.add("modal");
+  console.log(123);
+  closePopop();
+});
+profileEditForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  profileEditModal.classList.remove(".modal-close-button");
 });
 
-/* -------------------------- js.header ----------------------------*/
+/* --------------------------   ------------------------------ */
 
-/* -------------------------- js.header ----------------------------*/
+function closePopop() {
+  profileEditModal.classList.remove("modal_opened");
+}
+function openPopop() {
+  profileEditModal.classList.add("modal_opened");
+}
 
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-
-/* ------------------------- js.title -----------------------------*/
-/* ------------------------- js.title -----------------------------*/
-
-profileTitle.addEventListener("click", () => {
-  console.log("Profile Title Clicked");
-  profileTitle.classList.remove("profile-title-input");
-});
-
-profileTitleInput.addEventListener("click", () => {
-  console.log("Profile Title Clicked");
-  profileTitleInput.classList.add("profile-title-input");
-});
-
-/* ------------------------ js.description ------------------------*/
-/* ------------------------ js.description ------------------------*/
-
-profileDescription.addEventListener("click", () => {
-  console.log("Profile Edit Description Clicked");
-  profileDescription.classList.remove("profile-description-input");
-});
-
-profileDescriptionInput.addEventListener("click", () => {
-  console.log("Profile Edit Description Clicked");
-  profileDescriptionInput.classList.add("profile-description-input");
+profileEditButton.addEventListener("click", () => {
+  console.log(123);
+  openPopop();
 });
