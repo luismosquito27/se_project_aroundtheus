@@ -33,13 +33,30 @@ console.log(initialCards);
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
-const profileTitle = document.querySelector(".profile-title-input");
+const profileTitle = document.querySelector(".profile__title");
 const profileTitleInput = document.querySelector(".modal__form-title");
 const profileDescription = document.querySelector(".profile__description");
 const profileDescriptionInput = document.querySelector(
   ".modal__form-description"
 );
+const cardListEl = document.querySelector(".cards__list-content");
 
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
+
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardDescriptionEl = cardElement.querySelector(
+    ".card__description-content"
+  );
+
+  cardImageEl.src = cardData.link;
+
+  cardTitleEl.textContent = cardData.title;
+  return cardElement;
+}
 /* ---------------------------- js.modal ----------------------------- */
 /* ---------------------------- js.modal ----------------------------- */
 
@@ -54,9 +71,10 @@ modalCloseButton.addEventListener("click", () => {
 });
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log(e);
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  profileEditModal.classList.remove(".modal-close-button");
+  profileEditModal.classList.add(".modal-close-button");
 });
 
 /* ----------------------------   ------------------------------ */
@@ -72,4 +90,10 @@ function openPopop() {
 profileEditButton.addEventListener("click", () => {
   console.log(123);
   openPopop();
+});
+
+initialCards.forEach((cardData) => {
+  console.log(cardData);
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 });
