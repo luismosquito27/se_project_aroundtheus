@@ -11,6 +11,17 @@
     visibility: hidden;
 }
 
+.modal__form-title {
+    width: 100%;
+    line-height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-top-style: hidden;
+    font-family: 'Inter', Arial, 'Times New Roman';
+}
+
 
 .modal__heading {
     color: black;
@@ -74,7 +85,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-   
+
 }
 
 .modal__form-description {

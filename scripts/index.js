@@ -30,8 +30,8 @@ const initialCards = [
 ];
 console.log(initialCards);
 
-/* -------------------------- js.title ----------------------------*/
-/* -------------------------- js.title ----------------------------*/
+/* -------------------------- elements ----------------------------*/
+/* -------------------------- elements ----------------------------*/
 
 const profileTitle = document.querySelector(".profile-title-input");
 const profileTitleInput = document.querySelector(".modal__form-title");
@@ -59,7 +59,8 @@ profileEditForm.addEventListener("submit", (e) => {
   profileEditModal.classList.remove(".modal-close-button");
 });
 
-/* --------------------------   ------------------------------ */
+/* ----------------------------   ------------------------------ */
+/* ----------------------------   ------------------------------ */
 
 function closePopop() {
   profileEditModal.classList.remove("modal_opened");
