@@ -62,7 +62,6 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__edit-button");
 
 modalCloseButton.addEventListener("click", () => {
-  console.log(123);
   closePopop();
 });
 profileEditForm.addEventListener("submit", (e) => {
@@ -84,7 +83,6 @@ function openPopop() {
 }
 
 profileEditButton.addEventListener("click", () => {
-  console.log(123);
   openPopop();
 });
 
