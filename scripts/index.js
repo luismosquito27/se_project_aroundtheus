@@ -48,13 +48,9 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
-  const cardDescriptionEl = cardElement.querySelector(
-    ".card__description-content"
-  );
-  cardTitleEl.textContent.src = cardDescriptionEl.link;
-  cardImageEl.src = cardData.link;
 
-  cardTitleEl.textContent = cardData.title;
+  cardTitleEl.textContent = cardData.name;
+  cardImageEl.src = cardData.link;
   return cardElement;
 }
 /* ---------------------------- js.modal ----------------------------- */
