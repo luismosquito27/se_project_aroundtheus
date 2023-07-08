@@ -17,7 +17,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 880px) {
   .header {
     min-height: 85px;
   }

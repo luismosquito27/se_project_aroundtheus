@@ -28,7 +28,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
 ];
-console.log(initialCards);
 
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
@@ -51,6 +50,7 @@ function getCardElement(cardData) {
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.name;
   return cardElement;
 }
 /* ---------------------------- js.modal ----------------------------- */
@@ -62,32 +62,31 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__edit-button");
 
 modalCloseButton.addEventListener("click", () => {
-  closePopop();
+  closePopup();
 });
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e);
+
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  profileEditModal.classList.add(".modal-close-button");
+  profileEditModal.classList.remove(".modal-close-button");
 });
 
 /* ----------------------------   ------------------------------ */
 /* ----------------------------   ------------------------------ */
 
-function closePopop() {
+function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
-function openPopop() {
+function openPopup() {
   profileEditModal.classList.add("modal_opened");
 }
 
 profileEditButton.addEventListener("click", () => {
-  openPopop();
+  openPopup();
 });
 
 initialCards.forEach((cardData) => {
-  console.log(cardData);
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 });
