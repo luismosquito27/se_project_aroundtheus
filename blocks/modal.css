@@ -21,7 +21,7 @@
     margin-bottom: 34px;
 }
 
-.modal_opened:hover {
+.modal_opened {
     visibility: visible;
 }
 
@@ -45,9 +45,10 @@
     border-radius: 10px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     visibility: default;
+    width: 330px;
 }
 
-.modal__close:hover {
+.modal__close {
     border: none;
     position: absolute;
     cursor: pointer;
@@ -111,9 +112,9 @@
 }
 
 .modal__form-button:hover {
+    width: 100%;
     justify-content: center;
     align-items: center;
-    background: #000;
     font-family: "Inter", Arial, "Times New Roman";
     font-size: 18px;
     line-height: 22px;
@@ -140,7 +141,7 @@
         margin-bottom: 13px;
     }
 
-    .modal__form-button {
+    .modal__input-button {
         height: 46px;
         margin-left: 22px;
         margin-right: 22px;

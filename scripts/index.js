@@ -76,7 +76,8 @@ function closePopup() {
 profileModalCloseButton.addEventListener("click", () => {
   closePopup();
 });
-profileEditForm.addEventListener("submit", () => {
+profileEditForm.addEventListener("submit", (e) => {
+  profileFormSubmitHandler(e);
   closePopup();
 });
 

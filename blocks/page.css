@@ -7,6 +7,8 @@
 .page__content {
   margin: 0 auto;
   flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .page__section {
