@@ -57,19 +57,27 @@ function getCardElement(cardData) {
 /* ---------------------------- js.modal ----------------------------- */
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const modalCloseButton = document.querySelector("#modal-close-button");
+const profileModalCloseButton = profileEditModal.querySelector(
+  "#modal-close-button"
+);
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__edit-button");
 
-modalCloseButton.addEventListener("click", () => {
-  closePopup();
-});
-profileEditForm.addEventListener("submit", (e) => {
+function profileFormSubmitHandler(e) {
   e.preventDefault();
 
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  profileEditModal.classList.remove(".modal-close-button");
+}
+function closePopup() {
+  profileEditModal.classList.add(".modal-close");
+}
+
+profileModalCloseButton.addEventListener("click", () => {
+  closePopup();
+});
+profileEditForm.addEventListener("submit", () => {
+  closePopup();
 });
 
 /* ----------------------------   ------------------------------ */

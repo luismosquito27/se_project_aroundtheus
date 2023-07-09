@@ -21,11 +21,11 @@
     margin-bottom: 34px;
 }
 
-.modal_opened {
+.modal_opened:hover {
     visibility: visible;
 }
 
-.modal__button {
+.modal__button:hover {
     display: flex;
     font-family: 'Inter', Arial, 'Times New Roman';
     margin-left: 36px;
@@ -107,9 +107,10 @@
 
 .modal__form-button:hover {
     cursor: pointer;
+    opacity: 0.2;
 }
 
-.modal__form-button {
+.modal__form-button:hover {
     justify-content: center;
     align-items: center;
     background: #000;
