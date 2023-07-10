@@ -62,6 +62,11 @@ const profileModalCloseButton = profileEditModal.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__edit-button");
+const modalFormButton = document.querySelector(".modal__form-button");
+
+modalFormButton.addEventListener("Submit", () => {
+  submit();
+});
 
 function profileFormSubmitHandler(e) {
   e.preventDefault();
