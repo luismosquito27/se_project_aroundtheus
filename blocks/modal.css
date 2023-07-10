@@ -144,11 +144,12 @@
         margin-bottom: 13px;
     }
 
-    .modal__input-button {
+    .modal__input-button:last-of-type {
         height: 46px;
         margin-left: 22px;
         margin-right: 22px;
         border-radius: 2px;
+        padding: 1px 2px;
     }
 
 }
