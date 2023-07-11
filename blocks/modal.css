@@ -106,6 +106,7 @@
 
 .modal__form-button {
     width: 358px;
+    width: 100%;
     font-family: "Inter", Arial, "Times New Roman";
     font-size: 18px;
     line-height: 22px;
@@ -114,6 +115,7 @@
     background-color: black;
     color: white;
     margin-top: 48px;
+    border: none;
 }
 
 
