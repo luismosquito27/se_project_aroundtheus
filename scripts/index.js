@@ -63,12 +63,17 @@ const profileModalCloseButton = profileEditModal.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const modalFormButton = document.querySelector(".modal__form-button");
+const modalFormTitle = (document.querySelector(".modal__form-title").value =
+  "Jacques Cousteau");
+const modalFormDescription = (document.querySelector(
+  ".modal__form-description"
+).value = "Explorer");
 
 modalFormButton.addEventListener("Submit", () => {
   submit();
 });
 
-function profileFormSubmitHandler(e) {
+function handleProfileFormSubmit(e) {
   e.preventDefault();
 
   profileTitle.textContent = profileTitleInput.value;
@@ -82,7 +87,7 @@ profileModalCloseButton.addEventListener("click", () => {
   closePopup();
 });
 profileEditForm.addEventListener("submit", (e) => {
-  profileFormSubmitHandler(e);
+  handleProfileFormSubmit(e);
   closePopup();
 });
 
