@@ -99,13 +99,12 @@
 }
 
 
-/* .modal__form-button:hover { */
-/* cursor: pointer; */
-/* opacity: 0.8; */
-/* } */
+.modal__form-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
 
 .modal__form-button {
-    width: 358px;
     width: 100%;
     font-family: "Inter", Arial, "Times New Roman";
     font-size: 18px;
@@ -126,27 +125,19 @@
         margin-top: 123px;
     }
 
-    .modal__form-description {
-        font-size: 14px;
-    }
-
     .modal__close {
         height: 26px;
         margin-right: 10%;
         margin-bottom: 13px;
     }
 
-    .modal__form-button:last-of-type {
-        width: 238px;
+    .modal__input-button:last-of-type {
         margin-left: 22px;
         margin-right: 22px;
         margin-top: 30px;
         height: 46px;
-        margin-left: 22px;
-        margin-right: 22px;
         border-radius: 2px;
 
     }
-
 
 }

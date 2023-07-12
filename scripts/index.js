@@ -69,10 +69,6 @@ const modalFormDescription = (document.querySelector(
   ".modal__form-description"
 ).value = "Explorer");
 
-modalFormButton.addEventListener("Submit", () => {
-  submit();
-});
-
 function handleProfileFormSubmit(e) {
   e.preventDefault();
 
@@ -81,6 +77,7 @@ function handleProfileFormSubmit(e) {
 }
 function closePopup() {
   profileEditModal.classList.add(".modal-close");
+  profileEditModal.classList.remove("modal_opened");
 }
 
 profileModalCloseButton.addEventListener("click", () => {
@@ -94,9 +91,6 @@ profileEditForm.addEventListener("submit", (e) => {
 /* ----------------------------   ------------------------------ */
 /* ----------------------------   ------------------------------ */
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-}
 function openPopup() {
   profileEditModal.classList.add("modal_opened");
 }
