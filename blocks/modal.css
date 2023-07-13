@@ -56,7 +56,7 @@
 }
 
 
-.modal__form-label {
+.modal__input-label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,12 +99,12 @@
 }
 
 
-.modal__form-button:hover {
+.modal__input-button:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-.modal__form-button {
+.modal__input-button {
     width: 100%;
     font-family: "Inter", Arial, "Times New Roman";
     font-size: 18px;
@@ -132,12 +132,10 @@
     }
 
     .modal__input-button:last-of-type {
-        margin-left: 22px;
         margin-right: 22px;
         margin-top: 30px;
         height: 46px;
         border-radius: 2px;
-
     }
 
 }
