@@ -68,37 +68,27 @@
     line-height: 17px;
 }
 
-.modal__input-label:last-of-type {
-    text-transform: none;
-}
-
-.modal__input-title:last-of-type {
-    width: 100%;
-    line-height: 40px;
-    border-width: 1px;
+.modal__input:last-of-type {
     border-style: solid;
     border-left-style: hidden;
     border-right-style: hidden;
     border-top-style: hidden;
-    font-family: 'Inter', Arial, 'Times New Roman';
-}
-
-
-
-.modal__input-description:last-of-type {
-    font-family: 'Inter', Arial, 'Times New Roman';
     width: 100%;
     line-height: 17px;
     /* border line */
     display: flex;
-    border-style: rgba(0, 0, 0, 0.1);
+    line-height: 40px;
     border-width: 1px;
-    border-style: solid;
-    border-left-style: hidden;
-    border-right-style: hidden;
-    border-top-style: hidden;
-    height: 47px;
-    color: #000;
+}
+
+.modal__input-title {
+    font-family: 'Inter', Arial, 'Times New Roman';
+}
+
+
+
+.modal__input-description {
+    font-family: 'Inter', Arial, 'Times New Roman';
 }
 
 
@@ -134,7 +124,7 @@
         margin-bottom: 13px;
     }
 
-    .modal__input-button:last-of-type {
+    .modal__input-button {
         margin-right: 22px;
         margin-top: 30px;
         height: 46px;
