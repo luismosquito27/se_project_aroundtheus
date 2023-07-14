@@ -68,7 +68,7 @@
     line-height: 17px;
 }
 
-.modal__input:last-of-type {
+.modal__input {
     border-style: solid;
     border-left-style: hidden;
     border-right-style: hidden;
@@ -79,15 +79,6 @@
     display: flex;
     line-height: 40px;
     border-width: 1px;
-}
-
-.modal__input-title {
-    font-family: 'Inter', Arial, 'Times New Roman';
-}
-
-
-
-.modal__input-description {
     font-family: 'Inter', Arial, 'Times New Roman';
 }
 
