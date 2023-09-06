@@ -33,37 +33,39 @@
                         <p class="profile__description">Explorer</p>
                     </div>
                 </div>
-                <button aria-label="add-button" type="button" class="profile__add-button"></button>
+                <button aria-label="add-button" type="button" id="profile-add-button"
+                    class="profile__add-button"></button>
             </section>
 
             <!--Section: Cards-->
             <section class="cards page__section">
-                <ul class="cards__list-content"></ul>
+                <ul class="cards__list-content" id="cards_list_content"></ul>
             </section>
         </main>
         <footer class="footer page__section">
             <p class="footer__copyright">&copy; 2023 Around The U.S.</p>
         </footer>
     </div>
-    <!-- modal box -->
 
+    <!-- Edit Modal -->
     <div class="modal" id="profile-edit-modal">
-        <div class="modal__container">
+        <div class="modal__is_opened modal__container">
             <button type="button" class=modal__close id="modal-close-button"></button>
             <form class=" modal__form">
-                <h2 class="modal__heading">Edit profile</h2>
+                <h2 class="modal__heading">Edit Modal</h2>
 
                 <!-- modal box content: 1 -->
 
-                <label class="modal__input-label">Name*
+                <label class="modal__in
+                ut-label">Name*
                     <input class="modal__input modal__input-title" type="text" id="Name" placeholder="Name" required />
                 </label>
 
                 <!-- modal box content: 2 -->
 
                 <label class="modal__input-label">About *
-                    <input class="modal__input modal__input-description" type="text" id="About" placeholder="Enter description"
-                        required />
+                    <input class="modal__input modal__input-description" type="text" id="About"
+                        placeholder="Enter description" required />
                 </label>
                 <!-- modal button-->
 
@@ -74,6 +76,36 @@
         </div>
 
     </div>
+    <!-- Add Modal -->
+    <div class="modal" id="profile-add-modal">
+        <div class="modal__add_opened modal__container">
+            <button type="button" class=modal__close id="modal-close-button"></button>
+            <form class=" modal__form">
+                <h2 class="modal__heading">New Place</h2>
+
+                <!-- modal box content: 1 -->
+
+                <label class="modal__input-label">Title*
+                    <input class="modal__input_type-title" type="text" id="add-card-form" placeholder="Title"
+                        required />
+                </label>
+
+                <!-- modal box content: 2 -->
+
+                <label class="modal__input-label">Image link *
+                    <input class="modal__input modal__input_type-url" type="text" id="About" name="url"
+                        placeholder="Image URL" required />
+                </label>
+                <!-- modal button-->
+
+                <button type="submit" class="modal__input-button" id="modal-button">Create</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
 
     <template id="card-template">
         <li class="card">

@@ -55,6 +55,9 @@
     opacity: 0.8;
 }
 
+.modal_add_opened {
+    visibility: visible;
+}
 
 .modal__input-label {
     display: flex;
