@@ -42,7 +42,6 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const modalFormButton = document.querySelector(".modal__input-button");
 const cardListEl = document.querySelector(".cards__list-content");
-const cardsWrapEl = document.querySelector(".cards_list-content");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const nameInput = profileEditModal.querySelector(".modal__input-title");
@@ -57,10 +56,16 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle(".card__like-button_active");
+  });
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
+  
   return cardElement;
 }
 /* ---------------------------- functions -------------------------- */
@@ -108,7 +113,4 @@ initialCards.forEach((cardData) => {
   cardListEl.prepend(cardElement);
 });
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardsWrapEl.prepend(cardElement);
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
