@@ -104,6 +104,17 @@
     border: none;
 }
 
+/* modal 2nd card */
+.modal__input_type-title {
+    border-style: solid;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-top-style: hidden;
+    width: 100%;
+    line-height: 40px;
+    border-width: 1px;
+}
+
 
 @media only screen and (max-width: 880px) {
 
