@@ -81,7 +81,6 @@ function handleProfileFormSubmit(e) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_add_opened");
-  profileAddButton.classList.remove(".modal__add_profile");
 }
 
 function renderCard(cardData, cardsWrapEl) {
@@ -91,7 +90,6 @@ function renderCard(cardData, cardsWrapEl) {
 
 function openModal(modal) {
   modal.classList.add("modal_add_opened");
-  profileAddButton.classList.add(".modal__add_profile");
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
