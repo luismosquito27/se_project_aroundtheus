@@ -81,19 +81,23 @@ function handleProfileFormSubmit(e) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_add_opened");
-  profileAddButton.classList.remove("#modal-close-button");
-  renderCard(cardsWrapEl);
-  closeModal(modalCloseButton);
+  profileAddButton.classList.remove(".modal__add_profile");
+}
+
+function renderCard(cardData, cardsWrapEl) {
+  const cardElement = getCardElement(cardData);
+  cardsWrapEl.prepend(cardElement);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_add_opened");
-  profileAddButton.classList.add("#modal-close-button");
+  profileAddButton.classList.add(".modal__add_profile");
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
+// edit modal
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
@@ -103,7 +107,7 @@ profileEditForm.addEventListener("submit", (e) => {
   closeModal();
 });
 
-// adding new card button
+// add modal
 profileAddButton.addEventListener("click", () => {
   openModal(profileAddModal);
 });
@@ -117,8 +121,4 @@ profileModalCloseButton.addEventListener("click", () => {
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
-});
-
-initialCards.forEach((cardData) => {
-  cardsWrapEl.renderCard(cardData);
 });
