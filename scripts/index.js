@@ -112,6 +112,10 @@ profileAddButton.addEventListener("click", () => {
   openModal(profileAddModal);
 });
 
+profileAddButton.addEventListener("click", () => {
+  closeModal(profileAddModal);
+});
+
 profileModalCloseButton.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
