@@ -51,3 +51,26 @@
 .card__like-button_active {
   background-image: url(../images/active.svg);
 }
+
+.card__delete {
+  background-image: url("../images/Trash\ can.svg");
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  top: 400px;
+  left: 500px;
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom: hidden;
+  background-color: transparent;
+  display: grid;
+  list-style: none;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.card__delete:hover {
+  cursor: pointer;
+}
