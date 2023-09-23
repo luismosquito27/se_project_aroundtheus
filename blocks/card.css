@@ -1,5 +1,6 @@
 .card {
   display: grid;
+  position: relative;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
@@ -52,25 +53,20 @@
   background-image: url(../images/active.svg);
 }
 
-.card__delete {
-  background-image: url("../images/Trash\ can.svg");
+.card__delete-button {
+  background: transparent url("../images/Trash-can.svg") center no-repeat;
   position: absolute;
   width: 18px;
   height: 20px;
-  top: 400px;
-  left: 500px;
+  top: 10px;
+  right: 10px;
   border-top: hidden;
   border-left: hidden;
   border-right: hidden;
   border-bottom: hidden;
-  background-color: transparent;
-  display: grid;
-  list-style: none;
-  justify-content: center;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  visibility: visible;
 }
 
-.card__delete:hover {
+.card__delete-button:hover {
   cursor: pointer;
 }
