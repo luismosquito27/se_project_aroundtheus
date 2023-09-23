@@ -58,6 +58,8 @@ const descriptionInput = profileEditModal.querySelector(
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
+const cardDeleteButton = document.querySelector(".card__delete-button");
+
 /* ---------------------------- functions -------------------------- */
 /* ---------------------------- functions ----------------------------- */
 
@@ -135,8 +137,12 @@ profileAddModalForm.addEventListener("submit", (e) => {
   handleAddModal(e);
   closeModal(profileAddModal);
 });
-/////
-//
+
+// delete button
+cardDeleteButton.addEventListener("click", function () {
+  removeItem(cardDeleteButton);
+  cardDeleteButton.classList.add("delete");
+});
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
