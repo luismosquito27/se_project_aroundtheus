@@ -42,6 +42,7 @@ const profileAddModal = document.querySelector(".modal__add_profile");
 const profileAddCloseModal = profileAddModal.querySelector(
   "#modal-close-button"
 );
+
 const cardsWrapEl = document.querySelector(".cards__list-content");
 const profileAddModalForm = profileAddModal.querySelector(".modal__form");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
@@ -55,6 +56,10 @@ const nameInput = profileEditModal.querySelector(".modal__input-title");
 const descriptionInput = profileEditModal.querySelector(
   ".modal__input-description"
 );
+
+// adding card
+const titleInput = profileAddModal.querySelector(".modal__input_type-title");
+const inputLink = profileAddModal.querySelector(".modal__input_type-link");
 
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -93,15 +98,12 @@ function handleProfileFormSubmit(e) {
 }
 
 function handleAddModalSubmit(e) {
-  // select elements from the card form
-  cardElement.cardData;
-  //create card
-  const cardElement = cardTitleEl.value;
-  const cardData = getCardElement({ cardElement: cardTitleEl.value });
-  cardData.prepend(cardElement);
-  //prepend
   e.preventDefault();
-  closeModal(profileAddModal);
+  const cardElement = getCardElement({cardData });
+  const titleInput = getCardElement({ name: cardElement.value });
+  const inputLink = getCardElement({ link: cardData.value });
+  cardElement.prepend(cardData);
+  closeModal(profileAddModalForm);
 }
 
 function closeModal(modal) {
