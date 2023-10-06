@@ -85,6 +85,12 @@ function getCardElement(cardData) {
     likeButton.classList.toggle("card__like-button_active");
   });
 
+  cardImageEl.addEventListener("click", () => {
+    cardImageEl.classList.add(".card__image");
+    console.log("I have been clicked");
+    popup();
+  });
+
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
