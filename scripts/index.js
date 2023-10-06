@@ -37,6 +37,7 @@ const profileModalCloseButton = profileEditModal.querySelector(
   "#modal-close-button"
 );
 
+// trash can
 const profileAddButton = document.querySelector("#profile-add-button");
 const profileAddModal = document.querySelector(".modal__add_profile");
 const profileAddCloseModal = profileAddModal.querySelector(
@@ -68,6 +69,7 @@ const cardTemplate =
 /* ---------------------------- functions ----------------------------- */
 
 function getCardElement(cardData) {
+  console.log("cardData", cardData);
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -97,14 +99,22 @@ function handleProfileFormSubmit(e) {
   closeModal(profileModalCloseButton);
 }
 
+// adding card
 function handleAddModalSubmit(e) {
   e.preventDefault();
-  const cardElement = getCardElement({cardData });
-  const titleInput = getCardElement({ name: cardElement.value });
-  const inputLink = getCardElement({ link: cardData.value });
-  cardElement.prepend(cardData);
-  closeModal(profileAddModalForm);
+  const cardData = {
+    name: titleInput.value,
+    link: inputLink.value,
+  };
+  const cardElement = getCardElement({ cardData });
+  cardsWrapEl.prepend(cardElement);
+  closeModal(profileAddModal);
 }
+
+modalFormButton.addEventListener("submit", () => {
+  console.log("I have been clicked");
+  closeModal(profileAddModal);
+});
 
 function closeModal(modal) {
   modal.classList.remove("modal_add_opened");
