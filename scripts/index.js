@@ -106,7 +106,7 @@ function handleAddModalSubmit(e) {
     name: titleInput.value,
     link: inputLink.value,
   };
-  const cardElement = getCardElement({ cardData });
+  const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
   closeModal(profileAddModal);
 }
