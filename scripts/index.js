@@ -69,15 +69,14 @@ const cardTemplate =
 /* ---------------------------- functions ----------------------------- */
 
 function getCardElement(cardData) {
-  console.log("cardData", cardData);
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
+  const modalImageContainer = document.querySelector("#modal__image_container");
 
   deleteButton.addEventListener("click", () => {
-    console.log("I have been clicked", deleteButton);
     cardElement.remove();
   });
 
@@ -86,9 +85,14 @@ function getCardElement(cardData) {
   });
 
   cardImageEl.addEventListener("click", () => {
-    cardImageEl.classList.add(".card__image");
-    console.log("I have been clicked");
-    popup();
+    modalImageContainer.querySelector(".modal__image_container").src;
+    cardImageEl.src;
+    // here you need to find the text inside the modal and fill it with the txt from the card
+    modalImageContainer.src.textContent = cardTitleEl.name;
+    modalImageContainer.src = profileEditModal.name;
+    cardImageEl.src = profileEditModal.name;
+    // same you need to do with the image src
+    openModal(modalImageContainer);
   });
 
   cardTitleEl.textContent = cardData.name;
@@ -118,7 +122,6 @@ function handleAddModalSubmit(e) {
 }
 
 modalFormButton.addEventListener("submit", () => {
-  console.log("I have been clicked");
   closeModal(profileAddModal);
 });
 
