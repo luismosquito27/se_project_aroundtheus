@@ -87,11 +87,11 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     modalImageContainer.querySelector(".modal__image_container").src;
     cardImageEl.src;
-    // here you need to find the text inside the modal and fill it with the txt from the card
+
     modalImageContainer.src.textContent = cardTitleEl.name;
     modalImageContainer.src = profileEditModal.name;
     cardImageEl.src = profileEditModal.name;
-    // same you need to do with the image src
+
     openModal(modalImageContainer);
   });
 
