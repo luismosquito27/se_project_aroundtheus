@@ -88,9 +88,9 @@ function getCardElement(cardData) {
     modalImageContainer.querySelector(".modal__image_container").src;
     cardImageEl.src;
 
-    modalImageContainer.src.textContent = cardTitleEl.name;
-    modalImageContainer.src = profileEditModal.name;
-    cardImageEl.src = profileEditModal.name;
+    cardElement.textContent = cardTitleEl.name;
+    modalImageContainer.src = cardTitleEl.link;
+    cardImageEl.alt = cardTitleEl.name;
 
     openModal(modalImageContainer);
   });
@@ -135,7 +135,6 @@ function openModal(modal) {
 
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
-
 // edit modal
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
