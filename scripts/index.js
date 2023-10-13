@@ -62,10 +62,6 @@ const descriptionInput = profileEditModal.querySelector(
 const titleInput = profileAddModal.querySelector(".modal__input_type-title");
 const inputLink = profileAddModal.querySelector(".modal__input_type-link");
 
-//adding image preview
-const modalImageContainer = modalImage.querySelector(".modal__image-container");
-const modalImage = modalImageContainer.querySelector("#modal__image-preview");
-
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
@@ -78,8 +74,13 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
+  //adding image preview
+  const modalImage = document.querySelector("#modal__image-preview");
+  const modalImageContainer = modalImage.querySelector(
+    ".modal__image-container"
+  );
 
-  // adding image preview 
+  // adding image preview
   cardImageEl.addEventListener("click", () => {
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
