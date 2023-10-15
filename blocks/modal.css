@@ -37,18 +37,9 @@
     width: 430px;
 }
 
-.modal__close_button_preview {
-    border: none;
+.modal__image-container {
+    margin: auto;
     position: relative;
-    cursor: pointer;
-    top: -45px;
-    right: -45px;
-    background-image: url(../images/Close\ Icon.svg);
-    width: 40PX;
-    height: 40px;
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .modal__close {
@@ -68,6 +59,22 @@
 .modal__close:hover {
     opacity: 0.8;
 }
+
+.modal__close_button_preview {
+    display: flex;
+    border: none;
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    cursor: pointer;
+    background-image: url(../images/Close\ Icon.svg);
+    width: 40PX;
+    height: 40px;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 
 .modal_add_opened {
     visibility: visible;
@@ -134,6 +141,13 @@
     .modal__container {
         width: 282px;
         margin-top: 123px;
+    }
+
+    .modal__image-container {
+        display: flex;
+        justify-content: center;
+        width: 240px;
+        height: 299px;
     }
 
     .modal__close {
