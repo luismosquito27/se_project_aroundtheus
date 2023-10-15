@@ -162,6 +162,10 @@
         height: 299px;
     }
 
+    .modal__caption {
+        margin-left: 70px;
+    }
+
     .modal__close {
         height: 26px;
         margin-right: 10%;
