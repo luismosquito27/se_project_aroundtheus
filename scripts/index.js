@@ -74,6 +74,8 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
+  //adding image text caption
+  const modalCaption = document.querySelector(".modal__caption");
   // adding image preview
   const previewModal = document.querySelector("#modal__image-preview");
   const modalImageContainer = previewModal.querySelector(
@@ -89,7 +91,7 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     previewModalImage.src = cardData.link;
     previewModalImage.alt = cardData.name;
-    cardTitleEl.textContent = cardData.name;
+    modalCaption.textContent = cardData.name;
 
     openModal(modalImageContainer);
   });
