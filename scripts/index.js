@@ -81,8 +81,8 @@ function getCardElement(cardData) {
   );
   const previewModalImage = previewModal.querySelector(".modal__image");
   // close button for preview image
-  const previewModalCloseButton = modalImageContainer.querySelector(
-    "#modal-close-button"
+  const previewModalCloseButton = document.querySelector(
+    "#modal-close-button-preview"
   );
 
   // adding image preview
@@ -95,7 +95,8 @@ function getCardElement(cardData) {
   });
 
   previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModalCloseButton);
+    console.log("I've been clicked", previewModalCloseButton);
+    closeModal(modalImageContainer);
   });
 
   deleteButton.addEventListener("click", () => {

@@ -37,6 +37,20 @@
     width: 430px;
 }
 
+.modal__close_button_preview {
+    border: none;
+    position: relative;
+    cursor: pointer;
+    top: -45px;
+    right: -45px;
+    background-image: url(../images/Close\ Icon.svg);
+    width: 40PX;
+    height: 40px;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .modal__close {
     border: none;
     position: absolute;
@@ -134,5 +148,3 @@
         height: 46px;
         border-radius: 2px;
     }
-
-}
