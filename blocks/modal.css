@@ -61,7 +61,7 @@
     top: -45px;
     right: -45px;
     background-image: url(../images/Close\ Icon.svg);
-    width: 40PX;
+    width: 40px;
     height: 40px;
     background-color: transparent;
     background-size: contain;
@@ -80,7 +80,7 @@
     right: -45px;
     cursor: pointer;
     background-image: url(../images/Close\ Icon.svg);
-    width: 40PX;
+    width: 40px;
     height: 40px;
     background-color: transparent;
     background-size: contain;
@@ -113,7 +113,6 @@
     line-height: 17px;
     /* border line */
     display: flex;
-    line-height: 40px;
     border-width: 1px;
     font-family: 'Inter', Arial, 'Times New Roman';
 }
@@ -144,7 +143,6 @@
     border-right-style: hidden;
     border-top-style: hidden;
     width: 100%;
-    line-height: 40px;
     border-width: 1px;
 }
 
