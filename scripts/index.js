@@ -120,7 +120,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(profileAddModalCloseButton);
+  closeModal(profileModalCloseButton);
 }
 
 // adding card
