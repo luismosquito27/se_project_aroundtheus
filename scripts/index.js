@@ -153,7 +153,6 @@ function openModal(modal) {
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
-debugger;
 profileAddModalCloseButton.addEventListener("click", () => {
   closeModal(profileEditModal);
 });
