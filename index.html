@@ -79,7 +79,7 @@
     <!-- Add Modal -->
     <div class="modal" id="profile-add-modal">
         <div class="modal__add_profile modal__container">
-            <button type="button" class="modal__close" id="modal-close-button"></button>
+            <button type="button" class="modal__close" id="modal-add-close-button"></button>
             <form class="modal__form">
                 <h2 class="modal__heading">New Place</h2>
 
@@ -93,12 +93,12 @@
                 <!-- modal box content: 2 -->
 
                 <label class="modal__input-label">Image link *
-                    <input class="modal__input modal__input_type-link" type="text" id="About" name="url"
+                    <input class="modal__input modal__input_type-link" id="add-card-form" type="text" name="url"
                         placeholder="Image link" required />
                 </label>
                 <!-- modal button-->
 
-                <button type="submit" class="modal__input-button" id="modal-button">Create</button>
+                <button type="submit" class="modal__input-button" id="modal-submit-button">Create</button>
 
             </form>
 
@@ -108,10 +108,9 @@
     <!-- image popup -->
     <div class="modal" id="modal__image-preview">
         <div class="modal__image-container">
-            <p class="modal__caption" src="" alt=""></p>
+            <p class="modal__caption" src="#" alt="#"></p>
             <button type="button" class="modal__close_button_preview" id="modal-close-button-preview"></button>
-            <img class="modal__image" src="" alt=""></img>
-            </form>
+            <img class="modal__image" src="#" />
         </div>
     </div>
 
@@ -125,9 +124,9 @@
             </div>
         </li>
     </template>
-
     </li>
     </template>
+
 
     <script src="./scripts/index.js" defer></script>
 </body>

@@ -34,14 +34,14 @@ const initialCards = [
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileModalCloseButton = profileEditModal.querySelector(
-  "#modal-close-button"
+  "#modal-add-close-button"
 );
 
 // trash can
 const profileAddButton = document.querySelector("#profile-add-button");
 const profileAddModal = document.querySelector(".modal__add_profile");
 const profileAddCloseModal = profileAddModal.querySelector(
-  "#modal-close-button"
+  "#modal-add-close-button"
 );
 
 const cardsWrapEl = document.querySelector(".cards__list-content");
@@ -120,7 +120,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(profileModalCloseButton);
+  closeModal(profileAddModalCloseButton);
 }
 
 // adding card
