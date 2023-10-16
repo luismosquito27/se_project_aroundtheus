@@ -33,7 +33,7 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileAddModalCloseButton = profileEditModal.querySelector(
+const profileAddModalCloseButton = document.querySelector(
   "#modal-add-close-button"
 );
 
