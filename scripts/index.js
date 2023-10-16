@@ -140,11 +140,11 @@ modalFormButton.addEventListener("submit", () => {
 });
 
 function closeModal(modal) {
-  modal.classList.remove("modal--add-opened");
+  modal.classList.remove("modal_add-opened");
 }
 
 function openModal(modal) {
-  modal.classList.add("modal--add-opened");
+  modal.classList.add("modal_add-opened");
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
