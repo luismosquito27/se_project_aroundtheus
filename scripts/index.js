@@ -97,7 +97,6 @@ function getCardElement(cardData) {
   });
 
   previewModalCloseButton.addEventListener("click", () => {
-    console.log("I've been clicked", previewModalCloseButton);
     closeModal(modalImageContainer);
   });
 
@@ -140,11 +139,11 @@ modalFormButton.addEventListener("submit", () => {
 });
 
 function closeModal(modal) {
-  modal.classList.remove("modal_add-opened");
+  modal.classList.remove("modal_add_opened");
 }
 
 function openModal(modal) {
-  modal.classList.add("modal_add-opened");
+  modal.classList.add("modal_add_opened");
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
