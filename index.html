@@ -49,7 +49,7 @@
 
     <!-- Edit Modal -->
     <div class="modal" id="profile-edit-modal">
-        <div class="modal__add_opened modal__container">
+        <div class="modal__open modal__add_opened modal__container">
             <button type="button" class="modal__close" id="modal-close-button"></button>
             <form class=" modal__form">
                 <h2 class="modal__heading">Edit Modal</h2>
@@ -78,7 +78,7 @@
     </div>
     <!-- Add Modal -->
     <div class="modal" id="profile-add-modal">
-        <div class="modal__add_profile modal__container">
+        <div class="modal__add modal__add_profile modal__container">
             <button type="button" class="modal__close" id="modal-add-close-button"></button>
             <form class="modal__form">
                 <h2 class="modal__heading">New Place</h2>
@@ -86,8 +86,8 @@
                 <!-- modal box content: 1 -->
 
                 <label class="modal__input-label">Title*
-                    <input class="modal__input_type-title" type="text" id="add-card-form" placeholder="Title"
-                        required />
+                    <input class="modal__input modal__input_type-title" type="text" id="add-card-form"
+                        placeholder="Title" required />
                 </label>
 
                 <!-- modal box content: 2 -->
@@ -109,7 +109,8 @@
     <div class="modal" id="modal__image-preview">
         <div class="modal__image-container">
             <p class="modal__caption" src="" alt=""></p>
-            <button type="button" class="modal__close_button_preview" id="modal-close-button-preview"></button>
+            <button type="button" class="modal__preview modal__close_button_preview"
+                id="modal-close-button-preview"></button>
             <img class="modal__image" src="#" />
         </div>
     </div>
@@ -125,7 +126,7 @@
         </li>
         </li>
     </template>
-  
+
 
 
     <script src="./scripts/index.js" defer></script>
