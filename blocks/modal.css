@@ -72,7 +72,7 @@
     opacity: 0.8;
 }
 
-.modal__close_button_preview {
+.modal__close-button-preview {
     display: flex;
     border: none;
     position: absolute;
@@ -88,7 +88,7 @@
 }
 
 
-.modal_add_opened {
+.modal--add-opened {
     visibility: visible;
 }
 
