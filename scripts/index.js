@@ -33,16 +33,15 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileAddModalCloseButton = profileEditModal.querySelector(
-  "#modal-add-close-button"
+const modalCloseButton = document.querySelector("#modal-close-button");
+
+const profileAddModal = document.querySelector("#profile-add-modal");
+const profileAddModalCloseButton = profileAddModal.querySelector(
+  "#profile-modal-add-close-button"
 );
 
 // trash can
 const profileAddButton = document.querySelector("#profile-add-button");
-const profileAddModal = document.querySelector(".modal__add_profile");
-const profileAddCloseModal = profileAddModal.querySelector(
-  "#modal-add-close-button"
-);
 
 const cardsWrapEl = document.querySelector(".cards__list-content");
 const profileAddModalForm = profileAddModal.querySelector(".modal__form");
@@ -149,10 +148,11 @@ function openModal(modal) {
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 // edit modal
-profileEditButton.addEventListener("click", () => {
+modalCloseButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
-profileAddModalCloseButton.addEventListener("click", () => {
+
+modalCloseButton.addEventListener("click", () => {
   closeModal(profileEditModal);
 });
 
@@ -162,7 +162,7 @@ profileEditForm.addEventListener("submit", (e) => {
 
 /////////           ////////////          ////////
 // add modal
-profileAddCloseModal.addEventListener("click", () => {
+profileAddModalCloseButton.addEventListener("click", () => {
   closeModal(profileAddModal);
 });
 
