@@ -148,7 +148,7 @@ function openModal(modal) {
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 // edit modal
-modalCloseButton.addEventListener("click", () => {
+profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
