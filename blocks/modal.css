@@ -9,6 +9,10 @@
     display: flex;
     padding: 0 19px;
     visibility: hidden;
+    /* smooth transition */
+    transition: visibility 0s 0.6s;
+    opacity: 1s;
+    transition-timing-function: ease-in;
 
 }
 
@@ -86,19 +90,16 @@
     background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
-    /* smooth transition */
-    transition: visibility 0s -1s;
-    opacity: 1s;
-    transition-timing-function: ease-in;
-
 }
 
 
 .modal_add_opened {
     visibility: visible;
     /* smooth transition */
-    transition: visibility 0s;
-    opacity: 0.6s;
+    transition: visibility 0s 0.6s;
+    opacity: 1s;
+    transition-timing-function: ease-in;
+
 }
 
 .modal__input-label {
