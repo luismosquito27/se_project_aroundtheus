@@ -114,11 +114,15 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+/* ---------------------------- handlers -------------------------- */
+/* ---------------------------- handlers ----------------------------- */
+
+//edit modal
 function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(profileAddModalCloseButton);
+  closeModal(profileEditModal);
 }
 
 // adding card
@@ -131,7 +135,12 @@ function handleAddModalSubmit(e) {
   const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
   closeModal(profileAddModal);
+  titleInput.value = "";
+  inputLink.value = "";
 }
+
+/* ---------------------------- Event Listeners -------------------------- */
+/* ---------------------------- Event Listeners  ----------------------------- */
 
 modalFormButton.addEventListener("submit", () => {
   closeModal(profileAddModal);
@@ -145,11 +154,11 @@ function openModal(modal) {
   modal.classList.add("modal_add_opened");
 }
 
-/* ---------------------------- Event Listeners -------------------------- */
-/* ---------------------------- Event Listeners  ----------------------------- */
 // edit modal
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
+  nameInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
 });
 
 modalCloseButton.addEventListener("click", () => {
@@ -160,7 +169,6 @@ profileEditForm.addEventListener("submit", (e) => {
   handleProfileFormSubmit(e);
 });
 
-/////////           ////////////          ////////
 // add modal
 profileAddModalCloseButton.addEventListener("click", () => {
   closeModal(profileAddModal);

@@ -42,6 +42,9 @@
   border-style: none;
   grid-template-columns: repeat(auto-fit, 100px);
   cursor: pointer;
+  /* smooth transition */
+  transition: visibility 0s;
+  opacity: 0.6s;
 }
 
 .card__like-button:hover {
@@ -65,6 +68,9 @@
   border-right: hidden;
   border-bottom: hidden;
   visibility: visible;
+  /* smooth transition */
+  transition: visibility 0s;
+  opacity: 0.6s;
 }
 
 .card__delete-button:hover {

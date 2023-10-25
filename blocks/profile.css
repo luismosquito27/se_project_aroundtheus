@@ -44,6 +44,9 @@
     padding: 0;
     margin: 0;
     margin-left: 18px;
+    /* smooth transition */
+    transition: visibility 0s;
+    opacity: 0.6s;
 }
 
 .profile__edit-button:hover {
@@ -59,6 +62,9 @@
     cursor: pointer;
     background-size: 22px;
     margin-left: auto;
+    /* smooth transition */
+    transition: visibility 0s;
+    opacity: 0.6s;
 }
 
 .profile__add-button:hover {
