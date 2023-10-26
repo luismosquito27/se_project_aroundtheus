@@ -12,8 +12,14 @@
     /* smooth transition */
     transition: visibility 0s 0.6s, opacity 0.6s;
     opacity: 0;
-
 }
+
+.modal__preview {
+    visibility: visible;
+    display: flex;
+}
+
+
 
 .modal__heading {
     color: black;
