@@ -135,9 +135,8 @@ function handleAddModalSubmit(e) {
   closeModal(addCardModal);
   titleInput.value = "";
   inputLink.value = "";
-  evt.target.reset();
+  e.target.reset();
 }
-
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
