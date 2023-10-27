@@ -77,10 +77,7 @@ function getCardElement(cardData) {
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
   // adding image preview
-  const previewModal = document.querySelector("#modal__image-preview");
-  const modalImageContainer = previewModal.querySelector(
-    ".modal__image-container"
-  );
+  const previewModal = document.querySelector(".modal__preview");
   const previewModalImage = previewModal.querySelector(".modal__image");
   // close button for preview image
   const previewModalCloseButton = document.querySelector(
@@ -93,11 +90,11 @@ function getCardElement(cardData) {
     previewModalImage.alt = cardData.name;
     modalCaption.textContent = cardData.name;
 
-    openModal(modalImageContainer);
+    openModal(previewModal);
   });
 
   previewModalCloseButton.addEventListener("click", () => {
-    closeModal(modalImageContainer);
+    closeModal(previewModal);
   });
 
   deleteButton.addEventListener("click", () => {
