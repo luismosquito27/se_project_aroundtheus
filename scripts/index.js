@@ -34,7 +34,7 @@ const initialCards = [
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 //adding image text caption
-const modalCaption = document.querySelector(".modal__caption");
+const modalCaption = document.querySelector(".modal_caption");
 const profileCloseButton = document.querySelector("#modal-close-button");
 
 const addCardModal = document.querySelector("#profile-add-modal");
@@ -78,7 +78,7 @@ function getCardElement(cardData) {
 
   // adding image preview
   const previewModal = document.querySelector("#modal-image-preview");
-  const previewModalImage = previewModal.querySelector(".modal__image");
+  const previewModalImage = previewModal.querySelector(".modal_image");
   // close button for preview image
   const previewModalCloseButton = document.querySelector(
     "#modal-close-button-preview"
