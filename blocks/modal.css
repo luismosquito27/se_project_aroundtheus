@@ -16,7 +16,7 @@
 }
 
 /* ---- image preview modal  ---- */
-.modal_image-preview {
+.modal__image-preview {
     visibility: hidden;
     display: flex;
     top: 0;
@@ -56,13 +56,13 @@
     width: 430px;
 }
 
-.modal_image-container {
+.modal__image-container {
     margin: auto;
     position: relative;
 }
 
 
-.modal_caption {
+.modal__caption {
     position: absolute;
     bottom: -30px;
     font-family: 'Inter', Arial, 'Times New Roman';
@@ -74,7 +74,7 @@
 
 }
 
-.modal_close {
+.modal__close {
     border: none;
     position: absolute;
     cursor: pointer;
@@ -92,7 +92,7 @@
     opacity: 0.8;
 }
 
-.modal_close-button-preview {
+.modal__close-button-preview {
     display: flex;
     border: none;
     position: absolute;
@@ -167,7 +167,7 @@
     border-width: 1px;
 }
 
-.modal_image {
+.modal__image {
     max-width: 800px;
 }
 
@@ -178,18 +178,18 @@
         margin-top: 123px;
     }
 
-    .modal_image-container {
+    .modal__image-container {
         display: flex;
         justify-content: center;
         width: 240px;
         height: 299px;
     }
 
-    .modal_caption {
+    .modal__caption {
         margin-left: 70px;
     }
 
-    .modal_close {
+    .modal__close {
         height: 26px;
         margin-right: 10%;
         margin-bottom: 13px;
@@ -202,7 +202,7 @@
         border-radius: 2px;
     }
 
-    .modal_close-button-preview {
+    .modal__close-button-preview {
         width: 30px;
         height: 30px;
         left: 300px;
