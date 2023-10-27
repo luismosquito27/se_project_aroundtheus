@@ -77,7 +77,7 @@ function getCardElement(cardData) {
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
   // adding image preview
-  const previewModal = document.querySelector(".modal__preview");
+  const previewModal = document.querySelector("#modal-image-preview");
   const previewModalImage = previewModal.querySelector(".modal__image");
   // close button for preview image
   const previewModalCloseButton = document.querySelector(
