@@ -16,7 +16,7 @@
 }
 
 /* ---- image preview modal  ---- */
-.modal__image-preview {
+.modal_image-preview {
     visibility: hidden;
     display: flex;
     top: 0;
