@@ -16,7 +16,7 @@
 }
 
 /* ---- image preview modal  ---- */
-.modal__image-preview {
+.modal_image_preview {
     visibility: hidden;
     display: flex;
     top: 0;
@@ -38,7 +38,7 @@
     margin-bottom: 34px;
 }
 
-.modal__opened {
+.modal_opened {
     visibility: visible;
     transition: ease-in-out 1s;
     opacity: 1;

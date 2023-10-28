@@ -32,6 +32,7 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
+// adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");
 //adding image text caption
 const modalCaption = document.querySelector(".modal__caption");
@@ -68,6 +69,14 @@ const cardTemplate =
 
 /* ---------------------------- functions -------------------------- */
 /* ---------------------------- functions ----------------------------- */
+const previewModal = document.querySelector("#modal-image-preview");
+const previewModalCloseButton = previewModal.querySelector(
+  "#modal-close-button-preview"
+);
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -76,13 +85,7 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  // adding image preview
-  const previewModal = document.querySelector("#modal-image-preview");
-  const previewModalImage = previewModal.querySelector(".modal__image");
-  // close button for preview image
-  const previewModalCloseButton = document.querySelector(
-    "#modal-close-button-preview"
-  );
+  const previewModalImage = document.querySelector(".modal__image");
 
   // adding image preview
   cardImageEl.addEventListener("click", () => {
@@ -93,14 +96,9 @@ function getCardElement(cardData) {
     openModal(previewModal);
   });
 
-  previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
-  });
-
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
-
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
@@ -141,11 +139,11 @@ function handleAddModalSubmit(e) {
 /* ---------------------------- Event Listeners  ----------------------------- */
 
 function closeModal(modal) {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
 }
 
 function openModal(modal) {
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
 }
 
 // edit modal
