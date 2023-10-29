@@ -131,8 +131,6 @@ function handleAddModalSubmit(e) {
   const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
   closeModal(addCardModal);
-  titleInput.value = "";
-  inputLink.value = "";
   e.target.reset();
 }
 /* ---------------------------- Event Listeners -------------------------- */
