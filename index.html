@@ -58,8 +58,12 @@
 
                 <label class="modal__in
                 ut-label">Name*
-                    <input class="modal__input modal__input-title" type="text" id="Name" placeholder="Name" required />
+                    <input class="modal__input modal__input-title" type="text" minlength="2" maxlength="40"
+                        id="owner-name" placeholder="Name" required />
+                    <!-- error message -->
+                    <span class="popup__error" id="owners-name-error">Error Message</span>
                 </label>
+                <button class="button popup__button" type="submit"></button>
 
                 <!-- modal box content: 2 -->
 
@@ -88,6 +92,8 @@
                 <label class="modal__input-label">Title*
                     <input class="modal__input modal__input_type-title" type="text" id="add-card-form"
                         placeholder="Title" required />
+                    <span class="popup__error" id="card-name-error"></span>
+
                 </label>
 
                 <!-- modal box content: 2 -->
@@ -95,6 +101,7 @@
                 <label class="modal__input-label">Image link *
                     <input class="modal__input modal__input_type-link" id="link-form" type="text" name="url"
                         placeholder="Image link" required />
+                        <span class="popup__error" id="card-link-error"></span>
                 </label>
                 <!-- modal button-->
 
@@ -128,6 +135,7 @@
 
 
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
 </body>
 
 </html>
