@@ -1,6 +1,7 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
+//error class
 function showInputError({ formElement, inputEl, inputErrorClass, errorClass }) {
   const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.add(inputErrorClass);
@@ -11,9 +12,9 @@ function showInputError({ formElement, inputEl, inputErrorClass, errorClass }) {
 
 function checkInputValidity(formElement, inputEl, options) {
   if (!inputEl.validity.valid) {
-    showInputError(formElement, inputEl, options);
+    showInputError(formElement, inputEl, options, errorMessageEl);
   } else {
-    hideInputError(formElement, inputEl, options);
+    hideInputError(formElement, inputEl, options, errorMessageEl);
   }
 }
 
@@ -75,7 +76,7 @@ const enableValidation = (options) => {
 const config = {
   formSelector: [".profile-form", ".add-form"],
   inputSelector: ".modal__input",
-  submitButtonSelector: ".popup__button",
+  submitButtonSelector: "popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error",
