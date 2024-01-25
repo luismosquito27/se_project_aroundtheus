@@ -12,10 +12,16 @@ function showInputError({ formElement, inputEl, inputErrorClass, errorClass }) {
 
 function checkInputValidity(formElement, inputEl, options) {
   if (!inputEl.validity.valid) {
-    showInputError(formElement, inputEl, options, errorMessageEl);
+    showInputError(formElement, inputEl, options);
   } else {
-    hideInputError(formElement, inputEl, options, errorMessageEl);
+    hideInputError(formElement, inputEl, options);
   }
+}
+
+// hide the error message
+function hideInputError(errorMessageEl) {
+  errorMessageEl.inputEl.classList.remove(inputErrorClass);
+  errorMessageEl.textContenT = "";
 }
 
 function hasInvalidInput(inputList) {
@@ -79,7 +85,7 @@ const config = {
   submitButtonSelector: "popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error",
+  errorClass: ".popup__error",
 };
 
 enableValidation(config);
