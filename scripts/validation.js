@@ -2,11 +2,11 @@
 // pass all the settings on call
 
 //error class
-function showInputError({ formElement, inputEl, inputErrorClass, errorClass }) {
+function showInputError({ formElement, inputEl, inputErrorClass }) {
   const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
-  errorMessageEl.classList.add(errorClass);
+  errorMessageEl.classList.remove(errorClass);
   console.log(errorMessageEl);
 }
 
@@ -19,9 +19,13 @@ function checkInputValidity(formElement, inputEl, options) {
 }
 
 // hide the error message
-function hideInputError(errorMessageEl) {
-  errorMessageEl.inputEl.classList.remove(inputErrorClass);
-  errorMessageEl.textContenT = "";
+function hideInputError({ formElement, inputErrorClass, errorClass }) {
+  const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
+  inputEl.classList.remove(formElement);
+  errorMessageEl.textContent = "";
+  inputErrorClass.remove;
+  errorMessageEl.classList.remove(errorClass);
+  console.log(formElement);
 }
 
 function hasInvalidInput(inputList) {
@@ -56,9 +60,7 @@ function setEventListeners(formElement, options) {
 }
 
 const enableValidation = (options) => {
-  const formElements = [
-    ...document.querySelectorAll("profile-form", "add-form"),
-  ];
+  const formElements = [...document.querySelectorAll(options.formSelector)];
   formElements.forEach((formElement) => {
     formElement.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -80,12 +82,12 @@ const enableValidation = (options) => {
 };
 
 const config = {
-  formSelector: [".profile-form", ".add-form"],
-  inputSelector: ".modal__input",
+  formSelector: "modal__form",
+  inputSelector: "modal__input",
   submitButtonSelector: "popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
-  errorClass: ".popup__error",
+  errorClass: "modal__error",
 };
 
 enableValidation(config);

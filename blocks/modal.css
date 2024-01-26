@@ -171,6 +171,12 @@
     max-width: 800px;
 }
 
+.modal__error {
+    height: 17px;
+    border: 1px;
+    color: rgba(255, 0, 0, 1);
+}
+
 @media only screen and (max-width: 880px) {
 
     .modal__container {
