@@ -2,16 +2,22 @@
 // pass all the settings on call
 
 //error class
-function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
+function showInputError(
+  formElement,
+  inputEl,
+  { inputErrorClass, errorClass, modalDescriptionError }
+) {
   const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
-  const getElementBy = formElement.querySelectorAll(`$input[type=text]`);
+  const errorMessageEls = formElement.querySelectorAll(
+    `${inputEl.id}[type=text]`
+  );
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.remove(errorClass);
   console.log(errorMessageEl);
 }
 
-function checkInputValidity(formElement, inputEl, options) {
+function checkInputValidity(formElement, inputEl, options,) {
   if (!inputEl.validity.valid) {
     showInputError(formElement, inputEl, options);
   } else {
@@ -23,9 +29,10 @@ function checkInputValidity(formElement, inputEl, options) {
 function hideInputError(
   formElement,
   inputEl,
-  { inputErrorClass, errorClass, aboutError }
+  { inputErrorClass, errorClass, aboutError, modalDescriptionError }
 ) {
   const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
+
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.classList.remove(
     errorClass,
