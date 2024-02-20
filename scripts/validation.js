@@ -2,8 +2,9 @@
 // pass all the settings on call
 
 //error class
-function showInputError({ formElement, inputEl, inputErrorClass }) {
+function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
+  const getElementBy = formElement.querySelectorAll(`$input[type=text]`);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.remove(errorClass);
@@ -19,13 +20,19 @@ function checkInputValidity(formElement, inputEl, options) {
 }
 
 // hide the error message
-function hideInputError({ formElement, inputErrorClass, errorClass }) {
+function hideInputError(
+  formElement,
+  inputEl,
+  { inputErrorClass, errorClass, aboutError }
+) {
   const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.remove(formElement);
-  errorMessageEl.textContent = "";
-  inputErrorClass.remove;
-  errorMessageEl.classList.remove(errorClass);
-  console.log(formElement);
+  inputEl.classList.remove(inputErrorClass);
+  errorMessageEl.classList.remove(
+    errorClass,
+    aboutError,
+    modalDescriptionError
+  );
+  console.log(inputErrorClass);
 }
 
 function hasInvalidInput(inputList) {
@@ -50,7 +57,6 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputEls = [...formElement.querySelectorAll(inputSelector)];
-  const submitButton = formElement.querySelector(".popup__button");
 
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
@@ -82,12 +88,14 @@ const enableValidation = (options) => {
 };
 
 const config = {
-  formSelector: "modal__form",
-  inputSelector: "modal__input",
-  submitButtonSelector: "popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  inputErrorClass: "modal__description_type_error",
   errorClass: "modal__error",
 };
 
 enableValidation(config);
+
+// step: 2
+// submitButtonSelector: "popup__button",
+//   inactiveButtonClass: "popup__button_disabled",

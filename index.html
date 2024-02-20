@@ -60,16 +60,20 @@
                     <input class="modal__input modal__input-title" type="text" minlength="2" maxlength="40"
                         id="owner-name" placeholder="Name" required />
                     <!-- error message -->
-                    <span class="popup__error" id="owners-name-error"></span>
+                    <span class="modal__error modal__input_type_error" id="owner-name-error">Please fill out this
+                        field.</span>
+
                 </label>
 
 
                 <!-- modal box content: 2 -->
 
                 <label class="modal__input-label">About *
-                    <input class="modal__input modal__input-description" type="text" id="About"
-                        placeholder="Enter description" required />
-                    <span class="popup__error" id="popup__input_type_error"></span>
+                    <input class="modal__input modal__input-description" type="text" id="about" minlength="2"
+                        maxlength="200" placeholder="Enter description" required />
+                    <span class="modal__error modal__description_type_error" id="modal-button-error">Please fill out
+                        this
+                        field.</span>
                 </label>
                 <!-- modal button-->
 
@@ -90,9 +94,9 @@
                 <!-- modal box content: 1 -->
 
                 <label class="modal__input-label">Title*
-                    <input class="modal__input modal__input_type-title" type="text" id="add-card-form"
+                    <input class="modal__input modal__input_type-title" type="text" id="add-card-error"
                         placeholder="Title" required />
-                    <span class="modal__error" id="popup__input_type_error"></span>
+                    <span class="modal__error" id="add-card-form-error"></span>
 
                 </label>
 
@@ -101,7 +105,7 @@
                 <label class="modal__input-label">Image link *
                     <input class="modal__input modal__input_type-link" id="link-form" type="text" name="url"
                         placeholder="Image link" required />
-                    <span class="modal__error" id="card-link-error"></span>
+                    <span class="modal__error" id="link-form-error"></span>
                 </label>
                 <!-- modal button-->
 
