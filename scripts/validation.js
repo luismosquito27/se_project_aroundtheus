@@ -1,23 +1,15 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-//error class
-function showInputError(
-  formElement,
-  inputEl,
-  { inputErrorClass, errorClass, modalDescriptionError }
-) {
-  const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
-  const errorMessageEls = formElement.querySelectorAll(
-    `${inputEl.id}[type=text]`
-  );
+//error class for edit modal
+function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
+  const errorElementId = `#${inputEl.id}-error`;
+  const errorMessageEl = formElement.querySelector(errorElementId);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.remove(errorClass);
-  console.log(errorMessageEl);
 }
-
-function checkInputValidity(formElement, inputEl, options,) {
+function checkInputValidity(formElement, inputEl, options) {
   if (!inputEl.validity.valid) {
     showInputError(formElement, inputEl, options);
   } else {
@@ -26,19 +18,12 @@ function checkInputValidity(formElement, inputEl, options,) {
 }
 
 // hide the error message
-function hideInputError(
-  formElement,
-  inputEl,
-  { inputErrorClass, errorClass, aboutError, modalDescriptionError }
-) {
-  const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
+function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
+  const errorElementId = `#${inputEl.id}-error`;
+  const errorMessageEl = formElement.querySelector(errorElementId);
 
   inputEl.classList.remove(inputErrorClass);
-  errorMessageEl.classList.remove(
-    errorClass,
-    aboutError,
-    modalDescriptionError
-  );
+  errorMessageEl.classList.remove(errorClass);
   console.log(inputErrorClass);
 }
 
@@ -47,6 +32,14 @@ function hasInvalidInput(inputList) {
 }
 
 // disableButton
+function inactiveButtonClass(modalDisabled) {
+  if ($("#error-msg").hasInvalidInput("hide")) {
+    document.addInputButton(modalDisabled)[0].disabled = false;
+  } else {
+    console.log("false");
+    document.addInputButton(modalDisabled)[0].disabled = true;
+  }
+}
 
 // enableButton
 
@@ -81,11 +74,6 @@ const enableValidation = (options) => {
     console.log(formElements);
 
     setEventListeners(formElement, options);
-    // look for all inputs inside form
-    // loop thru all the inputs to see if all are valid
-    // if input is not valid
-    // we want to grab the validation msg
-    // add error class to input
     // display error msg
     // disable button
     // of all inputs are valid
@@ -97,12 +85,12 @@ const enableValidation = (options) => {
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  inputErrorClass: "modal__description_type_error",
-  errorClass: "modal__error",
+  inputErrorClass: ".modal__false",
+  errorClass: ".modal__error",
+  inactiveButtonClass: ".modal__disabled",
 };
 
 enableValidation(config);
 
-// step: 2
+// step 3:
 // submitButtonSelector: "popup__button",
-//   inactiveButtonClass: "popup__button_disabled",

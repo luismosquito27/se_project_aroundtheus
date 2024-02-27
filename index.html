@@ -60,8 +60,7 @@
                     <input class="modal__input modal__input-title" type="text" minlength="2" maxlength="40"
                         id="owner-name" placeholder="Name" required />
                     <!-- error message -->
-                    <span class="modal__error modal__input_type_error" id="owner-name-error">Please fill out this
-                        field.</span>
+                    <span class="modal__error modal__title_error" id="owner-name-error"></span>
 
                 </label>
 
@@ -71,13 +70,14 @@
                 <label class="modal__input-label">About *
                     <input class="modal__input modal__input-description" type="text" id="about" minlength="2"
                         maxlength="200" placeholder="Enter description" required />
-                    <span class="modal__error modal__description_type_error" id="modal-button-error">Please fill out
-                        this
-                        field.</span>
+                    <span class="modal__error modal__description_error" id="about-error"></span>
                 </label>
+
+
                 <!-- modal button-->
 
                 <button type="submit" class="modal__input-button" id="modal-button">Save</button>
+                <span class="modal__disabled modal__button_disabled" id="modal-disabled"></span>
 
             </form>
 
@@ -91,21 +91,24 @@
             <form class="modal__form" id="add-form">
                 <h3 class="modal__heading">New Place</h3>
 
+
                 <!-- modal box content: 1 -->
 
                 <label class="modal__input-label">Title*
-                    <input class="modal__input modal__input_type-title" type="text" id="add-card-error"
-                        placeholder="Title" required />
-                    <span class="modal__error" id="add-card-form-error"></span>
+                    <input class="modal__input modal__input_type-title" type="text" id="add-title" minlength="1"
+                        maxlength="30" placeholder="Title" required />
+                    <span class="modal__error" id="add-title-error"></span>
 
                 </label>
+
+
 
                 <!-- modal box content: 2 -->
 
                 <label class="modal__input-label">Image link *
-                    <input class="modal__input modal__input_type-link" id="link-form" type="text" name="url"
+                    <input class="modal__input modal__input_type-link" id="link-type" type="text" name="url"
                         placeholder="Image link" required />
-                    <span class="modal__error" id="link-form-error"></span>
+                    <span class="modal__error modal__link_error" id="link-type-error"></span>
                 </label>
                 <!-- modal button-->
 
