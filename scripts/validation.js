@@ -32,13 +32,16 @@ function hasInvalidInput(inputList) {
 }
 
 // disableButton
-function inactiveButtonClass(modalDisabled) {
-  if ($("#error-msg").hasInvalidInput("hide")) {
-    document.addInputButton(modalDisabled)[0].disabled = false;
-  } else {
-    console.log("false");
-    document.addInputButton(modalDisabled)[0].disabled = true;
+function toggleButtonState(inputEls, submitButton) {
+  const isFormInvalid = hasInvalidInput(inputEls);
+
+  if (isFormInvalid) {
+    submitButton.classList.add("modal__disabled");
+    submitButton.disabled = true;
+    return;
   }
+  submitButton.classList.add("modal__disabled");
+  submitButton.disabled = false;
 }
 
 // enableButton
