@@ -6,5 +6,6 @@
         "Latemar",
         "Popop",
         "Vanoise"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

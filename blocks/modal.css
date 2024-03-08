@@ -171,11 +171,18 @@
     max-width: 800px;
 }
 
+/* //validation.js section //  */
+
 .modal__error {
     height: 17px;
     border: 1px;
     color: rgba(255, 0, 0, 1);
 }
+
+/* .modal__input-button_disabled { 
+
+} */
+
 
 @media only screen and (max-width: 880px) {
 
