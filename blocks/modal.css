@@ -179,9 +179,10 @@
     color: rgba(255, 0, 0, 1);
 }
 
-/* .modal__input-button_disabled { 
-
-} */
+.modal__disabled:disabled {
+    visibility: hidden;
+    cursor: not-allowed;
+}
 
 
 @media only screen and (max-width: 880px) {
