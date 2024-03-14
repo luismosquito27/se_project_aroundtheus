@@ -45,7 +45,7 @@ function setEventListeners(formElement, options) {
   });
 }
 // calling the disable button
-function toggleButtonState(formElement, inputEls, options, errorClass) {
+function toggleButtonState(formElement, inputEls, options) {
   const button = formElement.querySelector(".modal__input-button");
   const hasValidInput = inputEls.every((inputEl) =>
     checkInputValidity(formElement, inputEl, options.inactiveButtonClass)
@@ -63,19 +63,24 @@ const enableValidation = (options) => {
     console.log(formElements);
 
     setEventListeners(formElement, options);
-    // of all inputs are valid
-    // enable button
-    // reset error messages
   });
 };
+
+//enable 
+
+
+// calling the enable button
+
 
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   inputErrorClass: ".modal__false",
   errorClass: ".modal__error",
+  //disable class
   inactiveButtonClass: ".modal__disabled",
+  //enable class
+  submitButtonSelector: ".modal__submit",
 };
 
 enableValidation(config);
-// submitButtonSelector: ".modal__submit",
