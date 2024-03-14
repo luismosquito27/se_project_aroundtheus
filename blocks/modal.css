@@ -180,8 +180,9 @@
 }
 
 .modal__disabled:disabled {
-    visibility: hidden;
-    cursor: not-allowed;
+    background-color: white;
+    border: 1px solid #ccc;
+    color: gray;
 }
 
 

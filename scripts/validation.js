@@ -45,7 +45,7 @@ function setEventListeners(formElement, options) {
   });
 }
 // calling the disable button
-function toggleButtonState(formElement, inputEls, options) {
+function toggleButtonState(formElement, inputEls, options, errorClass) {
   const button = formElement.querySelector(".modal__input-button");
   const hasValidInput = inputEls.every((inputEl) =>
     checkInputValidity(formElement, inputEl, options.inactiveButtonClass)
@@ -78,7 +78,4 @@ const config = {
 };
 
 enableValidation(config);
-
-// step 3:
-// submitButtonSelector: "popup__button",
-// add it to every submit ??? ^^^^^^^^^^
+// submitButtonSelector: ".modal__submit",
