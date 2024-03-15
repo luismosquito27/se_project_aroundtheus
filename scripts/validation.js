@@ -44,14 +44,18 @@ function setEventListeners(formElement, options) {
     });
   });
 }
-// calling the disable button
+// calling the disabled / enabled button
 function toggleButtonState(formElement, inputEls, options) {
+  console.log(formElement, inputEls, options);
   const button = formElement.querySelector(".modal__input-button");
   const hasValidInput = inputEls.every((inputEl) =>
     checkInputValidity(formElement, inputEl, options.inactiveButtonClass)
   );
-  if (hasValidInput) button.classList.remove(options.inactiveButtonClass);
-  button.classList.add((options.inactiveButtonClass = !hasValidInput));
+  if (hasValidInput) {
+    button.classList.remove(options.inactiveButtonClass);
+  } else {
+    button.classList.add(options.inactiveButtonClass);
+  }
 }
 
 const enableValidation = (options) => {
@@ -66,19 +70,13 @@ const enableValidation = (options) => {
   });
 };
 
-//enable 
-
-
-// calling the enable button
-
-
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   inputErrorClass: ".modal__false",
   errorClass: ".modal__error",
   //disable class
-  inactiveButtonClass: ".modal__disabled",
+  inactiveButtonClass: "modal__disabled",
   //enable class
   submitButtonSelector: ".modal__submit",
 };

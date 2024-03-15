@@ -179,7 +179,7 @@
     color: rgba(255, 0, 0, 1);
 }
 
-.modal__disabled:disabled {
+.modal__disabled {
     background-color: white;
     border: 1px solid #ccc;
     color: gray;
