@@ -1,5 +1,17 @@
-// enabling validation by calling enableValidation()
-// pass all the settings on call
+// popup class
+const submitButtonSelector = document.querySelector(".modal__popup_selector");
+const button = document.querySelector(submitButtonSelector);
+const modal = document.querySelector(".modal");
+
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) {
+    // add or remove
+    modal.classList.remove("modal_open");
+  } else {
+    modal.classList.add("modal__close");
+  }
+  console.log("click");
+});
 
 //error class for edit modal
 function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
@@ -77,8 +89,8 @@ const config = {
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
-  //enable class
-  submitButtonSelector: ".modal__submit",
+  // popup class
+  submitButtonSelector: ".modal__popup_selector",
 };
 
 enableValidation(config);

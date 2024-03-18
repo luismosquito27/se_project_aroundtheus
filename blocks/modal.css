@@ -179,11 +179,15 @@
     color: rgba(255, 0, 0, 1);
 }
 
-/* modal disabled button */ 
+/* modal disabled button */
 .modal__disabled {
     background-color: white;
     border: 1px solid #ccc;
     color: gray;
+}
+
+.modal__popup_selector:target {
+    display: block;
 }
 
 
