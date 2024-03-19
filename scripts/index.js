@@ -136,12 +136,27 @@ function handleAddModalSubmit(e) {
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-
+//closing all modals
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("click", (event) => {
+    if (Array.from(event.target.classList).includes("modal_opened")) {
+      closeModal(modal);
+    }
+  });
+}
+
+//ESC key
+handleEscKey = (e) => {
+  if (e.key === "Escape") {
+    modal.forEach((modal) => {
+      closeModal(modal);
+    });
+  }
+};
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 // edit modal

@@ -1,15 +1,3 @@
-// all the modals
-const modal = document.querySelectorAll(".modal");
-// closing all the popups
-modal.addEventListener("click", function (e) {
-  const submitButtonSelector = document.querySelector(".modal__popup_selector");
-  if (modal.classList.contains(".modal") || modal.forEach(modal)) {
-    modal.classList.remove("modal_open");
-  } else {
-    modal.classList.add("modal_open");
-  }
-  console.log("click");
-});
 
 //error class for edit modal
 function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
@@ -87,8 +75,8 @@ const config = {
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
-  // popup class
-  submitButtonSelector: ".modal__popup_selector",
+ 
+  // submitButtonSelector: 
 };
 
 enableValidation(config);
