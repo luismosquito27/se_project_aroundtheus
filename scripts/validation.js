@@ -1,14 +1,8 @@
-// popup class
-const submitButtonSelector = document.querySelector(".modal__popup_selector");
-const button = document.querySelector(submitButtonSelector);
-const modal = document.querySelector(".modal");
-
+ 
 modal.addEventListener("click", function (e) {
-  if (e.target === modal) {
-    // add or remove
+  if (modal.classList.contains(".modal") || ... ) { }
     modal.classList.remove("modal_open");
-  } else {
-    modal.classList.add("modal__close");
+    // modal.classList.add("modal__close");
   }
   console.log("click");
 });

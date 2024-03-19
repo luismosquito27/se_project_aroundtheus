@@ -32,6 +32,12 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
+// popup class selector 
+const submitButtonSelector = document.querySelector(".modal__popup_selector");
+const button = document.querySelector(submitButtonSelector);
+// all the modals
+const modal = document.querySelectorAll(".modal"); 
+
 // adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");
 //adding image text caption
