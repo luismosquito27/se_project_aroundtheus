@@ -1,8 +1,12 @@
- 
+// all the modals
+const modal = document.querySelectorAll(".modal");
+// closing all the popups
 modal.addEventListener("click", function (e) {
-  if (modal.classList.contains(".modal") || ... ) { }
+  const submitButtonSelector = document.querySelector(".modal__popup_selector");
+  if (modal.classList.contains(".modal") || modal.forEach(modal)) {
     modal.classList.remove("modal_open");
-    // modal.classList.add("modal__close");
+  } else {
+    modal.classList.add("modal_open");
   }
   console.log("click");
 });
