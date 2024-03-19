@@ -147,13 +147,13 @@ function openModal(modal) {
 }
 
 //ESC key
-handleEscKey = (e) => {
-  if (e.key === "Escape") {
-    modal.forEach((modal) => {
+function closeOnEsc(modal) {
+  modal.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
       closeModal(modal);
-    });
-  }
-};
+    }
+  });
+}
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");

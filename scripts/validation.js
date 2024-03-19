@@ -1,12 +1,23 @@
-
 //error class for edit modal
-function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
+function showInputError(
+  formElement,
+  inputEl,
+  { inputErrorClass, errorClass },
+  linkUrl
+) {
   const errorElementId = `#${inputEl.id}-error`;
   const errorMessageEl = formElement.querySelector(errorElementId);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.remove(errorClass);
+
+  const modalLink = document.querySelector(inputErrorClass);
+  if (linkUrl) {
+    modalLink.textContent = linkUrl;
+    modalLink.textContent = "click here";
+  }
 }
+
 function checkInputValidity(formElement, inputEl, options) {
   if (!inputEl.validity.valid) {
     showInputError(formElement, inputEl, options);
@@ -75,8 +86,8 @@ const config = {
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
- 
-  // submitButtonSelector: 
+
+  // submitButtonSelector:
 };
 
 enableValidation(config);
