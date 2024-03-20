@@ -136,7 +136,7 @@ function handleAddModalSubmit(e) {
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
-//closing all modals
+//closing all modals outside the overlay
 function openModal(modal) {
   modal.classList.add("modal_opened");
   modal.addEventListener("click", (event) => {
@@ -144,19 +144,22 @@ function openModal(modal) {
       closeModal(modal);
     }
   });
+  // add to event listener in open
+  document.addEventListener("keydown", closeOnEsc);
 }
 
 //ESC key
-function closeOnEsc(modal) {
-  modal.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeModal(modal);
-    }
-  });
+function closeOnEsc(event) {
+  if (event.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closeModal(modal);
+  }
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  // remove from event listener in open
+  document.removeEventListener("keydown", closeOnEsc);
 }
 
 // edit modal
