@@ -186,6 +186,14 @@
     color: gray;
 }
 
+.modal__input-error {
+    visibility: visible;
+    height: 17px;
+    color: rgba(255, 0, 0, 1);
+}
+
+/* //media queries //  */
+
 @media only screen and (max-width: 880px) {
 
     .modal__container {

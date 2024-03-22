@@ -1,15 +1,20 @@
 //error class for edit modal
-function showInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
+function showInputError(
+  formElement,
+  inputEl,
+  errorMessage,
+  { inputErrorClass, errorClass }
+) {
   const errorElementId = `#${inputEl.id}-error`;
   const errorMessageEl = formElement.querySelector(errorElementId);
   inputEl.classList.add(inputErrorClass);
-  errorMessageEl.textContent = inputEl.validationMessage;
-  errorMessageEl.classList.remove(errorClass);
+  errorMessageEl.textContent = errorMessage;
+  errorMessageEl.classList.add(errorClass);
 }
 
 function checkInputValidity(formElement, inputEl, options) {
   if (!inputEl.validity.valid) {
-    showInputError(formElement, inputEl, options);
+    showInputError(formElement, inputEl, inputEl.validationMessage, options);
     return false;
   } else {
     hideInputError(formElement, inputEl, options);
