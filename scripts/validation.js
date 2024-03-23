@@ -10,7 +10,6 @@ function showInputError(
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = errorMessage;
   errorMessageEl.classList.add(errorClass);
-  
 }
 
 function checkInputValidity(formElement, inputEl, options) {

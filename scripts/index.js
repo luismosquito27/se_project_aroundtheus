@@ -158,7 +158,7 @@ function closeOnEsc(event) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  // remove from event listener in open
+  // remove from event listener in close
   document.removeEventListener("keydown", closeOnEsc);
 }
 

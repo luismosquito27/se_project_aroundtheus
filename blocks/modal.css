@@ -173,27 +173,32 @@
 
 /* //validation.js section //  */
 
+
+/* modal error message for edit modal */
 .modal__error {
     height: 17px;
     border: 1px;
     color: rgba(255, 0, 0, 1);
 }
 
-/* modal disabled button */
+
+/* modal error message for add modal */
 .modal__disabled {
     background-color: white;
     border: 1px solid #ccc;
     color: gray;
 }
 
+
+/* add modal error message */
 .modal__input-error {
     visibility: visible;
     height: 17px;
     color: rgba(255, 0, 0, 1);
 }
 
-/* //media queries //  */
 
+/* //media queries //  */
 @media only screen and (max-width: 880px) {
 
     .modal__container {
