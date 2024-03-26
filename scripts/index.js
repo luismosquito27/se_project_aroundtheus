@@ -62,6 +62,8 @@ const descriptionInput = profileEditModal.querySelector(
 
 // adding card
 const titleInput = addCardModal.querySelector(".modal__input_type-title");
+console.log(1);
+console.log(titleInput);
 const inputLink = addCardModal.querySelector(".modal__input_type-link");
 
 const cardTemplate =
@@ -130,8 +132,8 @@ function handleAddModalSubmit(e) {
   };
   const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
+  document.forEach(errorClass).reset();
   closeModal(addCardModal);
-  e.target.reset();
 }
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */

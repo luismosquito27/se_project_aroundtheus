@@ -8,7 +8,6 @@ function showInputError(
   const errorElementId = `#${inputEl.id}-error`;
   const errorMessageEl = formElement.querySelector(errorElementId);
   inputEl.classList.add(inputErrorClass);
-  errorMessageEl.textContent = errorMessage;
   errorMessageEl.classList.add(errorClass);
 }
 
@@ -50,7 +49,8 @@ function setEventListeners(formElement, options) {
 // calling the disabled / enabled button
 function toggleButtonState(formElement, inputEls, options) {
   console.log(formElement, inputEls, options);
-  const button = formElement.querySelector(".modal__input-button");
+  const button = formElement.querySelector(submitButtonSelector);
+  const submitButtonSelector = formElement.querySelector(submitButtonSelector);
   const hasValidInput = inputEls.every((inputEl) =>
     checkInputValidity(formElement, inputEl, options.inactiveButtonClass)
   );
@@ -80,8 +80,8 @@ const config = {
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
-
-  // submitButtonSelector:
+  // submit buttons when adding a card
+  submitButtonSelector: "modal__input-button",
 };
 
 enableValidation(config);
