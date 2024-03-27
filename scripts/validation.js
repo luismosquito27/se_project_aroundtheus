@@ -26,6 +26,7 @@ function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
   const errorElementId = `#${inputEl.id}-error`;
   const errorMessageEl = formElement.querySelector(errorElementId);
 
+  console.log(inputErrorClass);
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.classList.remove(errorClass);
 }
@@ -46,23 +47,21 @@ function setEventListeners(formElement, options) {
     });
   });
 }
-//
-function toggleButtonState(
-  formElement,
-  inputEls,
-  options,
-  inactiveButtonClass
-) {
+
+//calling the add modal disable
+function toggleButtonState(formElement, inputEls, options) {
   console.log(formElement, inputEls, options);
-  const button = formElement.querySelector(inactiveButtonClass);
+
+  const button = formElement.querySelector(options.inactiveButtonClass);
   const hasValidInput = inputEls.every((inputEl) =>
     checkInputValidity(formElement, inputEl, options)
   );
-  if (hasInvalidInput) {
+  if (hasValidInput) {
     button.classList.remove(options.inactiveButtonClass);
-  } else {
-    button.classList.add(options.inactiveButtonClass);
+    return (button.disabled = true);
   }
+  button.classList.add(options.inactiveButtonClass);
+  button.disabled = false;
 }
 
 const enableValidation = (options) => {
@@ -80,7 +79,7 @@ const enableValidation = (options) => {
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  inputErrorClass: "modal__input-error ",
+  inputErrorClass: ".modal__input-error",
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
