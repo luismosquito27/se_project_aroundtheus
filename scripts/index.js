@@ -61,10 +61,10 @@ const descriptionInput = profileEditModal.querySelector(
 );
 
 // adding card
-const titleInput = addCardModal.querySelector(".modal__input_type-title");
+const titleInput = addCardModal.querySelector("#add-title");
 console.log(1);
 console.log(titleInput);
-const inputLink = addCardModal.querySelector(".modal__input_type-link");
+const inputLink = addCardModal.querySelector("#link-type");
 
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -132,7 +132,6 @@ function handleAddModalSubmit(e) {
   };
   const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
-  document.forEach(errorClass).reset();
   closeModal(addCardModal);
 }
 /* ---------------------------- Event Listeners -------------------------- */

@@ -46,15 +46,19 @@ function setEventListeners(formElement, options) {
     });
   });
 }
-// calling the disabled / enabled button
-function toggleButtonState(formElement, inputEls, options) {
+//
+function toggleButtonState(
+  formElement,
+  inputEls,
+  options,
+  inactiveButtonClass
+) {
   console.log(formElement, inputEls, options);
-  const button = formElement.querySelector(submitButtonSelector);
-  const submitButtonSelector = formElement.querySelector(submitButtonSelector);
+  const button = formElement.querySelector(inactiveButtonClass);
   const hasValidInput = inputEls.every((inputEl) =>
-    checkInputValidity(formElement, inputEl, options.inactiveButtonClass)
+    checkInputValidity(formElement, inputEl, options)
   );
-  if (hasValidInput) {
+  if (hasInvalidInput) {
     button.classList.remove(options.inactiveButtonClass);
   } else {
     button.classList.add(options.inactiveButtonClass);
@@ -76,12 +80,12 @@ const enableValidation = (options) => {
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  inputErrorClass: ".modal__input-error",
+  inputErrorClass: "modal__input-error ",
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
-  // submit buttons when adding a card
-  submitButtonSelector: "modal__input-button",
+
+  // submitButtonSelector:
 };
 
 enableValidation(config);
