@@ -52,16 +52,17 @@ function setEventListeners(formElement, options) {
 function toggleButtonState(formElement, inputEls, options) {
   console.log(formElement, inputEls, options);
 
-  const button = formElement.querySelector(options.inactiveButtonClass);
+  const button = formElement.querySelector(options.submitButtonSelector);
   const hasValidInput = inputEls.every((inputEl) =>
     checkInputValidity(formElement, inputEl, options)
   );
   if (hasValidInput) {
     button.classList.remove(options.inactiveButtonClass);
-    return (button.disabled = true);
+    return (button.disabled = false);
+  } else {
+    button.classList.add(options.inactiveButtonClass);
+    button.disabled = true;
   }
-  button.classList.add(options.inactiveButtonClass);
-  button.disabled = false;
 }
 
 const enableValidation = (options) => {
@@ -83,8 +84,8 @@ const config = {
   errorClass: ".modal__error",
   //disable class
   inactiveButtonClass: "modal__disabled",
-
-  // submitButtonSelector:
+  // submit button
+  submitButtonSelector: ".modal__input-button",
 };
 
 enableValidation(config);
