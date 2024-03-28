@@ -173,9 +173,8 @@
 
 /* //validation.js section //  */
 
-
-/* modal error message for edit modal */
 .modal__error {
+    visibility: visible;
     height: 17px;
     border: 1px;
     color: rgba(255, 0, 0, 1);

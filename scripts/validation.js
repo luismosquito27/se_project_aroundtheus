@@ -7,6 +7,9 @@ function showInputError(
 ) {
   const errorElementId = `#${inputEl.id}-error`;
   const errorMessageEl = formElement.querySelector(errorElementId);
+
+  console.log(errorClass);
+  console.log(inputErrorClass);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.classList.add(errorClass);
 }
