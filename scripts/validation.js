@@ -8,10 +8,9 @@ function showInputError(
   const errorElementId = `#${inputEl.id}-error`;
   const errorMessageEl = formElement.querySelector(errorElementId);
 
-  console.log(errorClass);
-  console.log(inputErrorClass);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.classList.add(errorClass);
+  errorMessageEl.textContent = errorMessage;
 }
 
 function checkInputValidity(formElement, inputEl, options) {
@@ -27,11 +26,13 @@ function checkInputValidity(formElement, inputEl, options) {
 // hide the error message
 function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
   const errorElementId = `#${inputEl.id}-error`;
+  console.log(errorElementId);
   const errorMessageEl = formElement.querySelector(errorElementId);
 
   console.log(inputErrorClass);
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.classList.remove(errorClass);
+  errorMessageEl.textContent = "";
 }
 
 function hasInvalidInput(inputList) {
