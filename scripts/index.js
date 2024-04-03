@@ -32,12 +32,13 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
+const previewModalImage = document.querySelector(".modal__image");
 // adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");
 //adding image text caption
 const modalCaption = document.querySelector(".modal__caption");
-const profileCloseButton = document.querySelector("#modal-close-button");
 
+const profileCloseButton = document.querySelector("#modal-close-button");
 const addCardModal = document.querySelector("#profile-add-modal");
 const addModalCloseButton = addCardModal.querySelector(
   "#profile-modal-add-close-button"
@@ -77,7 +78,7 @@ const previewModalCloseButton = previewModal.querySelector(
 );
 
 previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
+  closeModal();
 });
 
 function getCardElement(cardData) {
@@ -86,8 +87,6 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  const previewModalImage = document.querySelector(".modal__image");
 
   // adding image preview
   cardImageEl.addEventListener("click", () => {
@@ -120,7 +119,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(profileEditModal);
+  closeModal();
 }
 
 // adding card
@@ -132,35 +131,48 @@ function handleAddModalSubmit(e) {
   };
   const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
-  closeModal(addCardModal);
+  e.target.reset();
+  closeModal();
 }
+
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
 //closing all modals outside the overlay
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  modal.addEventListener("click", (event) => {
-    if (Array.from(event.target.classList).includes("modal_opened")) {
-      closeModal(modal);
-    }
-  });
-  // add to event listener in open
+  modal.addEventListener("click", handleOverlayClick);
+
+  const closeButton = modal.querySelector(".modal__close");
+  closeButton.addEventListener("click", closeModal);
+
   document.addEventListener("keydown", closeOnEsc);
+}
+
+function closeModal() {
+  const currentModal = document.querySelector(".modal_opened");
+  currentModal.classList.remove("modal_opened");
+
+  modal.removeEventListener("click", handleOverlayClick);
+
+  const closeButton = currentModal.querySelector(".modal__close");
+  closeButton.removeEventListener("click", closeModal);
+
+  document.removeEventListener("keydown", closeOnEsc);
 }
 
 //ESC key
 function closeOnEsc(event) {
   if (event.key === "Escape") {
     const modal = document.querySelector(".modal_opened");
-    closeModal(modal);
+    closeModal();
   }
 }
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  // remove from event listener in close
-  document.removeEventListener("keydown", closeOnEsc);
+function handleOverlayClick(event) {
+  if (Array.from(event.target.classList).includes("modal")) {
+    closeModal();
+  }
 }
 
 // edit modal
@@ -170,16 +182,11 @@ profileEditButton.addEventListener("click", () => {
   descriptionInput.value = profileDescription.textContent;
 });
 
-profileCloseButton.addEventListener("click", () => {
-  closeModal(profileEditModal);
-});
-
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
-closeModal(profileEditModal);
 
 // add modal
 addModalCloseButton.addEventListener("click", () => {
-  closeModal(addCardModal);
+  closeModal();
 });
 
 addButton.addEventListener("click", () => {
@@ -187,7 +194,6 @@ addButton.addEventListener("click", () => {
 });
 
 addModalForm.addEventListener("submit", handleAddModalSubmit);
-closeModal(addCardModal);
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
