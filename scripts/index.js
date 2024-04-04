@@ -121,14 +121,6 @@ function handleProfileFormSubmit(e) {
   profileDescription.textContent = descriptionInput.value;
   closeModal();
 }
-
-function renderCard(item, method = "prepend") {
-  // create a card
-  const cardElement = getCardElement(item);
-  // add the card into the section using the method
-  cardList[method](cardElement);
-}
-
 // adding card
 function handleAddModalSubmit(e) {
   e.preventDefault();
