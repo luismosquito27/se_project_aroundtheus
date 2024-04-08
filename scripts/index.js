@@ -32,6 +32,7 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
+const modal = document.querySelector(".modal__container");
 const previewModalImage = document.querySelector(".modal__image");
 // adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");

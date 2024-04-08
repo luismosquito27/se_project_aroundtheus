@@ -181,13 +181,6 @@
 }
 
 
-.modal__input-error {
-    visibility: visible;
-    height: 17px;
-    color: rgba(255, 0, 0, 1);
-}
-
-
 .modal__disabled {
     background-color: white;
     border: 1px solid #ccc;
