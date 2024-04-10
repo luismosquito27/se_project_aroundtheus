@@ -35,11 +35,6 @@ function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
   errorMessageEl.textContent = "";
 }
 
-function hasInvalidInput(inputEl) {
-  toggleButtonState(formElement, inputEl, option);
-  return !hasInvalidInput.every((inputEl) => inputEl.validity.valid);
-}
-
 //disable
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
@@ -50,24 +45,24 @@ function setEventListeners(formElement, options) {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputEl, options);
       toggleButtonState(formElement, inputEls, options);
-      hasInvalidInput(formElement, inputEl, options);
     });
   });
 }
 
+function hasInvalidInput(inputList) {
+  return inputList.every((inputEls) => {
+    return !inputEls.validity.valid;
+  });
+}
 //calling the add modal disable
 function toggleButtonState(formElement, inputEls, options) {
   console.log(formElement, inputEls, options);
 
   const button = formElement.querySelector(options.submitButtonSelector);
-  const hasInvalidInput = inputEls.every(
-    (
-      inputEl // reuse hasInvalidInput
-    ) => checkInputValidity(formElement, inputEl, options)
-  );
-  if (hasInvalidInput) {
+
+  if (!hasInvalidInput(inputEls)) {
     button.classList.remove(options.inactiveButtonClass);
-    return (button.disabled = false);
+    button.disabled = false;
   } else {
     button.classList.add(options.inactiveButtonClass);
     button.disabled = true;
