@@ -31,7 +31,7 @@ const initialCards = [
 
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
-// const modal = document.querySelector(".modal__container");
+
 const previewModalImage = document.querySelector(".modal__image");
 // adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -138,6 +138,20 @@ function handleAddModalSubmit(e) {
 /* ---------------------------- Event Listeners  ----------------------------- */
 
 //closing all modals outside the overlay
+const modal = document.querySelector(".modal__container");
+const editModal = document.querySelector("#profile-edit-modal");
+const addModal = document.querySelector("#profile-add-modal");
+const editModalCloseBtn = editModal.querySelector(".modal__close");
+const addModalCloseBtn = addModal.querySelector(".modal__close");
+
+editModalCloseBtn.addEventListener("click", () => {
+  closeModal(editModal);
+});
+
+addModalCloseBtn.addEventListener("click", () => {
+  closeModal(addModal);
+});
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   modal.addEventListener("click", handleOverlayClick);
@@ -148,7 +162,6 @@ function openModal(modal) {
 }
 
 function closeModal(modal) {
-  console.log("modal", modal);
   modal.classList.remove("modal_opened");
   modal.removeEventListener("click", handleOverlayClick);
 
@@ -161,7 +174,7 @@ function closeModal(modal) {
 function closeOnEsc(event) {
   if (event.key === "Escape") {
     const modal = document.querySelector("modal_opened");
-    closeModal(modal);
+    closeModal();
   }
 }
 
