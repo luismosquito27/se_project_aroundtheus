@@ -31,8 +31,7 @@ const initialCards = [
 
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
-
-const modal = document.querySelector(".modal__container");
+// const modal = document.querySelector(".modal__container");
 const previewModalImage = document.querySelector(".modal__image");
 // adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -145,27 +144,24 @@ function openModal(modal) {
 
   const closeButton = modal.querySelector(".modal__close");
   closeButton.addEventListener("click", closeModal);
-
   document.addEventListener("keydown", closeOnEsc);
 }
 
-function closeModal() {
-  const currentModal = document.querySelector(".modal_opened");
-  currentModal.classList.remove("modal_opened");
-
+function closeModal(modal) {
+  console.log("modal", modal);
+  modal.classList.remove("modal_opened");
   modal.removeEventListener("click", handleOverlayClick);
 
-  const closeButton = currentModal.querySelector(".modal__close");
+  const closeButton = modal.querySelector(".modal__close");
   closeButton.removeEventListener("click", closeModal);
-
   document.removeEventListener("keydown", closeOnEsc);
 }
 
 //ESC key
 function closeOnEsc(event) {
   if (event.key === "Escape") {
-    const modal = document.querySelector(".modal_opened");
-    closeModal();
+    const modal = document.querySelector("modal_opened");
+    closeModal(modal);
   }
 }
 
