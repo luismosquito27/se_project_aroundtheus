@@ -72,14 +72,6 @@ const cardTemplate =
 
 /* ---------------------------- functions -------------------------- */
 /* ---------------------------- functions ----------------------------- */
-const previewModal = document.querySelector("#modal-image-preview");
-const previewModalCloseButton = previewModal.querySelector(
-  "#modal-close-button-preview"
-);
-
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal();
-});
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -114,14 +106,13 @@ function getCardElement(cardData) {
 /* ---------------------------- handlers -------------------------- */
 /* ---------------------------- handlers ----------------------------- */
 
-//edit modal
+//edit card modal
 function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal();
 }
-// adding card
+// add card modal
 function handleAddModalSubmit(e) {
   e.preventDefault();
   const cardData = {
@@ -137,12 +128,21 @@ function handleAddModalSubmit(e) {
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
-//closing all modals outside the overlay
-const modal = document.querySelector(".modal__container");
+//closing all modals
 const editModal = document.querySelector("#profile-edit-modal");
 const addModal = document.querySelector("#profile-add-modal");
 const editModalCloseBtn = editModal.querySelector(".modal__close");
 const addModalCloseBtn = addModal.querySelector(".modal__close");
+const modal = document.querySelector(".modal__container");
+// image preview
+const previewModal = document.querySelector("#modal-image-preview");
+const previewModalCloseButton = previewModal.querySelector(
+  "#modal-close-button-preview"
+);
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
@@ -173,18 +173,18 @@ function closeModal(modal) {
 //ESC key
 function closeOnEsc(event) {
   if (event.key === "Escape") {
-    const modal = document.querySelector("modal_opened");
-    closeModal();
+    const modal = document.querySelector(".modal_opened");
+    closeModal(modal);
   }
 }
 
 function handleOverlayClick(event) {
   if (Array.from(event.target.classList).includes("modal")) {
-    closeModal();
+    closeModal(modal);
   }
 }
 
-// edit modal
+// edit button for modal
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
   nameInput.value = profileTitle.textContent;
@@ -193,11 +193,7 @@ profileEditButton.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-// add modal
-addModalCloseButton.addEventListener("click", () => {
-  closeModal();
-});
-
+//add button for modal
 addButton.addEventListener("click", () => {
   openModal(addCardModal);
 });

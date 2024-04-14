@@ -171,8 +171,6 @@
     max-width: 800px;
 }
 
-/* //validation.js section //  */
-
 .modal__error {
     visibility: visible;
     height: 17px;
@@ -187,7 +185,8 @@
     color: gray;
 }
 
-/* //media queries //  */
+/* /////////////////////media queries ////////////////////////  */
+
 @media only screen and (max-width: 880px) {
 
     .modal__container {
@@ -223,6 +222,7 @@
         width: 30px;
         height: 30px;
         left: 300px;
+
     }
 
 }

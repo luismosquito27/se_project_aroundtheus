@@ -87,7 +87,7 @@ const config = {
   inputErrorClass: "modal__input-error",
   errorClass: "modal__error",
   //disable button
-  inactiveButtonClass: "modal__disabled",
+  inactiveButtonClass: ".modal__disabled",
   // submit button
   submitButtonSelector: ".modal__input-button",
 };
