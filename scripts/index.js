@@ -122,7 +122,8 @@ function handleAddModalSubmit(e) {
   const cardElement = getCardElement(cardData);
   cardsWrapEl.prepend(cardElement);
   e.target.reset();
-  closeModal();
+  closeModal(addModal);
+  closeModal(editModal);
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
@@ -133,7 +134,6 @@ const editModal = document.querySelector("#profile-edit-modal");
 const addModal = document.querySelector("#profile-add-modal");
 const editModalCloseBtn = editModal.querySelector(".modal__close");
 const addModalCloseBtn = addModal.querySelector(".modal__close");
-const modal = document.querySelector(".modal__container");
 // image preview
 const previewModal = document.querySelector("#modal-image-preview");
 const previewModalCloseButton = previewModal.querySelector(
@@ -157,7 +157,7 @@ function openModal(modal) {
   modal.addEventListener("click", handleOverlayClick);
 
   const closeButton = modal.querySelector(".modal__close");
-  closeButton.addEventListener("click", closeModal);
+  closeButton.addEventListener("click", () => closeModal(modal));
   document.addEventListener("keydown", closeOnEsc);
 }
 
@@ -166,7 +166,7 @@ function closeModal(modal) {
   modal.removeEventListener("click", handleOverlayClick);
 
   const closeButton = modal.querySelector(".modal__close");
-  closeButton.removeEventListener("click", closeModal);
+  closeButton.removeEventListener("click", () => closeModal(modal));
   document.removeEventListener("keydown", closeOnEsc);
 }
 
@@ -180,15 +180,15 @@ function closeOnEsc(event) {
 
 function handleOverlayClick(event) {
   if (Array.from(event.target.classList).includes("modal")) {
-    closeModal(modal);
+    closeModal(event.target);
   }
 }
 
 // edit button for modal
 profileEditButton.addEventListener("click", () => {
-  openModal(profileEditModal);
   nameInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
+  openModal(profileEditModal);
 });
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);

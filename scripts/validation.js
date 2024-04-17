@@ -50,10 +50,17 @@ function setEventListeners(formElement, options) {
 }
 
 function hasInvalidInput(inputList) {
-  return inputList.every((inputEls) => {
-    return !inputEls.validity.valid;
+  return inputList.some((inputEl) => {
+    console.log(inputEl);
+    console.log(inputEl.validity);
+    return !inputEl.validity.valid;
   });
 }
+
+// recheck 
+// when you open the modal you are already setting the inputs 
+//so it can update 
+
 //calling the add modal disable
 function toggleButtonState(formElement, inputEls, options) {
   console.log(formElement, inputEls, options);
@@ -64,6 +71,7 @@ function toggleButtonState(formElement, inputEls, options) {
     button.classList.remove(options.inactiveButtonClass);
     button.disabled = false;
   } else {
+    console.log("disabled");
     button.classList.add(options.inactiveButtonClass);
     button.disabled = true;
   }
@@ -87,7 +95,7 @@ const config = {
   inputErrorClass: "modal__input-error",
   errorClass: "modal__error",
   //disable button
-  inactiveButtonClass: ".modal__disabled",
+  inactiveButtonClass: "modal__disabled",
   // submit button
   submitButtonSelector: ".modal__input-button",
 };
