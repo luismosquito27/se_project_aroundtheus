@@ -111,6 +111,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
+  closeModal(editModal);
 }
 // add card modal
 function handleAddModalSubmit(e) {
@@ -123,7 +124,6 @@ function handleAddModalSubmit(e) {
   cardsWrapEl.prepend(cardElement);
   e.target.reset();
   closeModal(addModal);
-  closeModal(editModal);
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
