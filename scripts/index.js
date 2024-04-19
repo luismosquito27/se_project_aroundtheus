@@ -140,20 +140,6 @@ const previewModalCloseButton = previewModal.querySelector(
   "#modal-close-button-preview"
 );
 
-// const close button
-
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
-});
-
-editModalCloseBtn.addEventListener("click", () => {
-  closeModal(editModal);
-});
-
-addModalCloseBtn.addEventListener("click", () => {
-  closeModal(addModal);
-});
-
 // find all close buttons
 const closeButtons = document.querySelectorAll(".modal__close");
 closeButtons.forEach((button) => {
