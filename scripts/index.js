@@ -140,6 +140,8 @@ const previewModalCloseButton = previewModal.querySelector(
   "#modal-close-button-preview"
 );
 
+// const close button
+
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
@@ -152,12 +154,17 @@ addModalCloseBtn.addEventListener("click", () => {
   closeModal(addModal);
 });
 
+// find all close buttons
+const closeButtons = document.querySelectorAll(".modal__close");
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(modal));
+});
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   modal.addEventListener("click", handleOverlayClick);
 
-  const closeButton = modal.querySelector(".modal__close");
-  closeButton.addEventListener("click", () => closeModal(modal));
   document.addEventListener("keydown", closeOnEsc);
 }
 
@@ -165,8 +172,6 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("click", handleOverlayClick);
 
-  const closeButton = modal.querySelector(".modal__close");
-  closeButton.removeEventListener("click", () => closeModal(modal));
   document.removeEventListener("keydown", closeOnEsc);
 }
 
