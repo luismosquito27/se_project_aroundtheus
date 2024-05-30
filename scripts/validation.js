@@ -57,10 +57,6 @@ function hasInvalidInput(inputList) {
   });
 }
 
-// recheck 
-// when you open the modal you are already setting the inputs 
-//so it can update 
-
 //calling the add modal disable
 function toggleButtonState(formElement, inputEls, options) {
   console.log(formElement, inputEls, options);
