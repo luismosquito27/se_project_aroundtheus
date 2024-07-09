@@ -30,13 +30,13 @@ class FormValidatorObj {
     console.log(this);
   }
 
-  _showInputError() {
+  _showInputError(errorElementId, inputErrorClass) {
     const errorElementId = `#${inputEl.id}-error`;
     const errorMessageEl = this._form.querySelector(errorElementId);
 
     inputEl.classList.add(inputErrorClass);
     errorMessageEl.classList.add(errorClass);
-    errorMessageEl.textContent = errorMessage;
+    errorMessageEl.textContent = errorMessageEl;
   }
 
   _hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
@@ -53,20 +53,27 @@ class FormValidatorObj {
   // - figure it out on your own - //
   //we are calling the button from validation but not like this.
   toggleButtonState() {
-    //     console.log(formElement, inputEls, options);
+    const button = { 
+      options: 'submitButtonSelector', 'inactiveButtonClass'
+
+    }
+
+
+    // 
     //     const button = formElement.querySelector(options.submitButtonSelector);
     //     if (!hasInvalidInput(inputEls)) {
     //       button.classList.remove(options.inactiveButtonClass);
     //       button.disabled = false;
     //     } else {
-    //       console.log("disabled");
+    //       consol ne.log("disabled");
     //       button.classList.add(options.inactiveButtonClass);
     //       button.disabled = true;
     //     }
     //   }
-  }
 
-  hasInvalidInput() {}
+  _hasInvalidInput() {}
+
+  _checkInvalidValidity() {}
 
   _setEventListeners() {
     this._inputEls = [...formElement.querySelectorAll(this._inputSelector)];
@@ -90,7 +97,9 @@ class FormValidatorObj {
 
     setEventListeners(formElement, options);
   }
-}
+} 
 
-const editFormValidator = new FormValidatorObj(settings, profileEditForm);
-const addFormValidator = new FormValidatorObj(settings, addModalForm);
+// const editFormValidator = new FormValidatorObj(settings, profileEditForm);
+// const addFormValidator = new FormValidatorObj(settings, addModalForm);
+
+export defualt FormValidator;

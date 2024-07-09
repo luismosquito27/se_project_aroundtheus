@@ -1,3 +1,5 @@
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -161,6 +163,31 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeOnEsc);
 }
 
+const cardSelector = "#card-template";
+
+/* ---------------------------- Validation -------------------------- */
+/* ---------------------------- Validation   ----------------------------- */
+
+const validationSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  inputErrorClass: "modal__input-error",
+  errorClass: "modal__error",
+  //disable button
+  inactiveButtonClass: "modal__disabled",
+  // submit button
+  submitButtonSelector: ".modal__input-button",
+};
+
+// const  =
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  editFormElement
+);
+
+// editFormValidator.enableValidation();
+// addFormValidation.enableValidation();
 //ESC key
 function closeOnEsc(event) {
   if (event.key === "Escape") {
@@ -192,6 +219,7 @@ addButton.addEventListener("click", () => {
 addModalForm.addEventListener("submit", handleAddModalSubmit);
 
 initialCards.forEach((cardData) => {
+  const card = new card(cardData, cardSelector);
   const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  cardListEl.prepend(cardElement.getView());
 });
