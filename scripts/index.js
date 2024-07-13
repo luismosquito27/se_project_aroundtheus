@@ -1,4 +1,4 @@
-import FormValidator from "./FormValidator.js";
+import FormValidatorObj from "./FormValidator.js";
 
 const initialCards = [
   {
@@ -48,10 +48,12 @@ const addModalCloseButton = addCardModal.querySelector(
 
 // trash can
 const addButton = document.querySelector("#profile-add-button");
-
+//
 const cardsWrapEl = document.querySelector(".cards__list-content");
+//
 const addModalForm = addCardModal.querySelector("#add-form");
 const profileEditForm = profileEditModal.querySelector("#profile-form");
+
 const profileEditButton = document.querySelector(".profile__edit-button");
 const addInputButton = document.querySelector(".modal__input-button");
 const cardListEl = document.querySelector(".cards__list-content");
@@ -179,15 +181,11 @@ const validationSettings = {
   submitButtonSelector: ".modal__input-button",
 };
 
-// const  =
-
-const editFormValidator = new FormValidator(
+const editFormValidator = new FormValidatorObj(
   validationSettings,
   editFormElement
 );
 
-// editFormValidator.enableValidation();
-// addFormValidation.enableValidation();
 //ESC key
 function closeOnEsc(event) {
   if (event.key === "Escape") {
