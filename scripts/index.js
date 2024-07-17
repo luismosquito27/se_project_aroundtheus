@@ -1,4 +1,5 @@
 import FormValidatorObj from "./FormValidator.js";
+import { settings } from "../utils/constants.js";
 
 const initialCards = [
   {
@@ -170,6 +171,9 @@ const cardSelector = "#card-template";
 /* ---------------------------- Validation -------------------------- */
 /* ---------------------------- Validation   ----------------------------- */
 
+const editFormValidator = new FormValidatorObj(settings, profileEditForm);
+const addFormValidator = new FormValidatorObj(settings, addModalForm);
+
 const validationSettings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -180,11 +184,6 @@ const validationSettings = {
   // submit button
   submitButtonSelector: ".modal__input-button",
 };
-
-const editFormValidator = new FormValidatorObj(
-  validationSettings,
-  editFormElement
-);
 
 //ESC key
 function closeOnEsc(event) {
@@ -217,7 +216,7 @@ addButton.addEventListener("click", () => {
 addModalForm.addEventListener("submit", handleAddModalSubmit);
 
 initialCards.forEach((cardData) => {
-  const card = new card(cardData, cardSelector);
+  const card = new Card(cardData, cardSelector);
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement.getView());
 });

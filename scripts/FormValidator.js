@@ -1,15 +1,4 @@
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  inputErrorClass: "modal__input-error",
-  errorClass: "modal__error",
-  //disable button
-  inactiveButtonClass: "modal__disabled",
-  // submit button
-  submitButtonSelector: ".modal__input-button",
-};
-
-class FormValidatorObj {
+ class FormValidatorObj {
   constructor(settings, formSelector) {
     this._inputSelector = settings.inputSelector;
     this._inputErrorClass = settings.inputErrorClass;
@@ -50,7 +39,6 @@ class FormValidatorObj {
     querySelector(options.submitButtonSelector);
     classList.remove(options.inactiveButtonClass);
   }
-
   //     const button = formElement.querySelector(options.submitButtonSelector);
   //     if (!hasInvalidInput(inputEls)) {
   //       button.classList.remove(options.inactiveButtonClass);
@@ -88,9 +76,5 @@ class FormValidatorObj {
     setEventListeners(formElement, options);
   }
 }
-
-const editFormValidator = new FormValidatorObj(settings, profileEditForm);
-
-const addFormValidator = new FormValidatorObj(settings, addModalForm);
 
 export default FormValidatorObj;
