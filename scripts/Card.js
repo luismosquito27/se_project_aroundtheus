@@ -7,8 +7,19 @@ class Card {
     //wants you to pass in cardSelector and then clone it //
     this._name = cardData.name;
     this._link = cardData.link;
+    this._cardSelector = cardSelector;
 
-    this._card = this.cardSelector;
+    this._element = this._getTemplate(cardSelector);
+    this._element.querySelector('.card__name').textContent = this._name;
+    this._element.querySelector('.card__image').src = this._link;
+    this._element.querySelector('.card__link').href = this._link;
+  }
+
+  _getTemplate() {
+    return document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
   }
 
   _setEventListeners() {
@@ -40,24 +51,13 @@ class Card {
     this.previewModalImage.alt = this.cardData.name;
     this.modalCaption.textContent = this.cardData.name;
     openModal(previewModal);
-
-    //rewrite in this.
-    // previewModalImage.src = cardData.link;
-    // previewModalImage.alt = cardData.name;
-    // modalCaption.textContent = cardData.name;
-    // openModal(previewModal);
-  }
-
-  _getTemplate() {
-    return document
-      .querySelector(this.cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
   }
 
   getView() {
     this._element = this._cardSelector();
     this._setEventListeners();
+    return cardSelector;
+    // return card element
   }
 }
 

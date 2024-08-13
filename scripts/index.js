@@ -1,5 +1,6 @@
 import FormValidatorObj from "./FormValidator.js";
 import { settings } from "../utils/constants.js";
+import Card from "../scripts/Card.js";
 
 const initialCards = [
   {
@@ -216,7 +217,8 @@ addButton.addEventListener("click", () => {
 addModalForm.addEventListener("submit", handleAddModalSubmit);
 
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, cardSelector);
-  const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, ".card-template");
+  const cardElement = card.getView();
+  // const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement.getView());
 });
