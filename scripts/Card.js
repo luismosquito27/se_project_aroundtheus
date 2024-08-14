@@ -10,15 +10,16 @@ class Card {
     this._cardSelector = cardSelector;
 
     this._element = this._getTemplate(cardSelector);
-    this._element.querySelector('.card__name').textContent = this._name;
-    this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__link').href = this._link;
+    this._element.querySelector(".card__description-content").textContent =
+      this._name;
+    this._element.querySelector(".card__image").src = this._link;
+    this._element.querySelector(".card").href = this._link;
   }
 
   _getTemplate() {
     return document
       .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+      .content.querySelector(cardSelector)
       .cloneNode(true);
   }
 
