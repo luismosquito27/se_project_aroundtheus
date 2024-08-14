@@ -8,18 +8,12 @@ class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
-
-    this._element = this._getTemplate(cardSelector);
-    this._element.querySelector(".card__description-content").textContent =
-      this._name;
-    this._element.querySelector(".card__image").src = this._link;
-    this._element.querySelector(".card").href = this._link;
   }
 
   _getTemplate() {
     return document
       .querySelector(this._cardSelector)
-      .content.querySelector(cardSelector)
+      .content.querySelector(".card")
       .cloneNode(true);
   }
 
@@ -34,7 +28,7 @@ class Card {
 
     this._element
       .querySelector(".card__delete-button")
-      .addEventListener("click", this_handleDeleteCard);
+      .addEventListener("click", this._handleDeleteCard);
   }
 
   _handleLikeIcon() {
@@ -55,10 +49,14 @@ class Card {
   }
 
   getView() {
-    this._element = this._cardSelector();
+    this._element = this._getTemplate(this._cardSelector); 
+    this._element.querySelector(".card__image").src = this._link;
+    this._element.querySelector(".card__image").alt = this._name;
+    this._element.querySelector(".card__title").textContent = this._name;
+   
     this._setEventListeners();
-    return cardSelector;
-    // return card element
+
+    return this._element;
   }
 }
 
