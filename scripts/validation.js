@@ -49,36 +49,36 @@ function setEventListeners(formElement, options) {
   });
 }
 
-function hasInvalidInput(inputList) {
-  return inputList.some((inputEl) => {
-    console.log(inputEl);
-    console.log(inputEl.validity);
-    return !inputEl.validity.valid;
-  });
-}
+// function hasInvalidInput(inputList) {
+//   return inputList.some((inputEl) => {
+//     console.log(inputEl);
+//     console.log(inputEl.validity);
+//     return !inputEl.validity.valid;
+//   });
+// }
 
 //calling the add modal disable
-function toggleButtonState(formElement, inputEls, options) {
-  console.log(formElement, inputEls, options);
+// function toggleButtonState(formElement, inputEls, options) {
+//   console.log(formElement, inputEls, options);
 
-  const button = formElement.querySelector(options.submitButtonSelector);
+//   const button = formElement.querySelector(options.submitButtonSelector);
 
-  if (!hasInvalidInput(inputEls)) {
-    button.classList.remove(options.inactiveButtonClass);
-    button.disabled = false;
-  } else {
-    console.log("disabled");
-    button.classList.add(options.inactiveButtonClass);
-    button.disabled = true;
-  }
-}
+// //   if (!hasInvalidInput(inputEls)) {
+// //     button.classList.remove(options.inactiveButtonClass);
+// //     button.disabled = false;
+// //   } else {
+// //     console.log("disabled");
+// //     button.classList.add(options.inactiveButtonClass);
+// //     button.disabled = true;
+// //   }
+// // }
 
 const enableValidation = (options) => {
   const formElements = [...document.querySelectorAll(options.formSelector)];
   formElements.forEach((formElement) => {
     formElement.addEventListener("submit", (e) => {
       e.preventDefault();
-    }); 
+    });
     console.log(formElements);
 
     setEventListeners(formElement, options);

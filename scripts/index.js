@@ -219,6 +219,5 @@ addModalForm.addEventListener("submit", handleAddModalSubmit);
 initialCards.forEach((cardData) => {
   const card = new Card(cardData, "#card-template");
   const cardElement = card.getView();
-  // const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 });

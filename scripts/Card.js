@@ -38,7 +38,10 @@ class Card {
       .classList.toggle(".card__like-button_active");
   }
 
-  _handleDeleteCard() {}
+  _handleDeleteCard() {
+    this._element.querySelector(".card");
+    classList.toggle(cardData);
+  }
 
   _handlePreviewPicture() {
     this._element;
@@ -49,11 +52,11 @@ class Card {
   }
 
   getView() {
-    this._element = this._getTemplate(this._cardSelector); 
+    this._element = this._getTemplate(this._cardSelector);
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__image").alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
-   
+
     this._setEventListeners();
 
     return this._element;

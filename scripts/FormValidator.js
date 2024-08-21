@@ -1,4 +1,4 @@
- class FormValidatorObj {
+class FormValidatorObj {
   constructor(settings, formSelector) {
     this._inputSelector = settings.inputSelector;
     this._inputErrorClass = settings.inputErrorClass;
@@ -32,27 +32,36 @@
     errorMessageEl.textContent = "";
   }
 
-  // - figure it out on your own - //
-  //we are calling the button from validation but not like this.
+  //we are calling the button from validation.
   _toggleButtonState() {
-    this._element;
-    querySelector(options.submitButtonSelector);
-    classList.remove(options.inactiveButtonClass);
+    console.log(this._inputEls, this._formElement, this._options);
+
+    if (!this._hasInvalidInput()) {
+      this._button.classList.remove(this._options._inactiveButtonClass);
+      this._button.disabled = false;
+    } else {
+      this._button.classList.add(this._inactiveButtonClass);
+      this._button.disabled = true;
+    }
   }
-  //     const button = formElement.querySelector(options.submitButtonSelector);
-  //     if (!hasInvalidInput(inputEls)) {
-  //       button.classList.remove(options.inactiveButtonClass);
-  //       button.disabled = false;
-  //     } else {
-  //       console.log("disabled");
-  //       button.classList.add(options.inactiveButtonClass);
-  //       button.disabled = true;
-  //     }
-  //   }
 
-  _hasInvalidInput() {}
+  _setEventListeners() {
+    this._inputEls.forEach((inputEl) => {
+      inputEl.addEventListener(inputEl, () => {
+        this._toggleButtonState();
+      });
+    });
+  }
 
-  _checkInvalidValidity() {}
+  _hasInvalidInput() {
+    return this._inputEls.some((inputEl) => !inputEl.validity.valid);
+  }
+
+  _checkInvalidValidity() {
+    if (!this._showInputError()) { 
+     
+    }
+  }
 
   _setEventListeners() {
     this._inputEls = [...formElement.querySelectorAll(this._inputSelector)];
