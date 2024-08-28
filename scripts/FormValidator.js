@@ -58,9 +58,12 @@ class FormValidatorObj {
   }
 
   _checkInvalidValidity() {
-    if (!this._showInputError()) { 
-     
+    if (!inputEl.validity.valid) {
+      this._showInputError(inputEl, options);
+      return this._showInputError();
     }
+    this._hideInputError(inputEl);
+    return this._hideInputError();
   }
 
   _setEventListeners() {
@@ -71,7 +74,7 @@ class FormValidatorObj {
 
     inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
-        checkInputValidity(formElement, inputEl, options);
+        this._checkInputValidity(formElement, inputEl, options);
         toggleButtonState(formElement, inputEls, options);
       });
     });

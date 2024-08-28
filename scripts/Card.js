@@ -1,13 +1,13 @@
-//check line 41
-// they want you to duplicate code but will be fixed in the next sprint
-//pass popup handler
-
 class Card {
   constructor(cardData, cardSelector) {
     //wants you to pass in cardSelector and then clone it //
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
+
+    // this.cardData = data;
+
+    this._
   }
 
   _getTemplate() {
@@ -20,15 +20,15 @@ class Card {
   _setEventListeners() {
     this._element
       .querySelector(".card__like-button")
-      .addEventListener("click", () => this._handleLikeIcon);
+      .addEventListener("click", () => this._handleLikeIcon.bind(this));
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", this._handlePreviewPicture);
+      .addEventListener("click", this._handlePopupHandler.bind(this));
 
     this._element
       .querySelector(".card__delete-button")
-      .addEventListener("click", this._handleDeleteCard);
+      .addEventListener("click", this._handleDeleteCard.bind(this));
   }
 
   _handleLikeIcon() {
@@ -43,7 +43,10 @@ class Card {
     classList.toggle(cardData);
   }
 
-  _handlePreviewPicture() {
+  _handlePopupHandler() {
+    if (!this.cardData) {
+    }
+
     this._element;
     this.previewModalImage.src = this.cardData.link;
     this.previewModalImage.alt = this.cardData.name;
