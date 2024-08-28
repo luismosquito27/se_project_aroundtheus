@@ -1,13 +1,11 @@
 class Card {
-  constructor(cardData, cardSelector) {
+  constructor(cardData, cardSelector, handleImageClick) {
     //wants you to pass in cardSelector and then clone it //
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
 
-    // this.cardData = data;
-
-    this._
+    this._handleImageClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -20,15 +18,15 @@ class Card {
   _setEventListeners() {
     this._element
       .querySelector(".card__like-button")
-      .addEventListener("click", () => this._handleLikeIcon.bind(this));
+      .addEventListener("click", () => this._handleLikeIcon(this));
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", this._handlePopupHandler.bind(this));
+      .addEventListener("click", () => this._handleImageClick(this));
 
     this._element
       .querySelector(".card__delete-button")
-      .addEventListener("click", this._handleDeleteCard.bind(this));
+      .addEventListener("click", () => this._handleDeleteCard(this));
   }
 
   _handleLikeIcon() {
@@ -43,14 +41,11 @@ class Card {
     classList.toggle(cardData);
   }
 
-  _handlePopupHandler() {
-    if (!this.cardData) {
-    }
-
+  _handleImageClick() {
     this._element;
-    this.previewModalImage.src = this.cardData.link;
-    this.previewModalImage.alt = this.cardData.name;
-    this.modalCaption.textContent = this.cardData.name;
+    this._previewModalImage.src = this._link;
+    this._previewModalImage.alt = this.cardData.name;
+    this._modalCaption.textContent = this.cardData.name;
     openModal(previewModal);
   }
 

@@ -216,8 +216,15 @@ addButton.addEventListener("click", () => {
 
 addModalForm.addEventListener("submit", handleAddModalSubmit);
 
+function handleImageClick() {
+  console.log("IMAGE CLICKED");
+  
+  
+}
+
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template");
+  // Pass image click handler as third argument
+  const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 });
