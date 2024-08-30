@@ -1,5 +1,6 @@
 class FormValidatorObj {
   constructor(settings, formSelector) {
+    this._settings = settings;
     this._inputSelector = settings.inputSelector;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
@@ -58,6 +59,7 @@ class FormValidatorObj {
   }
 
   _checkInvalidValidity() {
+    console.log(7777);
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl, options);
       return this._showInputError();
@@ -85,7 +87,7 @@ class FormValidatorObj {
       e.preventDefault();
     });
 
-    setEventListeners(formElement, options);
+    this._setEventListeners(this._form, this._settings);
   }
 }
 

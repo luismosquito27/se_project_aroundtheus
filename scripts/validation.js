@@ -95,4 +95,4 @@ const config = {
   submitButtonSelector: ".modal__input-button",
 };
 
-enableValidation(config);
+// enableValidation(config);
