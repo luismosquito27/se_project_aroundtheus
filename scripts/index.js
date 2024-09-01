@@ -175,7 +175,7 @@ const cardSelector = "#card-template";
 const editFormValidator = new FormValidatorObj(settings, profileEditForm);
 const addFormValidator = new FormValidatorObj(settings, addModalForm);
 
-const formElement = new enableValidation(settings, options);
+addFormValidator.enableValidation();
 
 const validationSettings = {
   formSelector: ".modal__form",
@@ -220,8 +220,6 @@ addModalForm.addEventListener("submit", handleAddModalSubmit);
 
 function handleImageClick() {
   console.log("IMAGE CLICKED");
-  previewModalImage.addEventListener("click", previewModalImage);
-  openModal(previewModalImage);
 }
 
 initialCards.forEach((cardData) => {

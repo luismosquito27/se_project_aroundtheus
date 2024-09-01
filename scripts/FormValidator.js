@@ -35,10 +35,8 @@ class FormValidatorObj {
 
   //we are calling the button from validation.
   _toggleButtonState() {
-    console.log(this._inputEls, this._formElement, this._options);
-
     if (!this._hasInvalidInput()) {
-      this._button.classList.remove(this._options._inactiveButtonClass);
+      this._button.classList.remove(_inactiveButtonClass);
       this._button.disabled = false;
     } else {
       this._button.classList.add(this._inactiveButtonClass);
@@ -58,7 +56,7 @@ class FormValidatorObj {
     return this._inputEls.some((inputEl) => !inputEl.validity.valid);
   }
 
-  _checkInvalidValidity() {
+  _checkInvalidValidity(inputEl) {
     console.log(7777);
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl, options);
@@ -69,15 +67,15 @@ class FormValidatorObj {
   }
 
   _setEventListeners() {
-    this._inputEls = [...formElement.querySelectorAll(this._inputSelector)];
-    this._button = formElement.querySelector(
-      this._options.submitButtonSelector
-    );
+    // formElement not defined: use this._form
 
-    inputEls.forEach((inputEl) => {
+    this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
+    this._button = this._form.querySelector(this._submitButtonSelector);
+
+    this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
-        this._checkInputValidity(formElement, inputEl, options);
-        toggleButtonState(formElement, inputEls, options);
+        this._checkInputValidity(inputEl);
+        this._toggleButtonState();
       });
     });
   }
