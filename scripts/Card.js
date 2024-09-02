@@ -39,14 +39,6 @@ class Card {
     this._element.remove();
   }
 
-  _handleImageClick() {
-    this._element;
-    this._previewModalImage.src = this._link;
-    this._previewModalImage.alt = this.cardData.name;
-    this._modalCaption.textContent = this.cardData.name;
-    openModal(previewModal);
-  }
-
   getView() {
     this._element = this._getTemplate(this._cardSelector);
     this._element.querySelector(".card__image").src = this._link;

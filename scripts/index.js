@@ -218,9 +218,11 @@ addButton.addEventListener("click", () => {
 
 addModalForm.addEventListener("submit", handleAddModalSubmit);
 
-function handleImageClick() {
-  console.log("IMAGE CLICKED");
-  previewModalImage.addEventListener("click", handleImageClick);
+function handleImageClick(data) {
+  previewModalImage.src = data._link;
+  previewModalImage.alt = data._name;
+  modalCaption.textContent = data._name;
+  openModal(previewModal);
 }
 
 initialCards.forEach((cardData) => {
