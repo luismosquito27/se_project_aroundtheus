@@ -67,8 +67,6 @@ class FormValidatorObj {
   }
 
   _setEventListeners() {
-    // formElement not defined: use this._form
-
     this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
     this._button = this._form.querySelector(this._submitButtonSelector);
 

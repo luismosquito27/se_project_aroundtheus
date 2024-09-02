@@ -35,6 +35,17 @@ function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
   errorMessageEl.textContent = "";
 }
 
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  inputErrorClass: "modal__input-error",
+  errorClass: "modal__error",
+  //disable button
+  inactiveButtonClass: "modal__disabled",
+  // submit button
+  submitButtonSelector: ".modal__input-button",
+};
+
 // disable
 // function setEventListeners(formElement, options) {
 //   const { inputSelector } = options;
@@ -83,16 +94,5 @@ function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
 //     setEventListeners(formElement, options);
 //   });
 // };
-
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  inputErrorClass: "modal__input-error",
-  errorClass: "modal__error",
-  //disable button
-  inactiveButtonClass: "modal__disabled",
-  // submit button
-  submitButtonSelector: ".modal__input-button",
-};
 
 // enableValidation(config);

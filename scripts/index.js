@@ -220,6 +220,7 @@ addModalForm.addEventListener("submit", handleAddModalSubmit);
 
 function handleImageClick() {
   console.log("IMAGE CLICKED");
+  previewModalImage.addEventListener("click", handleImageClick);
 }
 
 initialCards.forEach((cardData) => {

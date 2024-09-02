@@ -30,15 +30,13 @@ class Card {
   }
 
   _handleLikeIcon() {
-    console.log(this);
     this._element
       .querySelector(".card__like-button")
-      .classList.toggle(".card__like-button_active");
+      .classList.toggle("card__like-button_active");
   }
 
   _handleDeleteCard() {
-    this._element.querySelector(".card");
-    classList.toggle(cardData);
+    this._element.remove();
   }
 
   _handleImageClick() {
