@@ -13,7 +13,7 @@ class FormValidatorObj {
     console.log(this);
   }
 
-  _showInputError(errorElementId, inputErrorClass) {
+  _showInputError(inputEl, inputErrorClass) {
     const errorElementsId = `#${inputEl.id}-error`;
     const errorMessageEl = this._form.querySelector(errorElementsId);
 
@@ -27,7 +27,6 @@ class FormValidatorObj {
     console.log(errorElementId);
     const errorMessageEl = formElement.querySelector(errorElementId);
 
-    console.log(inputErrorClass);
     inputEl.classList.remove(inputErrorClass);
     errorMessageEl.classList.remove(errorClass);
     errorMessageEl.textContent = "";
@@ -36,7 +35,7 @@ class FormValidatorObj {
   //we are calling the button from validation.
   _toggleButtonState() {
     if (!this._hasInvalidInput()) {
-      this._button.classList.remove(_inactiveButtonClass);
+      this._button.classList.remove(this._inactiveButtonClass);
       this._button.disabled = false;
     } else {
       this._button.classList.add(this._inactiveButtonClass);
@@ -59,11 +58,10 @@ class FormValidatorObj {
   _checkInvalidValidity(inputEl) {
     console.log(7777);
     if (!inputEl.validity.valid) {
-      this._showInputError(inputEl, options);
-      return this._showInputError();
+      this._showInputError(inputEl, inputErrorClass);
+    } else {
+      this._hideInputError(inputEl, "errorElementId", "{ inputErrorClass }");
     }
-    this._hideInputError(inputEl);
-    return this._hideInputError();
   }
 
   _setEventListeners() {
@@ -72,7 +70,7 @@ class FormValidatorObj {
 
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
-        this._checkInputValidity(inputEl);
+        this._checkInvalidValidity(inputEl);
         this._toggleButtonState();
       });
     });

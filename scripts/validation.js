@@ -13,16 +13,6 @@ function showInputError(
   errorMessageEl.textContent = errorMessage;
 }
 
-function checkInputValidity(formElement, inputEl, options) {
-  if (!inputEl.validity.valid) {
-    showInputError(formElement, inputEl, inputEl.validationMessage, options);
-    return false;
-  } else {
-    hideInputError(formElement, inputEl, options);
-    return true;
-  }
-}
-
 // hide the error message
 function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
   const errorElementId = `#${inputEl.id}-error`;
@@ -45,6 +35,16 @@ const config = {
   // submit button
   submitButtonSelector: ".modal__input-button",
 };
+
+// function checkInputValidity(formElement, inputEl, options) {
+//   if (!inputEl.validity.valid) {
+//     showInputError(formElement, inputEl, inputEl.validationMessage, options);
+//     return false;
+//   } else {
+//     hideInputError(formElement, inputEl, options);
+//     return true;
+//   }
+// }
 
 // disable
 // function setEventListeners(formElement, options) {

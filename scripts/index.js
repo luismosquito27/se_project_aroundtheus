@@ -226,7 +226,6 @@ function handleImageClick(data) {
 }
 
 initialCards.forEach((cardData) => {
-  // Pass image click handler as third argument
   const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
