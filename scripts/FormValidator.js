@@ -13,22 +13,19 @@ class FormValidatorObj {
     console.log(this);
   }
 
-  _showInputError(inputEl, inputErrorClass) {
-    const errorElementsId = `#${inputEl.id}-error`;
-    const errorMessageEl = this._form.querySelector(errorElementsId);
+  _showInputError(inputEl, inputErrorClass, errorClass) {
+    const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
 
     inputEl.classList.add(inputErrorClass);
     errorMessageEl.classList.add(errorClass);
     errorMessageEl.textContent = errorMessageEl;
   }
 
-  _hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
-    const errorElementId = `#${inputEl.id}-error`;
-    console.log(errorElementId);
-    const errorMessageEl = formElement.querySelector(errorElementId);
+  _hideInputError(formElement, inputEl) {
+    const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
 
-    inputEl.classList.remove(inputErrorClass);
-    errorMessageEl.classList.remove(errorClass);
+    inputEl.classList.remove(this._inputErrorClass);
+    errorMessageEl.classList.remove(this._errorClass);
     errorMessageEl.textContent = "";
   }
 
@@ -58,7 +55,7 @@ class FormValidatorObj {
   _checkInvalidValidity(inputEl) {
     console.log(7777);
     if (!inputEl.validity.valid) {
-      this._showInputError(inputEl, inputErrorClass);
+      this._showInputError(inputEl, "errorElementId", "{ inputErrorClass }");
     } else {
       this._hideInputError(inputEl, "errorElementId", "{ inputErrorClass }");
     }
