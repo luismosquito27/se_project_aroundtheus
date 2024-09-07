@@ -1,30 +1,3 @@
-//error class for edit modal
-function showInputError(
-  formElement,
-  inputEl,
-  errorMessage,
-  { inputErrorClass, errorClass }
-) {
-  const errorElementId = `#${inputEl.id}-error`;
-  const errorMessageEl = formElement.querySelector(errorElementId);
-
-  inputEl.classList.add(inputErrorClass);
-  errorMessageEl.classList.add(errorClass);
-  errorMessageEl.textContent = errorMessage;
-}
-
-// hide the error message
-function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
-  const errorElementId = `#${inputEl.id}-error`;
-  console.log(errorElementId);
-  const errorMessageEl = formElement.querySelector(errorElementId);
-
-  console.log(inputErrorClass);
-  inputEl.classList.remove(inputErrorClass);
-  errorMessageEl.classList.remove(errorClass);
-  errorMessageEl.textContent = "";
-}
-
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -35,6 +8,34 @@ const config = {
   // submit button
   submitButtonSelector: ".modal__input-button",
 };
+
+// //error class for edit modal
+// function showInputError(
+//   formElement,
+//   inputEl,
+//   errorMessage,
+//   { inputErrorClass, errorClass }
+// ) {
+//   const errorElementId = `#${inputEl.id}-error`;
+//   const errorMessageEl = formElement.querySelector(errorElementId);
+
+//   inputEl.classList.add(inputErrorClass);
+//   errorMessageEl.classList.add(errorClass);
+//   errorMessageEl.textContent = "invalid message";
+// }
+
+// // hide the error message
+// function hideInputError(formElement, inputEl, { inputErrorClass, errorClass }) {
+//   const errorElementId = `#${inputEl.id}-error`;
+//   console.log(errorElementId);
+//   const errorMessageEl = formElement.querySelector(errorElementId);
+
+//   console.log(inputErrorClass);
+//   inputEl.classList.remove(inputErrorClass);
+//   errorMessageEl.classList.remove(errorClass);
+//   errorMessageEl.textContent = "";
+// }
+// }
 
 // function checkInputValidity(formElement, inputEl, options) {
 //   if (!inputEl.validity.valid) {

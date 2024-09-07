@@ -5,28 +5,29 @@ class FormValidatorObj {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
     //disable button
-    this._inactiveButtonClass = settings._inactiveButtonClass;
+    this._inactiveButtonClass = settings.inactiveButtonClass;
     // submit button
-    this._submitButtonSelector = settings._submitButtonSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
 
     this._form = formSelector;
     console.log(this);
+
+  }
+  // ERROR VALIDATION
+  _showInputError(inputEl) { 
+    const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
+
+    inputEl.classList.add(this._inputErrorClass);
+    errorMessageEl.classList.add(this._errorClass);
+    errorMessageEl.textContent = "invalid message"; 
   }
 
-  _showInputError(inputEl, inputErrorClass, errorClass) {
-    const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
-
-    inputEl.classList.add(inputErrorClass);
-    errorMessageEl.classList.add(errorClass);
-    errorMessageEl.textContent = errorMessageEl;
-  }
-
-  _hideInputError(formElement, inputEl) {
-    const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
+  _hideInputError(inputEl) {
+    const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
 
     inputEl.classList.remove(this._inputErrorClass);
     errorMessageEl.classList.remove(this._errorClass);
-    errorMessageEl.textContent = "";
+    errorMessageEl.textContent = "invalid link";
   }
 
   //we are calling the button from validation.
@@ -55,9 +56,9 @@ class FormValidatorObj {
   _checkInvalidValidity(inputEl) {
     console.log(7777);
     if (!inputEl.validity.valid) {
-      this._showInputError(inputEl, "errorElementId", "{ inputErrorClass }");
+      this._showInputError(inputEl);
     } else {
-      this._hideInputError(inputEl, "errorElementId", "{ inputErrorClass }");
+      this._hideInputError(inputEl);
     }
   }
 
