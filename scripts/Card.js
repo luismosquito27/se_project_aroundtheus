@@ -1,6 +1,5 @@
 class Card {
   constructor(cardData, cardSelector, handleImageClick) {
-    //wants you to pass in cardSelector and then clone it //
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;

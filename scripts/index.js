@@ -76,39 +76,6 @@ const inputLink = addCardModal.querySelector("#link-type");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-/* ---------------------------- functions -------------------------- */
-/* ---------------------------- functions ----------------------------- */
-
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  // adding image preview
-  cardImageEl.addEventListener("click", () => {
-    previewModalImage.src = cardData.link;
-    previewModalImage.alt = cardData.name;
-    modalCaption.textContent = cardData.name;
-
-    openModal(previewModal);
-  });
-
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-
-  return cardElement;
-}
-
 /* ---------------------------- handlers -------------------------- */
 /* ---------------------------- handlers ----------------------------- */
 
@@ -126,7 +93,8 @@ function handleAddModalSubmit(e) {
     name: titleInput.value,
     link: inputLink.value,
   };
-  const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.getView();
   cardsWrapEl.prepend(cardElement);
   e.target.reset();
   closeModal(addModal);
@@ -176,6 +144,7 @@ const editFormValidator = new FormValidatorObj(settings, profileEditForm);
 const addFormValidator = new FormValidatorObj(settings, addModalForm);
 
 addFormValidator.enableValidation();
+editFormValidator.enableValidation();
 
 const validationSettings = {
   formSelector: ".modal__form",

@@ -11,15 +11,14 @@ class FormValidatorObj {
 
     this._form = formSelector;
     console.log(this);
-
   }
   // ERROR VALIDATION
-  _showInputError(inputEl) { 
+  _showInputError(inputEl) {
     const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
 
     inputEl.classList.add(this._inputErrorClass);
     errorMessageEl.classList.add(this._errorClass);
-    errorMessageEl.textContent = "invalid message"; 
+    errorMessageEl.textContent = inputEl.validationMessage;
   }
 
   _hideInputError(inputEl) {
@@ -27,7 +26,7 @@ class FormValidatorObj {
 
     inputEl.classList.remove(this._inputErrorClass);
     errorMessageEl.classList.remove(this._errorClass);
-    errorMessageEl.textContent = "invalid link";
+    errorMessageEl.textContent = "";
   }
 
   //we are calling the button from validation.
