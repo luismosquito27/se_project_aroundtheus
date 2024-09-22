@@ -1,4 +1,4 @@
-import FormValidatorObj from "./FormValidator.js";
+import FormValidator from "./FormValidator.js";
 import { settings } from "../utils/constants.js";
 import Card from "../scripts/Card.js";
 
@@ -93,12 +93,16 @@ function handleAddModalSubmit(e) {
     name: titleInput.value,
     link: inputLink.value,
   };
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardElement = card.getView();
-  cardsWrapEl.prepend(cardElement);
-  e.target.reset();
-  closeModal(addModal);
+
+  renderCard(createCard(cardData));
 }
+
+//   function createCard(cardData, "#card-template", handleImageClick);
+//   const cardElement = createCard.getView();
+//   cardsWrapEl.prepend(cardElement);
+//   e.target.reset();
+//   closeModal(addModal);
+// }
 
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
@@ -140,22 +144,11 @@ const cardSelector = "#card-template";
 /* ---------------------------- Validation -------------------------- */
 /* ---------------------------- Validation   ----------------------------- */
 
-const editFormValidator = new FormValidatorObj(settings, profileEditForm);
-const addFormValidator = new FormValidatorObj(settings, addModalForm);
+const editFormValidator = new FormValidator(settings, profileEditForm);
+const addFormValidator = new FormValidator(settings, addModalForm);
 
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
-
-const validationSettings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  inputErrorClass: "modal__input-error",
-  errorClass: "modal__error",
-  //disable button
-  inactiveButtonClass: "modal__disabled",
-  // submit button
-  submitButtonSelector: ".modal__input-button",
-};
 
 //ESC key
 function closeOnEsc(event) {
@@ -188,14 +181,21 @@ addButton.addEventListener("click", () => {
 addModalForm.addEventListener("submit", handleAddModalSubmit);
 
 function handleImageClick(data) {
-  previewModalImage.src = data._link;
-  previewModalImage.alt = data._name;
-  modalCaption.textContent = data._name;
+  previewModalImage.src = data.link;
+  previewModalImage.alt = data.name;
+  modalCaption.textContent = data.name;
   openModal(previewModal);
 }
 
-initialCards.forEach((cardData) => {
+function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardElement = card.getView();
-  cardListEl.prepend(cardElement);
+  return card.getView();
+}
+
+function renderCard(cardElement, method = "prepend") {
+  cardListEl[method](cardElement);
+}
+
+initialCards.forEach((cardData) => {
+  renderCard(createCard(cardData));
 });
