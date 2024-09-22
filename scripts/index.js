@@ -97,13 +97,6 @@ function handleAddModalSubmit(e) {
   renderCard(createCard(cardData));
 }
 
-//   function createCard(cardData, "#card-template", handleImageClick);
-//   const cardElement = createCard.getView();
-//   cardsWrapEl.prepend(cardElement);
-//   e.target.reset();
-//   closeModal(addModal);
-// }
-
 /* ---------------------------- Event Listeners -------------------------- */
 /* ---------------------------- Event Listeners  ----------------------------- */
 
