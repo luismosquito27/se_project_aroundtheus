@@ -95,6 +95,7 @@ function handleAddModalSubmit(e) {
   };
 
   renderCard(createCard(cardData));
+  closeModal(addModal);
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
