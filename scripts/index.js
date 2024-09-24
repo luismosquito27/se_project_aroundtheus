@@ -96,9 +96,6 @@ function handleAddModalSubmit(e) {
 
   renderCard(createCard(cardData));
   closeModal(addModal);
-
-  // call the new disableButton
-  const disabledFormValidator = new FormValidator(settings, addModalForm);
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
@@ -170,8 +167,10 @@ profileEditButton.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-//add button for modal
+//add button for modal // disabling button for add modal
 addButton.addEventListener("click", () => {
+  addModalForm.reset();
+  addFormValidator.disabledButtonState();
   openModal(addCardModal);
 });
 

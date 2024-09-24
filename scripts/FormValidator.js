@@ -35,14 +35,13 @@ class FormValidator {
       this._button.classList.remove(this._inactiveButtonClass);
       this._button.disabled = false;
     } else {
-      // these two lines code go in disableButton
       this._button.classList.add(this._inactiveButtonClass);
       this._button.disabled = true;
     }
   }
 
   // declare a method disableButton
-  _disabledButtonState() {
+  disabledButtonState() {
     this._button.classList.add(this._inactiveButtonClass);
     this._button.disabled = true;
   }
