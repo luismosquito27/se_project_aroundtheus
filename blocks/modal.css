@@ -172,6 +172,7 @@
 }
 
 .modal__error {
+    position: absolute;
     visibility: visible;
     height: 17px;
     border: 1px;

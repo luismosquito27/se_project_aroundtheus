@@ -35,9 +35,16 @@ class FormValidator {
       this._button.classList.remove(this._inactiveButtonClass);
       this._button.disabled = false;
     } else {
+      // these two lines code go in disableButton
       this._button.classList.add(this._inactiveButtonClass);
       this._button.disabled = true;
     }
+  }
+
+  // declare a method disableButton
+  _disabledButtonState() {
+    this._button.classList.add(this._inactiveButtonClass);
+    this._button.disabled = true;
   }
 
   _setEventListeners() {
@@ -62,6 +69,7 @@ class FormValidator {
   }
 
   _setEventListeners() {
+    console.log(9999);
     this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
     this._button = this._form.querySelector(this._submitButtonSelector);
 

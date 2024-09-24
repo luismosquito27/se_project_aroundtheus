@@ -96,6 +96,9 @@ function handleAddModalSubmit(e) {
 
   renderCard(createCard(cardData));
   closeModal(addModal);
+
+  // call the new disableButton
+  const disabledFormValidator = new FormValidator(settings, addModalForm);
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
