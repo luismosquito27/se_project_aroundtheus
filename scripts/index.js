@@ -95,6 +95,8 @@ function handleAddModalSubmit(e) {
   };
 
   renderCard(createCard(cardData));
+  addModalForm.reset();
+  addFormValidator.disabledButtonState();
   closeModal(addModal);
 }
 
@@ -167,10 +169,7 @@ profileEditButton.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-//add button for modal // disabling button for add modal
 addButton.addEventListener("click", () => {
-  addModalForm.reset();
-  addFormValidator.disabledButtonState();
   openModal(addCardModal);
 });
 
