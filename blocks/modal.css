@@ -126,7 +126,9 @@
     line-height: 17px;
     margin-bottom: 30px;
     display: block;
+    position: relative;
 }
+
 
 .modal__input {
     border-style: solid;
@@ -139,6 +141,8 @@
     display: flex;
     border-width: 1px;
     font-family: 'Inter', Arial, 'Times New Roman';
+    margin-bottom: 5px;
+    display: block;
 }
 
 
@@ -169,6 +173,7 @@
     width: 100%;
     border-width: 1px;
     margin-bottom: 5px;
+    display: block;
 }
 
 .modal__image {
@@ -209,9 +214,12 @@
         margin-bottom: 50px;
     }
 
+    .modal__input { 
+        margin-bottom: auto; 
+    }
+
     .modal__error {
-        position: relative;
-        max-width: 100%;
+        position: absolute;
     }
 
     .modal__image-container {
