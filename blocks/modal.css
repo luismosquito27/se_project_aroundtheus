@@ -46,11 +46,6 @@
 
 
 .modal__container {
-
-    .modal__heading {
-        p
-    }
-
     position: relative;
     padding: 36px;
     background-color: #ffff;
@@ -129,6 +124,8 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    margin-bottom: 30px;
+    display: block;
 }
 
 .modal__input {
@@ -171,6 +168,7 @@
     border-top-style: hidden;
     width: 100%;
     border-width: 1px;
+    margin-bottom: 5px;
 }
 
 .modal__image {
@@ -182,6 +180,7 @@
     visibility: visible;
     height: 17px;
     border: 1px;
+    line-height: 1;
     color: rgba(255, 0, 0, 1);
 }
 
