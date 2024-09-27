@@ -96,7 +96,7 @@ function handleAddModalSubmit(e) {
 
   renderCard(createCard(cardData));
   addModalForm.reset();
-  addFormValidator.disabledButtonState();
+  addFormValidator._toggleButtonState();
   closeModal(addModal);
 }
 
@@ -167,8 +167,9 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
+// add submit button for modal
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
-
+addFormValidator._toggleButtonState();
 addButton.addEventListener("click", () => {
   openModal(addCardModal);
 });

@@ -10,7 +10,6 @@ class FormValidator {
     this._submitButtonSelector = settings.submitButtonSelector;
 
     this._form = formSelector;
-    console.log(this);
   }
   // ERROR VALIDATION
   _showInputError(inputEl) {
@@ -30,7 +29,7 @@ class FormValidator {
   }
 
   //we are calling the button from validation.
-  disabledButtonState() {
+  _toggleButtonState() {
     if (!this._hasInvalidInput()) {
       this._button.classList.remove(this._inactiveButtonClass);
       this._button.disabled = false;
@@ -43,7 +42,7 @@ class FormValidator {
   _setEventListeners() {
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener(inputEl, () => {
-        this.disabledButtonState();
+        this._toggleButtonState();
       });
     });
   }
@@ -69,7 +68,7 @@ class FormValidator {
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
         this._checkInvalidValidity(inputEl);
-        this.disabledButtonState();
+        this._toggleButtonState();
       });
     });
   }
