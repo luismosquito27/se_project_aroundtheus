@@ -169,7 +169,6 @@ profileEditButton.addEventListener("click", () => {
 
 // add submit button for modal
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
-addFormValidator.toggleButtonState();
 addButton.addEventListener("click", () => {
   openModal(addCardModal);
 });
