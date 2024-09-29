@@ -1,6 +1,6 @@
-import FormValidator from "./FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
-import Card from "../scripts/Card.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -96,7 +96,7 @@ function handleAddModalSubmit(e) {
 
   renderCard(createCard(cardData));
   addModalForm.reset();
-  addFormValidator._toggleButtonState();
+  addFormValidator.toggleButtonState();
   closeModal(addModal);
 }
 
@@ -169,7 +169,7 @@ profileEditButton.addEventListener("click", () => {
 
 // add submit button for modal
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
-addFormValidator._toggleButtonState();
+addFormValidator.toggleButtonState();
 addButton.addEventListener("click", () => {
   openModal(addCardModal);
 });
