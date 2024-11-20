@@ -194,3 +194,4 @@ function renderCard(cardElement, method = "prepend") {
 initialCards.forEach((cardData) => {
   renderCard(createCard(cardData));
 });
+

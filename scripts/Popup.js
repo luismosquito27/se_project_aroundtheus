@@ -4,11 +4,20 @@ export default class Popup {
   }
 
   // export the ESC eventListeners to here :
+export default class escElement { closeOnEsc, handleOverlayClick } 
+
+
   //refactoring the popup class
-  //creating for different types of popup in the class 
+
+
+
+
+  //creating for different types of popup in the class
 
   BOTH OF THESE CLASSES NEEDED TO BE WORKED ON SEPERATELY. 
   // the profile edit 
+
+
   // modal edit profile 
 
   open() {
