@@ -1,6 +1,7 @@
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
 import Card from "../components/Card.js";
+import { closeOnEsc, handleOverlayClick } from "../scripts/Popup.js"
 
 const initialCards = [
   {
