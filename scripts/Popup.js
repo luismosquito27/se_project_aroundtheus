@@ -4,7 +4,20 @@ export default class Popup {
   }
 
   // export the ESC eventListeners to here :
-export default class escElement { closeOnEsc, handleOverlayClick } 
+  export closeOnEsc(event) {
+    if (event.key === "Escape") {
+      const modal = document.querySelector(closeButtons);
+      this._
+
+    }
+  }
+  
+  export handleOverlayClick(event) {
+    if (Array.from(event.target.classList).includes("modal")) {
+      closeModal(event.target);
+    }
+  }
+
 
 
   //refactoring the popup class

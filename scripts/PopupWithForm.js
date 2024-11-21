@@ -17,8 +17,8 @@ class popupWithForm extends Popup
 
 //index.js
 
-const newCardPopup = new poppupWithForm("#profile-add-modal", () => { 
-  
+const newCardPopup = new popupWithForm("#profile-add-modal", () => { 
+    
     this.newCardPopup.open()
   });
   newCardPopup.open();
