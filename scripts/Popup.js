@@ -4,30 +4,39 @@ export default class Popup {
   }
 
   // export the ESC eventListeners to here :
-  export closeOnEsc(event) {
-    if (event.key === "Escape") {
+class EscListener {
+    static closeOnEsc(event) {
       const modal = document.querySelector(closeButtons);
-      this._
+      this.closeModal(modal); 
 
-    }
   }
-  
-  export handleOverlayClick(event) {
+}
+
+ handleOverlayClick(event) {
     if (Array.from(event.target.classList).includes("modal")) {
-      closeModal(event.target);
-    }
+      this.closeModal(event.target);
+    } 
   }
+
+const escListener = new EscListener(); 
+
+document.addEventListener("keydown", EscListener.closeOnEsc); 
+document.addEventListener("escape", escListener.handleOverlayClick.bind(escListener)); 
+export { escListener };
 
 
 
   //refactoring the popup class
 
-
-
-
+  class Popup { 
+    constructor() { 
+      this.modal = document.querySelector('.modal'); 
+    
+    }
+  }
   //creating for different types of popup in the class
 
-  BOTH OF THESE CLASSES NEEDED TO BE WORKED ON SEPERATELY. 
+  // BOTH OF THESE CLASSES NEEDED TO BE WORKED ON SEPERATELY. 
   // the profile edit 
 
 
@@ -43,6 +52,9 @@ export default class Popup {
 
   _handleEscClose() {
     // listens for esc button
+    if (event.target == this.overlay) { 
+      this.closeModal(); 
+    }
   }
 
   setEventListeners() {

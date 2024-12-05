@@ -14,15 +14,3 @@ class popupWithForm extends Popup
 }
 
 // we need to pass it thru the parent constructor
-
-//index.js
-
-const newCardPopup = new popupWithForm("#profile-add-modal", () => { 
-    
-    this.newCardPopup.open()
-  });
-  newCardPopup.open();
-
-
-  
-  newCardPopup.close();

@@ -1,7 +1,7 @@
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
 import Card from "../components/Card.js";
-import { closeOnEsc, handleOverlayClick } from "../scripts/Popup.js"
+import { closeOnEsc, handleOverlayClick, EscListener } from "../scripts/Popup.js
 
 const initialCards = [
   {
@@ -148,18 +148,25 @@ addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
 //ESC key
-function closeOnEsc(event) {
+ function closeOnEsc(event) {
   if (event.key === "Escape") {
     const modal = document.querySelector(".modal_opened");
     closeModal(modal);
   }
 }
 
-function handleOverlayClick(event) {
+ function handleOverlayClick(event) {
   if (Array.from(event.target.classList).includes("modal")) {
     closeModal(event.target);
   }
 }
+
+const newCardPopup = new popupWithForm("#profile-add-modal", () => { 
+    this.newCardPopup.open()
+});
+newCardPopup.open();
+newCardPopup.close();
+
 
 // edit button for modal
 profileEditButton.addEventListener("click", () => {
