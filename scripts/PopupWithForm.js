@@ -13,4 +13,6 @@ class popupWithForm extends Popup {
   }
  }
 
+ // am I supposed to mention popupWithForm in my other classes right ? 
+ // should i export the class to popup.js ? 
  
