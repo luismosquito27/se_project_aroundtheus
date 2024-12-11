@@ -147,25 +147,34 @@ addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
 //ESC key
- function closeOnEsc(event) {
+function closeOnEsc(event) {
   if (event.key === "Escape") {
     const modal = document.querySelector(".modal_opened");
     closeModal(modal);
   }
 }
 
- function handleOverlayClick(event) {
+function handleOverlayClick(event) {
   if (Array.from(event.target.classList).includes("modal")) {
     closeModal(event.target);
   }
 }
 
-const newCardPopup = new popupWithForm("#profile-add-modal", () => { 
-    this.newCardPopup.open()
-});
-newCardPopup.open();
-newCardPopup.close();
+// edit modal
+// const editCardPopup = new popupWithForm("#profile-add-modal", () => {
+//   this.addCardPopup.open();
+// });
 
+// editCardPopup.open();
+// editCardPopup.close();
+
+// // edit modal
+// const addCardPopup = new popupWithForm("#profile-add-modal", () => {
+//   this.addCardPopup.open();
+// });
+
+// addCardPopup.open();
+// addCardPopup.close();
 
 // edit button for modal
 profileEditButton.addEventListener("click", () => {
@@ -201,4 +210,3 @@ function renderCard(cardElement, method = "prepend") {
 initialCards.forEach((cardData) => {
   renderCard(createCard(cardData));
 });
-

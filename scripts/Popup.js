@@ -10,25 +10,26 @@ export default class Popup {
     }
   }
 }
-//refactoring the popup class
 
+//refactoring the popup class
 class Popup {
   constructor() {
     this.modal = document.querySelector(".modal");
   }
 
   //creating for different types of popup in the class
-
   // BOTH OF THESE CLASSES NEEDED TO BE WORKED ON SEPERATELY.
-  // the profile edit
 
   // modal edit profile
 
-  open() {
+
+  // modal add profile
+
+  openModal() {
     // opens popup
   }
 
-  close() {
+  closeButtons() {
     // close popup
   }
 
@@ -44,6 +45,8 @@ class Popup {
       // fire closeOnEsc no matter what the key is
       document.addEventListener("keydown", closeOnEsc);
       document.addEventListener("escape", handleOverlayClick);
+
+      // do I add the remove Listeners too ? 
     }
   }
 }
