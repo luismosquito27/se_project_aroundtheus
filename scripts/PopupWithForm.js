@@ -1,18 +1,30 @@
-import Popup from "../scripts/Popup.js";
+import Popup from "./Popup.js";
 
-class popupWithForm extends Popup {
-  constructor(popupSelector, handleFormSubmit ) {
-     super({ popupSelector }) 
-     this.popupElement.querySelector(".modal__form");
-     this.handleFormSubmit = handleFormSubmit; 
+export default class PopupWithForm extends Popup {
+  constructor(popupSelector, handleFormSubmit) {
+    super({ popupSelector });
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._handleFormSubmit = handleFormSubmit;
+    this._inputValues = this._popupForm.querySelectorAll(".modal__input");
   }
 
-  close() { 
-   this._popupForm.reset()
-   super.close(); 
-  }
- }
+  _getInputValues() {
+    this._formValues = {};
+    this._inputValues.forEach((input) => {
+      this._formValues[input.name] = input.value;
+    });
 
- // am I supposed to mention popupWithForm in my other classes right ? 
- // should i export the class to popup.js ? 
- 
+    return this._formValues;
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._popupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+    });
+  }
+}
+
+// am I supposed to mention popupWithForm in my other classes right ?
+// should i export the class to popup.js ?

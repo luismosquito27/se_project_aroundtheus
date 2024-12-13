@@ -1,52 +1,32 @@
 export default class Popup {
   constructor({ popupSelector }) {
-    this.popupElement = document.querySelector(popupSelector);
+    this._popupElement = document.querySelector(popupSelector);
   }
 
   //ESC key
-  closeOnEsc(event) {
+  _closeOnEsc(event) {
     if (event.key === "Escape") {
-      close();
+      this.close();
     }
   }
-}
 
-//refactoring the popup class
-class Popup {
-  constructor() {
-    this.modal = document.querySelector(".modal");
+  open() {
+    this._popupElement.classList.add("modal_opened");
+    document.addEventListener("keydown", this._closeOnEsc);
   }
 
-  //creating for different types of popup in the class
-  // BOTH OF THESE CLASSES NEEDED TO BE WORKED ON SEPERATELY.
-
-  // modal edit profile
-
-
-  // modal add profile
-
-  openModal() {
-    // opens popup
+  close() {
+    this._popupElement.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this._closeOnEsc);
   }
 
-  closeButtons() {
-    // close popup
+  setEventListeners() {
+    this._popupElement.addEventListener("mousedown", (e) => {
+      if (e.target.classList.contains("modal_opened")) {
+        this.close();
+      }
+      //    else if(e.target.classList.contains("modal__close")) {
+      // this.close()
+      //   }
+    });
   }
-
-  _handleOverlayClick(event) {
-    // listens for esc button
-    if (Array.from(event.target.classList).includes("modal")) {
-      close();
-    }
-
-    setEventListeners();
-    {
-      // set up event listener for on key press
-      // fire closeOnEsc no matter what the key is
-      document.addEventListener("keydown", closeOnEsc);
-      document.addEventListener("escape", handleOverlayClick);
-
-      // do I add the remove Listeners too ? 
-    }
-  }
-}
