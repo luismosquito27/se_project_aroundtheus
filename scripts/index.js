@@ -1,6 +1,7 @@
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
 import Card from "../components/Card.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
 
 const initialCards = [
   {
@@ -160,22 +161,6 @@ function handleOverlayClick(event) {
   }
 }
 
-// edit modal
-// const editCardPopup = new popupWithForm("#profile-add-modal", () => {
-//   this.addCardPopup.open();
-// });
-
-// editCardPopup.open();
-// editCardPopup.close();
-
-// // edit modal
-// const addCardPopup = new popupWithForm("#profile-add-modal", () => {
-//   this.addCardPopup.open();
-// });
-
-// addCardPopup.open();
-// addCardPopup.close();
-
 // edit button for modal
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
@@ -210,3 +195,9 @@ function renderCard(cardElement, method = "prepend") {
 initialCards.forEach((cardData) => {
   renderCard(createCard(cardData));
 });
+
+// creating an instance of the PopWithImage
+const popupWithImage = new PopupWithImage("#modal-image-preview");
+
+// calling the parent's eventListeners
+popupWithImage.setEventListeners();
