@@ -200,4 +200,4 @@ initialCards.forEach((cardData) => {
 const popupWithImage = new PopupWithImage("#modal-image-preview");
 
 // calling the parent's eventListeners
-popupWithImage.setEventListeners();
+PopupWithImage.setEventListeners();
