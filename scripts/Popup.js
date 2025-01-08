@@ -25,9 +25,6 @@ export default class Popup {
       if (e.target.classList.contains("modal_opened")) {
         this.close();
       }
-      //    else if(e.target.classList.contains("modal__close")) {
-      // this.close()
-      //   }
     });
   }
 }

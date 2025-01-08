@@ -2,6 +2,7 @@ import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
+import UserInfo from "./UserInfo.js";
 
 const initialCards = [
   {
@@ -201,3 +202,11 @@ const popupWithImage = new PopupWithImage("#modal-image-preview");
 
 // calling the parent's eventListeners
 popupWithImage.setEventListeners();
+
+// creating an instance of the UserInfo
+const userProfile = new UserInfo({
+  nameSelector: "#profile-title",
+  jobSelector: "#profile-description",
+});
+
+userProfile.setUserInfo({ name: "Jacques Cousteau", job: "Explorer" });
