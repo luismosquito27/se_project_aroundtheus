@@ -205,8 +205,8 @@ popupWithImage.setEventListeners();
 
 // creating an instance of the UserInfo
 const userProfile = new UserInfo({
-  nameSelector: "#profile-title",
-  jobSelector: "#profile-description",
+  profileTitle: "#profile-title",
+  profileDescription: "#profile-description",
 });
 
-userProfile.setUserInfo({ name: "Jacques Cousteau", job: "Explorer" });
+userProfile.setUserInfo({ name: "Jacques Cousteau", about: "Explorer" });
