@@ -1,9 +1,12 @@
+// Take an object with the selectors of two elements into the
+// constructor: one for the profile’s name element and one for its job element.
 export default class UserInfo {
   constructor({ profileTitle, profileDescription }) {
     this._profileTitle = document.querySelector(profileTitle);
     this._profileDescription = document.querySelector(profileDescription);
   }
   getUserInfo() {
+    // // returns an object containing information about the user.
     return {
       name: this._profileTitle.textContent,
       job: this._profileDescription.textContent,

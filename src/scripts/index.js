@@ -3,6 +3,7 @@ import { settings } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
+import "./src/pages/index.css";
 
 const initialCards = [
   {

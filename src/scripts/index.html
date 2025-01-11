@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Around the U.S" />
 
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 </head>
 <!--Section: Body-->
@@ -18,20 +17,20 @@
 
     <div class="page__content">
         <header class="header page__section">
-            <img src="./images/logo.svg" alt="Around the U.S. Logo" class="header__image" />
+            <img src="<%=require('./images/logo.svg')%>" alt="Around the U.S. Logo" class="header__image" />
         </header>
         <main class="page__content">
             <section class="profile page__section">
-                <img src="./images/jacques-cousteau.png" alt="Avatar" class="profile__image" />
+                <img src="<%=require('./images/jacques-cousteau.png')%>" alt="Avatar" class="profile__image" />
                 <div class="profile__info">
                     <!--Profile-->
                     <div id="profile-title-input">
                         <div class="profile__title-label">
-                         <!-- using these classes for GetUserInfo.js -->
+                            <!-- using these classes for GetUserInfo.js -->
                             <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
                             <button aria-label="edit-button" type="button" class="profile__edit-button"></button>
                         </div>
-                         <!-- using these classes for GetUserInfo.js -->
+                        <!-- using these classes for GetUserInfo.js -->
                         <p class="profile__description" id="profile-description">Explorer</p>
                     </div>
                 </div>
@@ -138,9 +137,6 @@
         </li>
     </template>
 
-
-
-    <script type="module" src="./scripts/index.js" defer></script>
 
 </body>
 
