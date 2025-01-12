@@ -4,6 +4,7 @@ import Card from "../components/Card.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
 import "../pages/index.css";
+import PopupWithForm from "./PopupWithForm.js";
 
 const initialCards = [
   {
@@ -39,8 +40,6 @@ const initialCards = [
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
-const previewModalImage = document.querySelector(".modal__image");
-// adding image preview
 const profileEditModal = document.querySelector("#profile-edit-modal");
 //adding image text caption
 const modalCaption = document.querySelector(".modal__caption");
@@ -52,7 +51,7 @@ const addModalCloseButton = addCardModal.querySelector(
 );
 
 // trash can
-const addButton = document.querySelector("#profile-add-button");
+// const addButton = document.querySelector("#profile-add-button");
 //
 const cardsWrapEl = document.querySelector(".cards__list-content");
 //
@@ -87,7 +86,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(editModal);
+  closeModal(editModal); // creating an instance using the popup
 }
 // add card modal
 function handleAddModalSubmit(e) {
@@ -111,32 +110,6 @@ const editModal = document.querySelector("#profile-edit-modal");
 const addModal = document.querySelector("#profile-add-modal");
 const editModalCloseBtn = editModal.querySelector(".modal__close");
 const addModalCloseBtn = addModal.querySelector(".modal__close");
-// image preview
-const previewModal = document.querySelector("#modal-image-preview");
-const previewModalCloseButton = previewModal.querySelector(
-  "#modal-close-button-preview"
-);
-
-// find all close buttons
-const closeButtons = document.querySelectorAll(".modal__close");
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(modal));
-});
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  modal.addEventListener("click", handleOverlayClick);
-
-  document.addEventListener("keydown", closeOnEsc);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  modal.removeEventListener("click", handleOverlayClick);
-
-  document.removeEventListener("keydown", closeOnEsc);
-}
 
 const cardSelector = "#card-template";
 
@@ -149,44 +122,23 @@ const addFormValidator = new FormValidator(settings, addModalForm);
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
-//ESC key
-function closeOnEsc(event) {
-  if (event.key === "Escape") {
-    const modal = document.querySelector(".modal_opened");
-    closeModal(modal);
-  }
-}
-
-function handleOverlayClick(event) {
-  if (Array.from(event.target.classList).includes("modal")) {
-    closeModal(event.target);
-  }
-}
-
 // edit button for modal
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
 });
 
 // add submit button for modal
-profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+function 
 addButton.addEventListener("click", () => {
-  openModal(addCardModal);
-});
-
-addModalForm.addEventListener("submit", handleAddModalSubmit);
-
-function handleImageClick(data) {
   previewModalImage.src = data.link;
   previewModalImage.alt = data.name;
   modalCaption.textContent = data.name;
-  openModal(previewModal);
-}
+});
 
+// Missing handler for opening preview modal
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(cardData, "#card-template");
   return card.getView();
 }
 
@@ -198,11 +150,17 @@ initialCards.forEach((cardData) => {
   renderCard(createCard(cardData));
 });
 
+// creating an instance of Popup
+const popup = new Popup("#card-template");
+popup.setEventListeners();
+
 // creating an instance of the PopWithImage
 const popupWithImage = new PopupWithImage("#modal-image-preview");
-
 // calling the parent's eventListeners
 popupWithImage.setEventListeners();
+
+const addCardPopup = new PopupWithForm("#some-selector", handleAddModalSubmit);
+addCardPopup.setEventListeners();
 
 // creating an instance of the UserInfo
 const userProfile = new UserInfo({

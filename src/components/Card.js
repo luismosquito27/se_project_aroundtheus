@@ -20,10 +20,6 @@ class Card {
     );
 
     this._element
-      .querySelector(".card__image")
-      .addEventListener("click", () => this._handleImageClick(this));
-
-    this._element
       .querySelector(".card__delete-button")
       .addEventListener("click", () => this._handleDeleteCard(this));
   }
