@@ -51,7 +51,7 @@ const addModalCloseButton = addCardModal.querySelector(
 );
 
 // trash can
-// const addButton = document.querySelector("#profile-add-button");
+const addButton = document.querySelector("#profile-add-button");
 //
 const cardsWrapEl = document.querySelector(".cards__list-content");
 //
@@ -86,7 +86,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(editModal); // creating an instance using the popup
+  closeModal(editModal);
 }
 // add card modal
 function handleAddModalSubmit(e) {
@@ -128,15 +128,14 @@ profileEditButton.addEventListener("click", () => {
   descriptionInput.value = profileDescription.textContent;
 });
 
-// add submit button for modal
-function 
-addButton.addEventListener("click", () => {
-  previewModalImage.src = data.link;
-  previewModalImage.alt = data.name;
-  modalCaption.textContent = data.name;
-});
+function handlePopupPreview(data) {
+  addButton.addEventListener("click", () => {
+    previewModalImage.src = data.link;
+    previewModalImage.alt = data.name;
+    modalCaption.textContent = data.name;
+  });
+}
 
-// Missing handler for opening preview modal
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template");
   return card.getView();
@@ -150,16 +149,17 @@ initialCards.forEach((cardData) => {
   renderCard(createCard(cardData));
 });
 
-// creating an instance of Popup
-const popup = new Popup("#card-template");
-popup.setEventListeners();
+// ------------ // instances // ------------//
+// ------------ // instances // ------------//
 
 // creating an instance of the PopWithImage
-const popupWithImage = new PopupWithImage("#modal-image-preview");
-// calling the parent's eventListeners
+const popupWithImage = new PopupWithImage(
+  "#modal-image-preview",
+  handlePopupPreview
+);
 popupWithImage.setEventListeners();
 
-const addCardPopup = new PopupWithForm("#some-selector", handleAddModalSubmit);
+const addCardPopup = new PopupWithForm("#add-form", handleAddModalSubmit);
 addCardPopup.setEventListeners();
 
 // creating an instance of the UserInfo
