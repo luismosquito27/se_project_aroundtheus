@@ -86,7 +86,6 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal(editModal);
 }
 // add card modal
 function handleAddModalSubmit(e) {
@@ -99,7 +98,6 @@ function handleAddModalSubmit(e) {
   renderCard(createCard(cardData));
   addModalForm.reset();
   addFormValidator.toggleButtonState();
-  closeModal(addModal);
 }
 
 /* ---------------------------- Event Listeners -------------------------- */
@@ -128,13 +126,9 @@ profileEditButton.addEventListener("click", () => {
   descriptionInput.value = profileDescription.textContent;
 });
 
-function handlePopupPreview(data) {
-  addButton.addEventListener("click", () => {
-    previewModalImage.src = data.link;
-    previewModalImage.alt = data.name;
-    modalCaption.textContent = data.name;
-  });
-}
+// function handlePopupPreview(data) {
+
+// }
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template");
@@ -154,14 +148,20 @@ initialCards.forEach((cardData) => {
 
 // creating an instance of the PopWithImage
 const popupWithImage = new PopupWithImage(
-  "#modal-image-preview",
-  handlePopupPreview
+  "#modal-image-preview"
+  // handlePopupPreview
 );
 popupWithImage.setEventListeners();
 
-const addCardPopup = new PopupWithForm("#add-form", handleAddModalSubmit);
-addCardPopup.setEventListeners();
+const addCardPopup = new PopupWithForm(
+  "#profile-add-modal",
+  handleAddModalSubmit,
+  handleProfileFormSubmit
+);
 
+addButton.addEventListener("click", () => {
+  addCardPopup.open();
+});
 // creating an instance of the UserInfo
 const userProfile = new UserInfo({
   profileTitle: "#profile-title",
