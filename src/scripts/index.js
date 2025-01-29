@@ -49,8 +49,8 @@ const addCardModal = document.querySelector("#profile-add-modal");
 const addModalCloseButton = addCardModal.querySelector(
   "#profile-modal-add-close-button"
 );
+const previewModal = document.querySelector("#modal-image-preview");
 
-// trash can
 const addButton = document.querySelector("#profile-add-button");
 //
 const cardsWrapEl = document.querySelector(".cards__list-content");
@@ -126,11 +126,14 @@ profileEditButton.addEventListener("click", () => {
   descriptionInput.value = profileDescription.textContent;
 });
 
-// function handlePopupPreview(data) {
-
-// }
+// need a parameter that stores the name and link
+function handlePopupPreview(name, link) {
+  // call popupWithImage class's open method
+  this.popupWithImage._handleFormImage(name, link);
+}
 
 function createCard(cardData) {
+  // pass handlePopupPreview to card class
   const card = new Card(cardData, "#card-template");
   return card.getView();
 }
@@ -151,12 +154,13 @@ const popupWithImage = new PopupWithImage(
   "#modal-image-preview"
   // handlePopupPreview
 );
-popupWithImage.setEventListeners();
+addButton.addEventListener("click", () => {
+  popupWithImage.open();
+});
 
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",
-  handleAddModalSubmit,
-  handleProfileFormSubmit
+  handleAddModalSubmit
 );
 
 addButton.addEventListener("click", () => {
