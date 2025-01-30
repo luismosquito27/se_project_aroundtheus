@@ -132,9 +132,9 @@ function handlePopupPreview(name, link) {
   this.popupWithImage._handleFormImage(name, link);
 }
 
-function createCard(cardData) {
+function createCard(cardData, handlePopupPreview) {
   // pass handlePopupPreview to card class
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", handlePopupPreview);
   return card.getView();
 }
 
@@ -150,10 +150,7 @@ initialCards.forEach((cardData) => {
 // ------------ // instances // ------------//
 
 // creating an instance of the PopWithImage
-const popupWithImage = new PopupWithImage(
-  "#modal-image-preview"
-  // handlePopupPreview
-);
+const popupWithImage = new PopupWithImage("#modal-image-preview");
 addButton.addEventListener("click", () => {
   popupWithImage.open();
 });
