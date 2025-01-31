@@ -89,7 +89,7 @@ function handleProfileFormSubmit(e) {
 }
 // add card modal
 function handleAddModalSubmit(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const cardData = {
     name: titleInput.value,
     link: inputLink.value,
@@ -124,15 +124,18 @@ editFormValidator.enableValidation();
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
+  console.log("yo im clicking the dit button");
 });
 
 // need a parameter that stores the name and link
-function handlePopupPreview(name, link) {
+function handlePopupPreview(data) {
+  console.log(123132310);
   // call popupWithImage class's open method
-  this.popupWithImage._handleFormImage(name, link);
+  // this.popupWithImage._handleFormImage(name, link);
+  popupWithImage.open(data);
 }
 
-function createCard(cardData, handlePopupPreview) {
+function createCard(cardData) {
   // pass handlePopupPreview to card class
   const card = new Card(cardData, "#card-template", handlePopupPreview);
   return card.getView();
@@ -151,14 +154,25 @@ initialCards.forEach((cardData) => {
 
 // creating an instance of the PopWithImage
 const popupWithImage = new PopupWithImage("#modal-image-preview");
-addButton.addEventListener("click", () => {
+/* addButton.addEventListener("click", () => {
   popupWithImage.open();
-});
+}); */
 
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",
   handleAddModalSubmit
 );
+addCardPopup.setEventListeners();
+
+const editCardPopup = new PopupWithForm(
+  "#profile-edit-modal",
+  handleProfileFormSubmit
+);
+editCardPopup.setEventListeners();
+
+addButton.addEventListener("click", () => {
+  editCardPopup.open();
+});
 
 addButton.addEventListener("click", () => {
   addCardPopup.open();

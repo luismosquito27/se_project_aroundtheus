@@ -1,33 +1,30 @@
 class Card {
-  constructor(cardData, cardSelector, handlePopupPreview) {
+  constructor(cardData, cardSelector, handleImageClick) {
     this.name = cardData.name;
     this.link = cardData.link;
     this._cardSelector = cardSelector;
-    this._handlePopupPreview = handlePopupPreview;
+    this._handleImageClick = handleImageClick;
+  }
 
-    // the handler needs to call handleImageClick
-    function handleImageClick(data) {
-      this._previewModal.src = data.link;
-      this._previewModal.alt = data.name;
-      this._modalCaption.textContent = data.name;
-    }
+  // _handleImageClick(data) {
+  //   this._previewModal.src = data.link;
+  //   this._previewModal.alt = data.name;
+  //   this._modalCaption.textContent = data.name;
+  // }
 
-    _getTemplate();
-    {
-      return document
-        .querySelector(this._cardSelector)
-        .content.querySelector(".card")
-        .cloneNode(true);
-    }
+  _getTemplate() {
+    return document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
   }
 
   _setEventListeners() {
-    // create the event listener on the card image element
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", () =>
-        this._handleImageClick({ link: this.link, name: this.name })
-      );
+      .addEventListener("click", () => {
+        this._handleImageClick({ link: this.link, name: this.name });
+      });
 
     this._cardLikeButton.addEventListener("click", () =>
       this._handleLikeIcon(this)
