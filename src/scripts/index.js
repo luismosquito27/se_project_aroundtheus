@@ -83,13 +83,11 @@ const cardTemplate =
 
 //edit card modal
 function handleProfileFormSubmit(e) {
-  e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
 }
 // add card modal
 function handleAddModalSubmit(e) {
-  // e.preventDefault();
   const cardData = {
     name: titleInput.value,
     link: inputLink.value,
@@ -170,7 +168,7 @@ const editCardPopup = new PopupWithForm(
 );
 editCardPopup.setEventListeners();
 
-addButton.addEventListener("click", () => {
+profileEditButton.addEventListener("click", () => {
   editCardPopup.open();
 });
 

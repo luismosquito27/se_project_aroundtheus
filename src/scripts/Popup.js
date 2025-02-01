@@ -4,11 +4,11 @@ export default class Popup {
   }
 
   //ESC key
-  _closeOnEsc(event) {
+  _closeOnEsc = (event) => {
     if (event.key === "Escape") {
       this.close();
     }
-  }
+  };
 
   open() {
     this._popupElement.classList.add("modal_opened");
@@ -22,7 +22,11 @@ export default class Popup {
 
   setEventListeners() {
     this._popupElement.addEventListener("mousedown", (e) => {
-      if (e.target.classList.contains("modal_opened")) {
+      if (
+        e.target.classList.contains("modal_opened") ||
+        e.target.classList.contains("modal-close-button")
+      ) {
+        console.log("yo are we hitting this bro");
         this.close();
       }
     });
