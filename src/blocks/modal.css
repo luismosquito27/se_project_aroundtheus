@@ -230,13 +230,14 @@
     }
 
     .modal__caption {
-        margin-left: 70px;
+        margin-left: 10px;
+  
     }
 
     .modal__close {
         height: 26px;
         margin-bottom: 13px;
-        margin-right: 33px;
+        margin-left: 33px;
     }
 
     .modal__input-button {
