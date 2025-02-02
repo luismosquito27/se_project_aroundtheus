@@ -1,5 +1,3 @@
-// Take an object with the selectors of two elements into the
-// constructor: one for the profile’s name element and one for its job element.
 export default class UserInfo {
   constructor({ profileTitle, profileDescription }) {
     this._profileTitle = document.querySelector(profileTitle);
