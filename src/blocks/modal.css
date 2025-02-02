@@ -209,6 +209,10 @@
         padding-top: 25px;
     }
 
+    .modal__image {
+        max-width: 240px;
+    }
+
     .modal__heading {
         margin-top: 0;
         margin-bottom: 50px;
@@ -227,10 +231,12 @@
         justify-content: center;
         width: 240px;
         height: 299px;
+        margin-top: 136px;
     }
 
     .modal__caption {
-        margin-right: 100px;
+        margin-right: 50px;
+        margin-left: 100px;
     }
 
     .modal__close {
