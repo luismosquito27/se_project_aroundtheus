@@ -1,41 +1,11 @@
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
+import { initialCards } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
-import UserInfo from "./UserInfo.js";
+import UserInfo from "../scripts/UserInfo.js";
 import "../pages/index.css";
-import PopupWithForm from "./PopupWithForm.js";
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
-  },
-];
+import PopupWithForm from "../scripts/PopupWithForm.js";
 
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
@@ -152,9 +122,10 @@ initialCards.forEach((cardData) => {
 
 // creating an instance of the PopWithImage
 const popupWithImage = new PopupWithImage("#modal-image-preview");
-/* addButton.addEventListener("click", () => {
+
+previewImage.addEventListener("click", () => {
   popupWithImage.open();
-}); */
+});
 
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",

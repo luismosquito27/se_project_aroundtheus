@@ -6,12 +6,6 @@ class Card {
     this._handleImageClick = handleImageClick;
   }
 
-  // _handleImageClick(data) {
-  //   this._previewModal.src = data.link;
-  //   this._previewModal.alt = data.name;
-  //   this._modalCaption.textContent = data.name;
-  // }
-
   _getTemplate() {
     return document
       .querySelector(this._cardSelector)

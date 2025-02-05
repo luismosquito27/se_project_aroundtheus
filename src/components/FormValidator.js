@@ -39,15 +39,6 @@ class FormValidator {
     }
   }
 
-  _setEventListeners() {
-    this.toggleButtonState();
-    this._inputEls.forEach((inputEl) => {
-      inputEl.addEventListener(inputEl, () => {
-        this.toggleButtonState();
-      });
-    });
-  }
-
   _hasInvalidInput() {
     return this._inputEls.some((inputEl) => !inputEl.validity.valid);
   }
