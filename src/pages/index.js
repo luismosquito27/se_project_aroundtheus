@@ -52,18 +52,12 @@ const cardTemplate =
 /* ---------------------------- handlers ----------------------------- */
 
 //edit card modal
-function handleProfileFormSubmit(e) {
-  profileTitle.textContent = nameInput.value;
-  profileDescription.textContent = descriptionInput.value;
+function handleProfileFormSubmit({ name, about }) {
+  userProfile.setUserInfo({ name: name, about: about });
 }
 // add card modal
-function handleAddModalSubmit(e) {
-  const cardData = {
-    name: titleInput.value,
-    link: inputLink.value,
-  };
-
-  renderCard(createCard(cardData));
+function handleAddModalSubmit(data) {
+  renderCard(createCard(data));
   addModalForm.reset();
   addFormValidator.toggleButtonState();
 }
@@ -123,10 +117,6 @@ initialCards.forEach((cardData) => {
 // creating an instance of the PopWithImage
 const popupWithImage = new PopupWithImage("#modal-image-preview");
 
-previewImage.addEventListener("click", () => {
-  popupWithImage.open();
-});
-
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",
   handleAddModalSubmit
@@ -151,5 +141,3 @@ const userProfile = new UserInfo({
   profileTitle: "#profile-title",
   profileDescription: "#profile-description",
 });
-
-userProfile.setUserInfo({ name: "Jacques Cousteau", about: "Explorer" });
