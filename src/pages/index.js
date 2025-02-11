@@ -6,6 +6,7 @@ import PopupWithImage from "../scripts/PopupWithImage.js";
 import UserInfo from "../scripts/UserInfo.js";
 import "../pages/index.css";
 import PopupWithForm from "../scripts/PopupWithForm.js";
+import Section from "../scripts/Section.js";
 
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
@@ -89,27 +90,31 @@ profileEditButton.addEventListener("click", () => {
   console.log("yo im clicking the dit button");
 });
 
-// need a parameter that stores the name and link
 function handlePopupPreview(data) {
   console.log(123132310);
-  // call popupWithImage class's open method
-  // this.popupWithImage._handleFormImage(name, link);
   popupWithImage.open(data);
 }
 
 function createCard(cardData) {
-  // pass handlePopupPreview to card class
   const card = new Card(cardData, "#card-template", handlePopupPreview);
   return card.getView();
 }
 
-function renderCard(cardElement, method = "prepend") {
-  cardListEl[method](cardElement);
-}
+// function renderCard(cardElement, method = "prepend") {
+//   cardListEl[method](cardElement);
+// }
 
-initialCards.forEach((cardData) => {
-  renderCard(createCard(cardData));
-});
+// initialCards.forEach((cardData) => {
+//   renderCard(createCard(cardData));
+// });
+
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: createCard,
+  },
+  "#cards_list_content"
+);
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//

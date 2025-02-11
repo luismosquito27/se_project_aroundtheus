@@ -1,5 +1,5 @@
 class FormValidator {
-  constructor(settings, formSelector) {
+  constructor(settings, formElement) {
     this._settings = settings;
     this._inputSelector = settings.inputSelector;
     this._inputErrorClass = settings.inputErrorClass;
@@ -9,7 +9,7 @@ class FormValidator {
     // submit button
     this._submitButtonSelector = settings.submitButtonSelector;
 
-    this._form = formSelector;
+    this._form = formElement;
   }
   // ERROR VALIDATION
   _showInputError(inputEl) {
