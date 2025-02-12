@@ -8,11 +8,13 @@ export default class Section {
     this._items = items;
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
+    this._method = "prepend";
+    this._cardElement = "cardData";
   }
 
   addItem(items) {
     // push the item to the container
-    this._container[method](cardElement);
+    this._container[this._method](this._cardElement);
     this._container.append(items);
   }
 

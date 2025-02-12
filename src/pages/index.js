@@ -83,12 +83,8 @@ const addFormValidator = new FormValidator(settings, addModalForm);
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
-// edit button for modal
-profileEditButton.addEventListener("click", () => {
-  nameInput.value = profileTitle.textContent;
-  descriptionInput.value = profileDescription.textContent;
-  console.log("yo im clicking the dit button");
-});
+/* ---------------------------- -------------------------- */
+/* ----------------------------   ----------------------------- */
 
 function handlePopupPreview(data) {
   console.log(123132310);
@@ -100,14 +96,6 @@ function createCard(cardData) {
   return card.getView();
 }
 
-// function renderCard(cardElement, method = "prepend") {
-//   cardListEl[method](cardElement);
-// }
-
-// initialCards.forEach((cardData) => {
-//   renderCard(createCard(cardData));
-// });
-
 const section = new Section(
   {
     items: initialCards,
@@ -115,6 +103,10 @@ const section = new Section(
   },
   "#cards_list_content"
 );
+
+initialCards.forEach((cardData) => {
+  section.addItem(createCard(cardData));
+});
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//

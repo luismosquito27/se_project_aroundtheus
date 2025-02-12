@@ -34,7 +34,6 @@
     font-family: 'Inter', Arial, 'Times New Roman';
     font-style: normal;
     font-weight: 900;
-    font-size: 18px;
     line-height: 29px;
 }
 
@@ -154,7 +153,7 @@
 .modal__input-button {
     width: 100%;
     font-family: "Inter", Arial, "Times New Roman";
-    font-size: 18px;
+    font-size: 14px;
     line-height: 22px;
     border-radius: 2px;
     height: 50px;
@@ -216,6 +215,7 @@
     .modal__heading {
         margin-top: 0;
         margin-bottom: 50px;
+        font-size: 18px;
     }
 
     .modal__input {
