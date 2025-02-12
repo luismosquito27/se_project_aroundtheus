@@ -136,8 +136,9 @@ const userProfile = new UserInfo({
 });
 
 profileEditButton.addEventListener("click", () => {
-  const { name, job } = userProfile.getUserInfo();
+  const { name, about } = userProfile.getUserInfo();
   document.getElementById("owner-name").value = name;
+  document.getElementById("about").value = about;
   editCardPopup.open();
 });
 

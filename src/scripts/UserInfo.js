@@ -3,12 +3,12 @@ export default class UserInfo {
     this._profileTitle = document.querySelector(profileTitle);
     this._profileDescription = document.querySelector(profileDescription);
   }
-  
+
   getUserInfo() {
     // // returns an object containing information about the user.
     return {
       name: this._profileTitle.textContent,
-      job: this._profileDescription.textContent,
+      about: this._profileDescription.textContent,
     };
   }
 
