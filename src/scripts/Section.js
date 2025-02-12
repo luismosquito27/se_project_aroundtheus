@@ -4,18 +4,15 @@
 // that creates and adds a single item to the page.
 
 export default class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this._items = items;
+  constructor({ item, renderer }, containerSelector) {
+    this._item = item;
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
-    this._method = "prepend";
-    this._cardElement = "cardData";
   }
 
-  addItem(items) {
+  addItem(item) {
     // push the item to the container
-    this._container[this._method](this._cardElement);
-    this._container.append(items);
+    this._container.append(item);
   }
 
   renderItems() {

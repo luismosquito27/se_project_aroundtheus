@@ -54,11 +54,13 @@ const cardTemplate =
 
 //edit card modal
 function handleProfileFormSubmit({ name, about }) {
+  console.log(name, about);
   userProfile.setUserInfo({ name: name, about: about });
 }
 // add card modal
-function handleAddModalSubmit(data) {
-  renderCard(createCard(data));
+function handleAddModalSubmit(cardData) {
+  console.log(cardData);
+  section.addItem(createCard(cardData));
   addModalForm.reset();
   addFormValidator.toggleButtonState();
 }
@@ -93,7 +95,7 @@ function handlePopupPreview(data) {
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handlePopupPreview);
-  return card.getView();
+  return card.getView(); // returns html, now the whole, just part
 }
 
 const section = new Section(
@@ -105,7 +107,8 @@ const section = new Section(
 );
 
 initialCards.forEach((cardData) => {
-  section.addItem(createCard(cardData));
+  // [{}, {}, ...]
+  section.addItem(createCard(cardData)); // string, array, number, boolean, object, function
 });
 
 // ------------ // instances // ------------//
@@ -126,15 +129,18 @@ const editCardPopup = new PopupWithForm(
 );
 editCardPopup.setEventListeners();
 
+// creating an instance of the UserInfo
+const userProfile = new UserInfo({
+  profileTitle: "#profile-title",
+  profileDescription: "#profile-description",
+});
+
 profileEditButton.addEventListener("click", () => {
+  const { name, job } = userProfile.getUserInfo();
+  document.getElementById("owner-name").value = name;
   editCardPopup.open();
 });
 
 addButton.addEventListener("click", () => {
   addCardPopup.open();
-});
-// creating an instance of the UserInfo
-const userProfile = new UserInfo({
-  profileTitle: "#profile-title",
-  profileDescription: "#profile-description",
 });
