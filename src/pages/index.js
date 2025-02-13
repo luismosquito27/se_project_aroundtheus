@@ -116,6 +116,7 @@ initialCards.forEach((cardData) => {
 
 // creating an instance of the PopWithImage
 const popupWithImage = new PopupWithImage("#modal-image-preview");
+popupWithImage.setEventListeners();
 
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",
@@ -142,6 +143,7 @@ profileEditButton.addEventListener("click", () => {
   editCardPopup.open();
 });
 
+// add modal
 addButton.addEventListener("click", () => {
   addCardPopup.open();
 });
