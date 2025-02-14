@@ -7,7 +7,7 @@ import UserInfo from "../scripts/UserInfo.js";
 import "../pages/index.css";
 import PopupWithForm from "../scripts/PopupWithForm.js";
 import Section from "../scripts/Section.js";
-
+console.log("refresh");
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
 
@@ -101,15 +101,16 @@ function createCard(cardData) {
 const section = new Section(
   {
     items: initialCards,
-    renderer: createCard,
+    renderer: (item) => {
+      console.log(item);
+      const newCard = createCard(item);
+      section.addItem(newCard);
+    },
   },
   "#cards_list_content"
 );
 
-initialCards.forEach((cardData) => {
-  // [{}, {}, ...]
-  section.addItem(createCard(cardData)); // string, array, number, boolean, object, function
-});
+section.renderItems();
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//
@@ -138,8 +139,8 @@ const userProfile = new UserInfo({
 
 profileEditButton.addEventListener("click", () => {
   const { name, about } = userProfile.getUserInfo();
-  document.getElementById("owner-name").value = name;
-  document.getElementById("about").value = about;
+  descriptionInput.value = about;
+  nameInput.value = name;
   editCardPopup.open();
 });
 
