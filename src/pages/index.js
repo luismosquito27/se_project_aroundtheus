@@ -2,11 +2,11 @@ import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
 import { initialCards } from "../utils/constants.js";
 import Card from "../components/Card.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import UserInfo from "../scripts/UserInfo.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import Section from "../scripts/Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
 console.log("refresh");
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
