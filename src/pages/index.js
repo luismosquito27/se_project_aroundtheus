@@ -1,3 +1,4 @@
+import Api from "../components/Api.js";
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
 import { initialCards } from "../utils/constants.js";
@@ -147,4 +148,12 @@ profileEditButton.addEventListener("click", () => {
 // add modal
 addButton.addEventListener("click", () => {
   addCardPopup.open();
+});
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    "Content-Type": "application/json",
+  },
 });
