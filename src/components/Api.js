@@ -14,7 +14,7 @@ api.getInitialCards()
      const cardElement = createCard(cardData);
       cardSection.append(cardElement);
  })
- .catch(err => console.error('Error fetching cards:', err));
+ .catch(err => console.error('Error cards:', err));
 }
 
   }
