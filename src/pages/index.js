@@ -150,17 +150,19 @@ addButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
+// ------------ //  // ------------//
+// ------------ //   // ------------//
+
+// ------------ // api section  // ------------//
+// ------------ // api section  // ------------//
+
 const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  baseUrl: " https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
     "Content-Type": "application/json",
   },
-}).then((res) => {
-  if (res.ok) {
-    return res.json();
-  }
 });
 
 // don't forget to run "npm run dev" in the terminal to
-//check your website.
+//check your website
