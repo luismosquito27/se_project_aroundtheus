@@ -164,5 +164,8 @@ const api = new Api({
   },
 });
 
+api.getInitialCards().then((res) => {
+  console.log(res);
+});
 // don't forget to run "npm run dev" in the terminal to
 //check your website
