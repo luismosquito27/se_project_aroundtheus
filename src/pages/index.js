@@ -99,19 +99,19 @@ function createCard(cardData) {
   return card.getView(); // returns html, now the whole, just part
 }
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      console.log(item);
-      const newCard = createCard(item);
-      section.addItem(newCard);
-    },
-  },
-  "#cards_list_content"
-);
+// const section = new Section(
+//   {
+//     items: initialCards,
+//     renderer: (item) => {
+//       console.log(item);
+//       const newCard = createCard(item);
+//       section.addItem(newCard);
+//     },
+//   },
+//   "#cards_list_content"
+// );
 
-section.renderItems();
+// section.renderItems();
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//
@@ -159,13 +159,57 @@ addButton.addEventListener("click", () => {
 const api = new Api({
   baseUrl: " https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
     "Content-Type": "application/json",
   },
 });
 
-api.getInitialCards().then((res) => {
-  console.log(res);
+api
+  .getInitialCards()
+  .then((res) => {
+    console.log("Cards loaded:", res);
+  })
+  .catch((err) => {
+    console.error("Failed to load cards:", err);
+  });
+
+//avatar
+fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+  headers: {
+    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    "Content-Type": "application/json",
+  },
+}).then((res) => res.json());
+
+//loading cards from the server
+fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  headers: {
+    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    "Content-Type": "application/json",
+  },
+}).then((res) => res.json());
+
+//Editing the profile
+fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+  method: "PATCH",
+  headers: {
+    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: "Marie Skłodowska Curie",
+    about: "Physicist and Chemist",
+  }),
 });
+
+//Adding a new card
+fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  method: "POST",
+  headers: {
+    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    "Content-Type": "application/json",
+  },
+});
+
 // don't forget to run "npm run dev" in the terminal to
 //check your website
