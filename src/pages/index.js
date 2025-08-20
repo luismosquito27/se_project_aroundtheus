@@ -182,12 +182,23 @@ fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
 }).then((res) => res.json());
 
 // loading cards from the server
+// adding a new card
 fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  method: "POST",
   headers: {
     authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
   },
-}).then((res) => res.json());
+
+  body: JSON.stringify(cardData),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("Cards added", data);
+  })
+  .catch((err) => {
+    console.error("Error adding card:", err);
+  });
 
 //Editing the profile
 fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
@@ -204,17 +215,14 @@ fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
 });
 
 //Adding a new card
-fetch("https://around-api.en.tripleten-services.com/v1/cards/1", {
-  method: "POST",
-  headers: {
-    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  }),
-});
+// fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+//   method: "POST",
+//   headers: {
+//     authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
+//     "Content-Type": "application/json",
+//   },
+
+// });
 
 // don't forget to run "npm run dev" in the terminal to
 //check your website
