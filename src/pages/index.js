@@ -150,8 +150,8 @@ addButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
-// ------------ //  // ------------//
-// ------------ //   // ------------//
+// ------------ //  // ------------------------//
+// ------------ //   // -----------------------//
 
 // ------------ // api section  // ------------//
 // ------------ // api section  // ------------//
@@ -159,7 +159,7 @@ addButton.addEventListener("click", () => {
 const api = new Api({
   baseUrl: " https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
   },
 });
@@ -176,15 +176,15 @@ api
 //avatar
 fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
   headers: {
-    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
   },
 }).then((res) => res.json());
 
-//loading cards from the server
+// loading cards from the server
 fetch("https://around-api.en.tripleten-services.com/v1/cards", {
   headers: {
-    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
   },
 }).then((res) => res.json());
@@ -193,8 +193,9 @@ fetch("https://around-api.en.tripleten-services.com/v1/cards", {
 fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
   method: "PATCH",
   headers: {
-    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
+    Accept: "application/json",
   },
   body: JSON.stringify({
     name: "Marie Skłodowska Curie",
@@ -203,12 +204,16 @@ fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
 });
 
 //Adding a new card
-fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+fetch("https://around-api.en.tripleten-services.com/v1/cards/1", {
   method: "POST",
   headers: {
-    authorization: "eec51072-5539-445e-afff-b77734f4fa4c",
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
   },
+  body: JSON.stringify({
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+  }),
 });
 
 // don't forget to run "npm run dev" in the terminal to
