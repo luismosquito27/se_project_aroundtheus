@@ -90,7 +90,6 @@ editFormValidator.enableValidation();
 /* ----------------------------   ----------------------------- */
 
 function handlePopupPreview(data) {
-  console.log(123132310);
   popupWithImage.open(data);
 }
 
@@ -98,18 +97,6 @@ function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handlePopupPreview);
   return card.getView(); // returns html, now the whole, just part
 }
-
-// const section = new Section(
-//   {
-//     items: initialCards,
-//     renderer: (item) => {
-//       console.log(item);
-//       const newCard = createCard(item);
-//       section.addItem(newCard);
-//     },
-//   },
-//   "#cards_list_content"
-// );
 
 // section.renderItems();
 
@@ -164,65 +151,36 @@ const api = new Api({
   },
 });
 
+//render each card just like you have it on api.js
+const section = new Section(
+  {
+    items: [],
+    renderer: (item) => {
+      const newCard = createCard(item);
+      section.addItem(newCard);
+    },
+  },
+  "#cards_list_content"
+);
+
 api
   .getInitialCards()
   .then((res) => {
-    console.log("Cards loaded:", res);
+    res.forEach((item) => section.addItem(createCard(item)));
   })
   .catch((err) => {
     console.error("Failed to load cards:", err);
   });
 
-//avatar
-fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-  headers: {
-    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
-    "Content-Type": "application/json",
-  },
-}).then((res) => res.json());
+// const deleteTemplate = document.getElementById("delete-template");
 
-// loading cards from the server
-// adding a new card
-fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-  method: "POST",
-  headers: {
-    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
-    "Content-Type": "application/json",
-  },
-
-  body: JSON.stringify(cardData),
-})
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("Cards added", data);
-  })
-  .catch((err) => {
-    console.error("Error adding card:", err);
-  });
-
-//Editing the profile
-fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-  method: "PATCH",
-  headers: {
-    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({
-    name: "Marie Skłodowska Curie",
-    about: "Physicist and Chemist",
-  }),
-});
-
-//Adding a new card
-// fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-//   method: "POST",
+// avatar
+// fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
 //   headers: {
 //     authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
 //     "Content-Type": "application/json",
 //   },
-
-// });
+// }).then((res) => res.json());
 
 // don't forget to run "npm run dev" in the terminal to
-//check your website
+// check your website

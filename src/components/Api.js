@@ -3,7 +3,7 @@ export default class Api {
     this.baseUrl = config.baseUrl;
     this.headers = config.headers;
   }
-  
+
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
