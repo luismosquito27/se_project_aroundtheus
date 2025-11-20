@@ -68,9 +68,9 @@
 }
 
 .card__delete-button:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-/* .card__delete-template { 
-  
-} */
+.card__delete-popup {
+  box-sizing: border-box;
+}

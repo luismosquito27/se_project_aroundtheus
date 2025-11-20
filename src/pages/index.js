@@ -1,7 +1,6 @@
 import Api from "../components/Api.js";
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
-import { initialCards } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
@@ -144,7 +143,7 @@ addButton.addEventListener("click", () => {
 // ------------ // api section  // ------------//
 
 const api = new Api({
-  baseUrl: " https://around-api.en.tripleten-services.com/v1",
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
     "Content-Type": "application/json",
@@ -172,15 +171,25 @@ api
     console.error("Failed to load cards:", err);
   });
 
-// const deleteTemplate = document.getElementById("delete-template");
+const deleteUrl =
+  "https://around-api.en.tripleten-services.com/v1/cards/e6143fd4-f56b-4cb2-8a6c-29d5af977c18";
+fetch(deleteUrl, {
+  method: "DELETE",
+  headers: {
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
+    "Content-Type": "application/json",
+  },
+}).then((res) => {
+  if (!res.ok) throw new Error("Failed to delete card");
+  return res.json();
+});
 
 // avatar
 // fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
 //   headers: {
 //     authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
 //     "Content-Type": "application/json",
-//   },
-// }).then((res) => res.json());
+//   }
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website
