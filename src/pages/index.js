@@ -171,25 +171,14 @@ api
     console.error("Failed to load cards:", err);
   });
 
-const deleteUrl =
-  "https://around-api.en.tripleten-services.com/v1/cards/e6143fd4-f56b-4cb2-8a6c-29d5af977c18";
-fetch(deleteUrl, {
-  method: "DELETE",
-  headers: {
-    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
-    "Content-Type": "application/json",
-  },
-}).then((res) => {
-  if (!res.ok) throw new Error("Failed to delete card");
-  return res.json();
-});
-
-// avatar
-// fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-//   headers: {
-//     authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
-//     "Content-Type": "application/json",
-//   }
+//deleteCard section 
+  deleteButton.addEventListener("click", () => {
+    api.removeCard(item._id) // Call the API
+      .then(() => {
+        cardElement.remove(); // Remove from the page
+      })
+      .catch(err => console.error(err));
+  });
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website

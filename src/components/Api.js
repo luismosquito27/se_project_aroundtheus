@@ -18,5 +18,11 @@ export default class Api {
   }
 }
 
+removeCard() {
+  return fetch(`${this.baseUrl}/cards/${cardID}`, {
+    method: "DELETE",
+    headers: this.headers,
+  }).then(this._handleServerResponse);
+}
 // Remember to pass the token in the request. If the request is successful,
 // you will receive a user object in the response
