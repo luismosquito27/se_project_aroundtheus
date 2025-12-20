@@ -172,8 +172,8 @@ api
   });
 
 //deleteCard section 
-  deleteButton.addEventListener("click", () => {
-    Api.removeCard(item._id) // Call the API
+  removeCard.addEventListener("click", () => {
+    api.removeCard(item._id) // Call the API
       .then(() => {
         cardElement.remove(); // Remove from the page
       })
