@@ -18,19 +18,13 @@ export default class Api {
   }
 }
 
-Api.removeCard(); {
-  return fetch(`${this.baseUrl}/card/${cardId}`, {
+removeCard(card);
+{
+  return fetch(`${this._baseUrl}/cards/${card}`, {
     method: "DELETE",
-    headers: this.headers,
+    headers: this._headers,
   }).then(this._handleServerResponse);
 }
-
-  _handleServerResponse(res) {
-      if (!res.ok) {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-      return res.json();
-    }
 
 // Remember to pass the token in the request. If the request is successful,
 // you will receive a user object in the response

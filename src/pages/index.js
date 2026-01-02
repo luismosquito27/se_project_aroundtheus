@@ -172,13 +172,16 @@ api
   });
 
 //deleteCard section 
-  removeCard.addEventListener("click", () => {
+api
+  .removeCard.addEventListener("click", () => {
     api.removeCard(item._id) // Call the API
       .then(() => {
         cardElement.remove(); // Remove from the page
       })
       .catch(err => console.error(err));
   });
+
+  
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website
