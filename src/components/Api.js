@@ -16,14 +16,13 @@ export default class Api {
       return Promise.reject(new Error(`Error: ${res.status}`));
     });
   }
-}
 
-removeCard(card);
-{
-  return fetch(`${this._baseUrl}/cards/${card}`, {
-    method: "DELETE",
-    headers: this._headers,
-  }).then(this._handleServerResponse);
+  removeCard(card) {
+    return fetch(`${this._baseUrl}/cards/${card}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._handleServerResponse);
+  }
 }
 
 // Remember to pass the token in the request. If the request is successful,

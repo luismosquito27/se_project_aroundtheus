@@ -18,7 +18,7 @@ const modalCaption = document.querySelector(".modal__caption");
 const profileCloseButton = document.querySelector("#modal-close-button");
 const addCardModal = document.querySelector("#profile-add-modal");
 const addModalCloseButton = addCardModal.querySelector(
-  "#profile-modal-add-close-button"
+  "#profile-modal-add-close-button",
 );
 const previewModal = document.querySelector("#modal-image-preview");
 
@@ -37,7 +37,7 @@ const profileDescription = document.querySelector(".profile__description");
 
 const nameInput = profileEditModal.querySelector(".modal__input-title");
 const descriptionInput = profileEditModal.querySelector(
-  ".modal__input-description"
+  ".modal__input-description",
 );
 
 // adding card
@@ -97,8 +97,6 @@ function createCard(cardData) {
   return card.getView(); // returns html, now the whole, just part
 }
 
-// section.renderItems();
-
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//
 
@@ -108,13 +106,13 @@ popupWithImage.setEventListeners();
 
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",
-  handleAddModalSubmit
+  handleAddModalSubmit,
 );
 addCardPopup.setEventListeners();
 
 const editCardPopup = new PopupWithForm(
   "#profile-edit-modal",
-  handleProfileFormSubmit
+  handleProfileFormSubmit,
 );
 editCardPopup.setEventListeners();
 
@@ -159,7 +157,7 @@ const section = new Section(
       section.addItem(newCard);
     },
   },
-  "#cards_list_content"
+  "#cards_list_content",
 );
 
 api
@@ -171,17 +169,25 @@ api
     console.error("Failed to load cards:", err);
   });
 
-//deleteCard section 
-api
-  .removeCard.addEventListener("click", () => {
-    api.removeCard(item._id) // Call the API
-      .then(() => {
-        cardElement.remove(); // Remove from the page
-      })
-      .catch(err => console.error(err));
-  });
+//deleteCard section
 
-  
+//*Key things to remember when you come back:
+//1. You have the wrong elements selected
+//. your variables are backwards
+
+//2. You need TWO event listeners
+
+//. one for each button
+
+//3. You need to show/hide the popup
+//4. The card delete happens in your createCard function
+
+//· not globally ///
+
+const cardDeleteButton = document.getElementById("'delete-popup");
+const confirmButton = document.querySelector(".card__delete-button");
+
+
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website
