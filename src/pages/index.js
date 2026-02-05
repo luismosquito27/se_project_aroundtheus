@@ -93,7 +93,12 @@ function handlePopupPreview(data) {
 }
 
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handlePopupPreview);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handlePopupPreview,
+    card._Id,
+  );
   return card.getView(); // returns html, now the whole, just part
 }
 
@@ -134,6 +139,7 @@ addButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
+
 // ------------ //  // ------------------------//
 // ------------ //   // -----------------------//
 
@@ -161,7 +167,7 @@ const section = new Section(
 );
 
 api
-  .getInitialCards()
+  .getInitialCards() 
   .then((res) => {
     res.forEach((item) => section.addItem(createCard(item)));
   })
@@ -169,25 +175,26 @@ api
     console.error("Failed to load cards:", err);
   });
 
-//deleteCard section
+cardDeleteButton.addEventListener("click", () => {
+  if (confirm("Are you sure?")) {
+    api.removeCard(Card);
+    cardDeleteButton.open(); 
+  }
+});
 
-//*Key things to remember when you come back:
-//1. You have the wrong elements selected
-//. your variables are backwards
+ //What you need to do next: 
+// ##### 1. Move the delete logic into createCard function: 
+//- Remove the global cardDeleteButton.addEventlistener(the one at the bottom)
 
-//2. You need TWO event listeners
+// #### 2. Add the delete button logic inside your createCard function 
+// -Finish the confirmButton event listener: 
 
-//. one for each button
+const cardDeleteButton = document.getElementById("'.card__delete-button");
+const confirmButton = document.querySelector(".card__confirm-delete");
 
-//3. You need to show/hide the popup
-//4. The card delete happens in your createCard function
+confirmButton.addEventListener("click", () => {
 
-//· not globally ///
-
-const cardDeleteButton = document.getElementById("'delete-popup");
-const confirmButton = document.querySelector(".card__delete-button");
-
-
+}
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website
