@@ -139,7 +139,6 @@ addButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
-
 // ------------ //  // ------------------------//
 // ------------ //   // -----------------------//
 
@@ -167,7 +166,7 @@ const section = new Section(
 );
 
 api
-  .getInitialCards() 
+  .getInitialCards()
   .then((res) => {
     res.forEach((item) => section.addItem(createCard(item)));
   })
@@ -175,26 +174,21 @@ api
     console.error("Failed to load cards:", err);
   });
 
+//confirmation of delete button
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv //
+
 cardDeleteButton.addEventListener("click", () => {
-  if (confirm("Are you sure?")) {
-    api.removeCard(Card);
-    cardDeleteButton.open(); 
-  }
+  confirmButton.open();
 });
 
- //What you need to do next: 
-// ##### 1. Move the delete logic into createCard function: 
-//- Remove the global cardDeleteButton.addEventlistener(the one at the bottom)
-
-// #### 2. Add the delete button logic inside your createCard function 
-// -Finish the confirmButton event listener: 
-
-const cardDeleteButton = document.getElementById("'.card__delete-button");
-const confirmButton = document.querySelector(".card__confirm-delete");
-
 confirmButton.addEventListener("click", () => {
+  api.removeCard(cardData_.id).then(() => {
+    newCard.remove();
+    confirmationPopup.close();
+  });
+});
 
-}
+//What you need to do next:
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website
