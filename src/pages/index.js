@@ -92,6 +92,7 @@ function handlePopupPreview(data) {
   popupWithImage.open(data);
 }
 
+//
 function createCard(cardData) {
   const card = new Card(
     cardData,
@@ -99,6 +100,17 @@ function createCard(cardData) {
     handlePopupPreview,
     card._Id,
   );
+
+  cardDeleteButton.addEventListener("click", (event) => {
+    const cardData = event.target.closest(".card").dataset; // Get card data from DOM element
+    confirmButton.open();
+  });
+
+  confirmButton.addEventListener("click", () => {
+    api.removeCard(cardData.id).then(() => {
+      confirmButton.close();
+    });
+  });
   return card.getView(); // returns html, now the whole, just part
 }
 
@@ -173,20 +185,6 @@ api
   .catch((err) => {
     console.error("Failed to load cards:", err);
   });
-
-//confirmation of delete button
-// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv //
-
-cardDeleteButton.addEventListener("click", () => {
-  confirmButton.open();
-});
-
-confirmButton.addEventListener("click", () => {
-  api.removeCard(cardData_.id).then(() => {
-    newCard.remove();
-    confirmationPopup.close();
-  });
-});
 
 //What you need to do next:
 
