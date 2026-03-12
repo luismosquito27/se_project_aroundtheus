@@ -101,13 +101,13 @@ function createCard(cardData) {
     card._Id,
   );
 
-  cardDeleteButton.addEventListener("click", (event) => {
-    const cardData = event.target.closest(".card").dataset; // Get card data from DOM element
+  //  delete button listener //
+  card.getDeleteButton("click", (event) => {
     confirmButton.open();
   });
 
   confirmButton.addEventListener("click", () => {
-    api.removeCard(cardData.id).then(() => {
+    api.removeCard(cardData._Id).then(() => {
       confirmButton.close();
     });
   });
