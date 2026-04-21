@@ -7,6 +7,7 @@ import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
+import { construct } from "core-js/fn/reflect";
 console.log("refresh");
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
@@ -87,32 +88,41 @@ editFormValidator.enableValidation();
 
 /* ---------------------------- -------------------------- */
 /* ----------------------------   ----------------------------- */
+/* ----------------------------   ----------------------------- */
 
-function handlePopupPreview(data) {
-  popupWithImage.open(data);
+//  delete button listener
+deleteButton(cardData, cardSelector, handleImageClick);
+{
+  this.name = cardData.name;
+  this.link = cardData.link;
+  this._cardSelector = cardSelector;
+  this._handleImageClick = handleImageClick;
 }
 
-//
-function createCard(cardData) {
-  const card = new Card(
-    cardData,
-    "#card-template",
-    handlePopupPreview,
-    card._Id,
-  );
+card.getDeleteButtion = this._element.querySelector(".card__delete-button");
+deleteButton.addEventListener("click", () => {
+  confirmButton.close();
+});
 
-  //  delete button listener //
-  card.getDeleteButton("click", (event) => {
-    confirmButton.open();
-  });
+card.handleImageClick = this._element.querySelector(".card__image");
+card.handleImageClick.addEventListener("click", () => {
+  this._handleImageClick(this.name, this.link);
+});
+// other listeners (like, image click, etc.) can be added here as well
 
-  confirmButton.addEventListener("click", () => {
-    api.removeCard(cardData._Id).then(() => {
-      confirmButton.close();
-    });
-  });
-  return card.getView(); // returns html, now the whole, just part
-}
+deleteButton.addEventListener("click", () => {
+  deleteButton.close();
+});
+
+confirmButton.addEventListener("click", () => {
+  confirmButton.close();
+});
+
+return card.getView();
+
+// you’re trying to pass a property (card._Id) from a variable that doesn’t yet exist
+// Because card is the constant currently being declared by new Card(...),
+// Javascript throws an error because it cannot access the variable before its initialization is complete.
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//

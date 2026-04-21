@@ -21,7 +21,7 @@ class Card {
       });
 
     this._cardLikeButton.addEventListener("click", () =>
-      this._handleLikeIcon(this)
+      this._handleLikeIcon(this),
     );
 
     this._element
