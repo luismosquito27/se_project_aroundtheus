@@ -91,12 +91,13 @@ editFormValidator.enableValidation();
 /* ----------------------------   ----------------------------- */
 
 //  delete button listener
-deleteButton(cardData, cardSelector, handleImageClick);
+deleteButton(cardData, cardSelector, cardImageClick );
 {
   this.name = cardData.name;
   this.link = cardData.link;
   this._cardSelector = cardSelector;
-  this._handleImageClick = handleImageClick;
+  this._cardImageClick = cardImageClick;
+  // this._cardLikeButton = cardLikeButton; 
 }
 
 card.getDeleteButtion = this._element.querySelector(".card__delete-button");
@@ -104,11 +105,17 @@ deleteButton.addEventListener("click", () => {
   confirmButton.close();
 });
 
-card.handleImageClick = this._element.querySelector(".card__image");
-card.handleImageClick.addEventListener("click", () => {
-  this._handleImageClick(this.name, this.link);
+card.cardImageClick = this._element.querySelector(".card__image");
+card.cardImageClick.addEventListener("click", () => {
+  this._cardImageClick(this.name, this.link);
 });
 // other listeners (like, image click, etc.) can be added here as well
+// like button = 
+
+card.getLikeButton = this._element.querySelector(".card__like-button");
+card.getLikeButton.addEventListener("click", () => { 
+
+}); 
 
 deleteButton.addEventListener("click", () => {
   deleteButton.close();
@@ -118,7 +125,7 @@ confirmButton.addEventListener("click", () => {
   confirmButton.close();
 });
 
-return card.getView();
+// return card.getView();
 
 // you’re trying to pass a property (card._Id) from a variable that doesn’t yet exist
 // Because card is the constant currently being declared by new Card(...),
@@ -196,7 +203,6 @@ api
     console.error("Failed to load cards:", err);
   });
 
-//What you need to do next:
 
 // don't forget to run "npm run dev" in the terminal to
 // check your website
