@@ -7,7 +7,9 @@ import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
-import { construct } from "core-js/fn/reflect";
+// import { create } from "core-js/core/object";
+// import { construct } from "core-js/fn/reflect";
+
 console.log("refresh");
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
@@ -77,6 +79,11 @@ const addModalCloseBtn = addModal.querySelector(".modal__close");
 
 const cardSelector = "#card-template";
 
+// add modal
+addButton.addEventListener("click", () => {
+  addCardPopup.open();
+});
+
 /* ---------------------------- Validation -------------------------- */
 /* ---------------------------- Validation   ----------------------------- */
 
@@ -89,47 +96,6 @@ editFormValidator.enableValidation();
 /* ---------------------------- -------------------------- */
 /* ----------------------------   ----------------------------- */
 /* ----------------------------   ----------------------------- */
-
-//  delete button listener
-deleteButton(cardData, cardSelector, cardImageClick );
-{
-  this.name = cardData.name;
-  this.link = cardData.link;
-  this._cardSelector = cardSelector;
-  this._cardImageClick = cardImageClick;
-  // this._cardLikeButton = cardLikeButton; 
-}
-
-card.getDeleteButtion = this._element.querySelector(".card__delete-button");
-deleteButton.addEventListener("click", () => {
-  confirmButton.close();
-});
-
-card.cardImageClick = this._element.querySelector(".card__image");
-card.cardImageClick.addEventListener("click", () => {
-  this._cardImageClick(this.name, this.link);
-});
-// other listeners (like, image click, etc.) can be added here as well
-// like button = 
-
-card.getLikeButton = this._element.querySelector(".card__like-button");
-card.getLikeButton.addEventListener("click", () => { 
-
-}); 
-
-deleteButton.addEventListener("click", () => {
-  deleteButton.close();
-});
-
-confirmButton.addEventListener("click", () => {
-  confirmButton.close();
-});
-
-// return card.getView();
-
-// you’re trying to pass a property (card._Id) from a variable that doesn’t yet exist
-// Because card is the constant currently being declared by new Card(...),
-// Javascript throws an error because it cannot access the variable before its initialization is complete.
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//
@@ -163,11 +129,6 @@ profileEditButton.addEventListener("click", () => {
   editCardPopup.open();
 });
 
-// add modal
-addButton.addEventListener("click", () => {
-  addCardPopup.open();
-});
-
 // ------------ //  // ------------------------//
 // ------------ //   // -----------------------//
 
@@ -182,12 +143,19 @@ const api = new Api({
   },
 });
 
+// instance of createCard
+const createCard = (item) => {
+  const card = new Card(item, cardSelector, (data) => {
+    popupWithImage.open(data);
+  });
+};
+
 //render each card just like you have it on api.js
 const section = new Section(
   {
     items: [],
     renderer: (item) => {
-      const newCard = createCard(item);
+      const newCard = _createCard(item);
       section.addItem(newCard);
     },
   },
@@ -203,6 +171,4 @@ api
     console.error("Failed to load cards:", err);
   });
 
-
-// don't forget to run "npm run dev" in the terminal to
-// check your website
+// don't forget to run "npm run dev"

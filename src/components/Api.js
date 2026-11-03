@@ -25,5 +25,3 @@ export default class Api {
   }
 }
 
-// Remember to pass the token in the request. If the request is successful,
-// you will receive a user object in the response
