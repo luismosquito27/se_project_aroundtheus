@@ -1,12 +1,15 @@
+import Api from "../components/Api.js";
 import FormValidator from "../components/FormValidator.js";
 import { settings } from "../utils/constants.js";
-import { initialCards } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
+// import { create } from "core-js/core/object";
+// import { construct } from "core-js/fn/reflect";
+
 console.log("refresh");
 /* -------------------------- elements ----------------------------*/
 /* -------------------------- elements ----------------------------*/
@@ -18,7 +21,7 @@ const modalCaption = document.querySelector(".modal__caption");
 const profileCloseButton = document.querySelector("#modal-close-button");
 const addCardModal = document.querySelector("#profile-add-modal");
 const addModalCloseButton = addCardModal.querySelector(
-  "#profile-modal-add-close-button"
+  "#profile-modal-add-close-button",
 );
 const previewModal = document.querySelector("#modal-image-preview");
 
@@ -37,7 +40,7 @@ const profileDescription = document.querySelector(".profile__description");
 
 const nameInput = profileEditModal.querySelector(".modal__input-title");
 const descriptionInput = profileEditModal.querySelector(
-  ".modal__input-description"
+  ".modal__input-description",
 );
 
 // adding card
@@ -76,6 +79,11 @@ const addModalCloseBtn = addModal.querySelector(".modal__close");
 
 const cardSelector = "#card-template";
 
+// add modal
+addButton.addEventListener("click", () => {
+  addCardPopup.open();
+});
+
 /* ---------------------------- Validation -------------------------- */
 /* ---------------------------- Validation   ----------------------------- */
 
@@ -87,30 +95,7 @@ editFormValidator.enableValidation();
 
 /* ---------------------------- -------------------------- */
 /* ----------------------------   ----------------------------- */
-
-function handlePopupPreview(data) {
-  console.log(123132310);
-  popupWithImage.open(data);
-}
-
-function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handlePopupPreview);
-  return card.getView(); // returns html, now the whole, just part
-}
-
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      console.log(item);
-      const newCard = createCard(item);
-      section.addItem(newCard);
-    },
-  },
-  "#cards_list_content"
-);
-
-section.renderItems();
+/* ----------------------------   ----------------------------- */
 
 // ------------ // instances // ------------//
 // ------------ // instances // ------------//
@@ -121,13 +106,13 @@ popupWithImage.setEventListeners();
 
 const addCardPopup = new PopupWithForm(
   "#profile-add-modal",
-  handleAddModalSubmit
+  handleAddModalSubmit,
 );
 addCardPopup.setEventListeners();
 
 const editCardPopup = new PopupWithForm(
   "#profile-edit-modal",
-  handleProfileFormSubmit
+  handleProfileFormSubmit,
 );
 editCardPopup.setEventListeners();
 
@@ -144,7 +129,46 @@ profileEditButton.addEventListener("click", () => {
   editCardPopup.open();
 });
 
-// add modal
-addButton.addEventListener("click", () => {
-  addCardPopup.open();
+// ------------ //  // ------------------------//
+// ------------ //   // -----------------------//
+
+// ------------ // api section  // ------------//
+// ------------ // api section  // ------------//
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "e6143fd4-f56b-4cb2-8a6c-29d5af977c18",
+    "Content-Type": "application/json",
+  },
 });
+
+// instance of createCard
+const createCard = (item) => {
+  const card = new Card(item, cardSelector, (data) => {
+    popupWithImage.open(data);
+  });
+};
+
+//render each card just like you have it on api.js
+const section = new Section(
+  {
+    items: [],
+    renderer: (item) => {
+      const newCard = _createCard(item);
+      section.addItem(newCard);
+    },
+  },
+  "#cards_list_content",
+);
+
+api
+  .getInitialCards()
+  .then((res) => {
+    res.forEach((item) => section.addItem(createCard(item)));
+  })
+  .catch((err) => {
+    console.error("Failed to load cards:", err);
+  });
+
+// don't forget to run "npm run dev"

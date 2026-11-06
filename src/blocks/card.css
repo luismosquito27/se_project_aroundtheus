@@ -70,3 +70,7 @@
 .card__delete-button:hover {
   cursor: pointer;
 }
+
+.card__delete-popup {
+  box-sizing: border-box;
+}

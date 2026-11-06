@@ -13,6 +13,15 @@ class Card {
       .cloneNode(true);
   }
 
+  _createCard(cardData) {
+    this._element = this._getTemplate();
+    this.element = this.__setEventListeners();
+    this.name = cardData.name;
+    this.link = cardData.link;
+    return this._element;
+  }
+
+
   _setEventListeners() {
     this._element
       .querySelector(".card__image")
@@ -20,13 +29,17 @@ class Card {
         this._handleImageClick({ link: this.link, name: this.name });
       });
 
-    this._cardLikeButton.addEventListener("click", () =>
-      this._handleLikeIcon(this)
-    );
-
     this._element
       .querySelector(".card__delete-button")
-      .addEventListener("click", () => this._handleDeleteCard(this));
+      .addEventListener("click", () => {
+        this._handleDeleteCard(this);
+      });
+
+    this._element
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => {
+        this._handleLikeIcon(this);
+      });
   }
 
   _handleLikeIcon() {
