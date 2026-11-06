@@ -148,6 +148,7 @@ const createCard = (item) => {
   const card = new Card(item, cardSelector, (data) => {
     popupWithImage.open(data);
   });
+  return card;
 };
 
 //render each card just like you have it on api.js
