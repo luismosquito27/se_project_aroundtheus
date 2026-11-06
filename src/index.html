@@ -123,20 +123,24 @@
                 </div>
             </div>
 
-            <h3 class="card__title"></h3>
-            <button aria-label="like-button" type="button" class="card__like-button"></button>
-            <!-- card delete button -->
-            <button aria-label="delete-button" type="button" class="card__delete-button"></button>
+            <template id="card-template">
+                <li class="card">
+                    <h3 class="card__title"></h3>
+                    <button aria-label="like-button" type="button" class="card__like-button"></button>
+                    <!-- card delete button -->
+                    <button aria-label="delete-button" type="button" class="card__delete-button"></button>
 
-            <!-- delete card popup-->
+                    <!-- delete card popup-->
 
-            <div class="delete_button" id="delete-popup">
-                <div class="card__delete-popup">
-                    <h3 class="description__text"></h3>;
-                    <!-- confirm delete button -->
-                    <button type="delete-button" type="button" class="card__confirm-delete"></button>
-                </div>
-            </div>
+                    <div class="delete_button" id="delete-popup">
+                        <div class="card__delete-popup">
+                            <h3 class="description__text"></h3>;
+                            <!-- confirm delete button -->
+                            <button type="delete-button" type="button" class="card__confirm-delete"></button>
+                        </div>
+                    </div>
+                </li>
+            </template>
 
 </body>
 
